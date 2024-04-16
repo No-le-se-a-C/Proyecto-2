@@ -5,8 +5,8 @@ import GaleriaPieza.Pieza;
 
 public class Inventario {
 	
-	private Pieza[] piezas;
-	private String infoPiezasAntiguas; // No sé si deberia ser String o otro tipo de dato
+	private Pieza[] piezas; // Cambiar a Array list
+	private String infoPiezasAntiguas; // Cambiar a Array list
 	
 	public Inventario() {
 		
@@ -17,23 +17,22 @@ public class Inventario {
 		
 	}
 	
+	// Hace referencia a las piezas que ya se vendieron sale de infoPiezasAntiguas
 	public void buscarInfoPiezaAntigua(String nTitulo, Artista nAutor) {
 		
 	}
 	
-	//Creo que deberia haber un atributo el cual gettear.
+	//Sale de pieza
 	public String getPiezasPrecioFijo() {
 		return null;
 		
 	}
 	
-	//Creo que deberia haber un atributo el cual gettear.
-	public String getPiezasSubasta() {
+	public String getinfoPiezasSubasta() {
 		return infoPiezasAntiguas;
 		
 	}
-	
-	//Creo que deberia haber un atributo el cual gettear.
+
 	public void getPiezas() {
 		
 	}
@@ -43,7 +42,6 @@ public class Inventario {
 		
 	}
 	
-	//Creo que deberia haber un atributo el cual gettear.
 	public void aniadirPieza(Pieza pieza) {
 		
 	}

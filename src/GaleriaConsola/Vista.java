@@ -15,12 +15,15 @@ public class Vista {
 	public void interfazPropietario(Galeria galeria) {
 		
 	}
+	
 	public void interfazAdmin(Galeria galeria) {
 	
 	}
+	
 	public void interfazCajero(Galeria galeria) {
 	
 	}
+	
 	public void interfazOperador(Galeria galeria) {
 	
 	}

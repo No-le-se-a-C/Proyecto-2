@@ -21,7 +21,6 @@ public class Galeria {
 		
 	}
 	
-	//***
 
 	public List[] getListaUsuariuos() {
 		return listaUsuariuos;

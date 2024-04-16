@@ -2,7 +2,7 @@ package GaleriaGestionSesion;
 
 public class Comprador extends Usuario {
 	
-	private String identificador = "COMPRADOR";
+	private String IDENTIFICADOR = "COMPRADOR";
 	private int maxCompras;
 	private int compras; //revisar tipo de variable
 

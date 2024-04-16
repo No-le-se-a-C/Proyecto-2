@@ -4,7 +4,7 @@ import GaleriaPieza.Pieza;
 
 public class Artista extends Usuario {
 	
-	private String identificador = "ARTISTA";
+	private String IDENTIFICADOR = "ARTISTA";
 	private Pieza[] listaPiezas;
 	
 	
