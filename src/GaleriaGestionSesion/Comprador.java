@@ -9,6 +9,8 @@ public class Comprador extends Usuario {
 	private String IDENTIFICADOR = "COMPRADOR";
 	private int maxCompras;
 	private ArrayList<Pieza> compras; 
+	private boolean admitido;
+
 
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;

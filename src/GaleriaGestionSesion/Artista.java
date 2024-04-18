@@ -8,8 +8,19 @@ public class Artista extends Usuario {
 	
 	private String IDENTIFICADOR = "ARTISTA";
 	private ArrayList<Pieza> listaPiezas;
+	private int maxCompras;
+	private ArrayList<Pieza> compras; 
+	private boolean admitido;
+
 	
-	
+	public int getMaxCompras() {
+		return maxCompras;
+	}
+
+	public ArrayList<Pieza> getCompras() {
+		return compras;
+	}
+
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;
 	}

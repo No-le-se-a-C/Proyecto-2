@@ -15,13 +15,22 @@ public class Galeria {
 	
 	private HashMap<String, Usuario> mapaUsuariosEmpleados;
 	
+	private Inventario inventario;
 	
-	public Galeria() {
+	
+	public Galeria(Inventario inventario) {
 		this.SubastasProgramadas= new ArrayList<Subasta>();
 		this.mapaUsuarios= new HashMap<String, Usuario>();
 		this.mapaUsuariosEmpleados= new HashMap<String, Usuario>();
 	}
 	
+	
+	
+	public Inventario getInventario() {
+		return inventario;
+	}
+
+
 	public void participarSubasta() {
 		
 	}

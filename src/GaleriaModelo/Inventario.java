@@ -7,11 +7,12 @@ import GaleriaPieza.Pieza;
 
 public class Inventario {
 	
-	private ArrayList<Pieza> piezas; // Cambiar a Array list
-	private ArrayList<Pieza> infoPiezasAntiguas; // Cambiar a Array list
+	private ArrayList<Pieza> piezas;
+	private ArrayList<Pieza> infoPiezasAntiguas; 
 	
 	public Inventario() {
-		
+		piezas= new ArrayList<Pieza>();
+		infoPiezasAntiguas= new ArrayList<Pieza>();
 	}
 	
 	public Pieza buscarPieza(String nTitulo, Artista nAutor) {
@@ -35,15 +36,16 @@ public class Inventario {
 		
 	}
 
-	public void getPiezas() {
-		
+
+	
+	public ArrayList<Pieza> getPiezas() {
+		return piezas;
 	}
 
-	//Creo que deberia haber un atributo el cual gettear.
-	public void getInformacionPiezasAntiguas() {
-		
+	public ArrayList<Pieza> getInfoPiezasAntiguas() {
+		return infoPiezasAntiguas;
 	}
-	
+
 	public void aniadirPieza(Pieza pieza) {
 		
 	}
