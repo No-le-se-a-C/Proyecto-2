@@ -1,12 +1,14 @@
 package GaleriaModelo;
 
+import java.util.ArrayList;
+
 import GaleriaGestionSesion.Artista;
 import GaleriaPieza.Pieza;
 
 public class Inventario {
 	
-	private Pieza[] piezas; // Cambiar a Array list
-	private String infoPiezasAntiguas; // Cambiar a Array list
+	private ArrayList<Pieza> piezas; // Cambiar a Array list
+	private ArrayList<Pieza> infoPiezasAntiguas; // Cambiar a Array list
 	
 	public Inventario() {
 		

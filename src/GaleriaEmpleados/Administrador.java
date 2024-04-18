@@ -1,11 +1,18 @@
 package GaleriaEmpleados;
 
+import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Pieza;
 
-public class Administrador {
+public class Administrador extends Usuario {
 	
-	public Administrador() {
-		
+	private String IDENTIFICADOR="ADMINISTRADOR";
+	
+	public String getIDENTIFICADOR() {
+		return IDENTIFICADOR;
+	}
+
+	public Administrador(String usuario, String contraseña) {
+		super(usuario, contraseña);
 	}
 	
 	public void verificarVenta() {

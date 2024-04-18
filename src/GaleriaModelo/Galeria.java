@@ -1,20 +1,25 @@
 package GaleriaModelo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import GaleriaGestionSesion.Usuario;
+import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Galeria {
 	
-	private List SubastasProgramadas[];
-	//private Empleado[] empleado; Toca crear una clase empleado en el package empleado
-	private List listaUsuariuos[];
+	private ArrayList<Subasta> SubastasProgramadas;
+	
+	private HashMap<String, Usuario> mapaUsuarios;
+	
+	private HashMap<String, Usuario> mapaUsuariosEmpleados;
 	
 	
-	public Galeria(List SubastasProgramadas, 
-			//** Empleado[] empleado,
-			List listaUsuarios) {
-		
+	public Galeria() {
+		this.SubastasProgramadas= new ArrayList<Subasta>();
+		this.mapaUsuarios= new HashMap<String, Usuario>();
+		this.mapaUsuariosEmpleados= new HashMap<String, Usuario>();
 	}
 	
 	public void participarSubasta() {
@@ -22,8 +27,16 @@ public class Galeria {
 	}
 	
 
-	public List[] getListaUsuariuos() {
-		return listaUsuariuos;
+	public HashMap<String, Usuario> getListaUsuariuos() {
+		return mapaUsuarios;
+	}
+
+	public ArrayList<Subasta> getSubastasProgramadas() {
+		return SubastasProgramadas;
+	}
+
+	public HashMap<String, Usuario> getMapaUsuariosEmpleados() {
+		return mapaUsuariosEmpleados;
 	}
 
 	public void comprarPieza() {
@@ -39,8 +52,17 @@ public class Galeria {
 	}
 	
 	public void aniadirUsuario(Usuario usuario) {
+		mapaUsuarios.put(usuario.getUsuario(), usuario);
+	}
+	
+	public void aniadirUsuarioEmpleado(Usuario usuario) {
+		mapaUsuariosEmpleados.put(usuario.getUsuario(), usuario);
+	}
+	
+	public void aniadirSubasta(Subasta subasta) {
 		
 	}
+	
 	
 
 }

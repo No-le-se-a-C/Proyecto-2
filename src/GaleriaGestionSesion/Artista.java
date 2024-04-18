@@ -1,15 +1,25 @@
 package GaleriaGestionSesion;
 
+import java.util.ArrayList;
+
 import GaleriaPieza.Pieza;
 
 public class Artista extends Usuario {
 	
 	private String IDENTIFICADOR = "ARTISTA";
-	private Pieza[] listaPiezas;
+	private ArrayList<Pieza> listaPiezas;
 	
 	
-	public Artista(String nombre, String contrasenia) {
-		super(nombre, contrasenia);
+	public String getIDENTIFICADOR() {
+		return IDENTIFICADOR;
+	}
+
+	public ArrayList<Pieza> getListaPiezas() {
+		return listaPiezas;
+	}
+
+	public Artista(String usuario, String contrasenia) {
+		super(usuario, contrasenia);
 		// TODO Auto-generated constructor stub
 	}
 

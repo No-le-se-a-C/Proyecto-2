@@ -1,13 +1,29 @@
 package GaleriaGestionSesion;
 
+import java.util.ArrayList;
+
+import GaleriaPieza.Pieza;
+
 public class Comprador extends Usuario {
 	
 	private String IDENTIFICADOR = "COMPRADOR";
 	private int maxCompras;
-	private int compras; //revisar tipo de variable
+	private ArrayList<Pieza> compras; 
 
-	public Comprador(String nombre, String contrasenia) {
-		super(nombre, contrasenia);
+	public String getIDENTIFICADOR() {
+		return IDENTIFICADOR;
+	}
+
+	public int getMaxCompras() {
+		return maxCompras;
+	}
+
+	public ArrayList<Pieza> getCompras() {
+		return compras;
+	}
+
+	public Comprador(String usuario, String contrasenia) {
+		super(usuario, contrasenia);
 		// TODO Auto-generated constructor stub
 	}
 

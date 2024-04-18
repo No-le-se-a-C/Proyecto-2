@@ -1,17 +1,21 @@
 package GaleriaConsola;
 
+import GaleriaGestionSesion.Sesion;
+import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
 import GaleriaPieza.Pieza;
 import GaleriaServiciosDeAdquisicion.Compra;
 
 public class Controller {
 	
-	public void registrase() {
-		
+	public void registrase(Galeria galeris) {
+		Sesion sesion= new Sesion();
+		sesion.registrarse(galeris);
 	}
 	
-	public void iniciarSesion() {
-		
-	
+	public Usuario iniciarSesion(Galeria galeria) {
+		Sesion sesion= new Sesion();
+		return sesion.iniciarSesion(galeria);
 	}
 	
 	public void definirMetodoPago() {
