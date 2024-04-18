@@ -67,33 +67,180 @@ public class Vista {
 	}
 	
 	public void interfazComprador(Galeria galeria, Usuario usuario) {
+		Controller controler=new Controller();
+		
+		Scanner scanner = new Scanner(System.in);
 		// se inicia centinela para salir de la galeria
 		boolean seguir=true;
+		
 		System.out.println("bienvenido Comprador");
+		
+		while(seguir) {
+			System.out.println("Que desea realizar");
+			System.out.println("");
+			System.out.println("1.Definir Metodo de pago.");
+			System.out.println("2.Ver piezas disponibles");
+			System.out.println("3.Comprar una pieza");
+			System.out.println("4.Participar en una subasta");
+			System.out.println("5.Pedir mas cupo de compra");
+			System.out.println("6.Salir al menu pricipal");
+			int input= scanner.nextInt();
+			scanner.nextLine();
+			
+			if (1==input) {
+				controler.definirMetodoPago(galeria, usuario);
+			}else if (2==input) {
+				controler.verPiezasDisponibles(galeria, usuario);
+			}else if (3==input) {
+				controler.comprarPieza(galeria, usuario);
+			}else if (4==input) {
+				controler.participarSubasta(galeria, usuario);
+			}else if (5==input) {
+				controler.pedirCupoDeCompras(galeria, usuario);
+			}else if (6==input) {
+				interfaz(galeria);
+			}else {
+				System.out.println("Valor incorrecto");
+			}
+		}
+		scanner.close();
 	}
 	
 	public void interfazPropietario(Galeria galeria, Usuario usuario) {
 		// se inicia centinela para salir de la galeria
 		boolean seguir=true;
 		System.out.println("bienvenido Artista");
+		Controller controler=new Controller();
+		
+		Scanner scanner = new Scanner(System.in);
+
+		while(seguir) {
+			System.out.println("Que desea realizar");
+			System.out.println("");
+			System.out.println("1.Definir Metodo de pago.");
+			System.out.println("2.Ver piezas disponibles");
+			System.out.println("3.Comprar una pieza");
+			System.out.println("4.Participar en una subasta");
+			System.out.println("5.Pedir mas cupo de compra");
+			System.out.println("6.Mirar mi pieza ");
+			System.out.println("7.Mirar info de pieza antigua");
+			System.out.println("8.Añadir pieza a la galeria");
+			System.out.println("9.Salir al menu pricipal");
+			int input= scanner.nextInt();
+			scanner.nextLine();
+			
+			if (1==input) {
+				controler.definirMetodoPago(galeria, usuario);
+			}else if (2==input) {
+				controler.verPiezasDisponibles(galeria, usuario);
+			}else if (3==input) {
+				controler.comprarPieza(galeria, usuario);
+			}else if (4==input) {
+				controler.participarSubasta(galeria, usuario);
+			}else if (5==input) {
+				controler.pedirCupoDeCompras(galeria, usuario);
+			}else if (9==input) {
+				interfaz(galeria);
+			}else if(6==input) {
+				controler.mirarMiPieza(galeria, usuario);
+			}else if(7==input) {
+				controler.mirarInfoDePiezaAntigua(galeria, usuario);
+			}else if(8==input) {
+				controler.aniadirPieza();
+			}
+			else {
+				System.out.println("Valor incorrecto");
+			}
+		}
+		scanner.close();
 	}
 	
 	public void interfazAdmin(Galeria galeria, Usuario usuario) {
 		// se inicia centinela para salir de la galeria
 		boolean seguir=true;
 		System.out.println("bienvenido Administrador");
+		Scanner scanner = new Scanner(System.in);
+		Controller controler=new Controller();
+		
+		while(seguir) {
+			System.out.println("Que desea realizar");
+			System.out.println("");
+			System.out.println("1.Verificar Ventas");
+			System.out.println("2.Verificar seriedad de las ofertas");
+			System.out.println("3.Validar piezas por aniadir");
+			System.out.println("4.Verificar usuario para las subastas");
+			System.out.println("5.Salir al menu pricipal");
+			int input= scanner.nextInt();
+			scanner.nextLine();
+			
+			if (1==input) {
+				controler.verificarVenta(galeria, usuario);
+			}else if (2==input) {
+				controler.verificarSeriedadDeOferta(galeria, usuario);
+			}else if (3==input) {
+				controler.validarPiezasPorAniadir(galeria, usuario);
+			}else if (4==input) {
+				controler.verificarUsuarioSubasta(null);
+			}else if (5==input) {
+				interfaz(galeria);
+			}else {
+				System.out.println("Valor incorrecto");
+			}
+		}
+		scanner.close();
 	}
 	
 	public void interfazCajero(Galeria galeria, Usuario usuario) {
 		// se inicia centinela para salir de la galeria
 		boolean seguir=true;
 		System.out.println("bienvenido Cajero");
+		Scanner scanner = new Scanner(System.in);
+		Controller controler=new Controller();
+		
+		while(seguir) {
+			System.out.println("Que desea realizar");
+			System.out.println("");
+			System.out.println("1.Verificar los pagos");
+			System.out.println("2.Salir al menu pricipal");
+			
+			int input= scanner.nextInt();
+			scanner.nextLine();
+			
+			if (1==input) {
+				controler.revisarPago(null);
+			}else if (2==input) {
+				interfaz(galeria);
+			}else {
+				System.out.println("Valor incorrecto");
+			}
+		}
+		scanner.close();
 	}
 	
 	public void interfazOperador(Galeria galeria, Usuario usuario) {
 		// se inicia centinela para salir de la galeria
 		boolean seguir=true;
 		System.out.println("bienvenido Operador");
+		Scanner scanner = new Scanner(System.in);
+		Controller controler=new Controller();
+		
+		while(seguir) {
+			System.out.println("Que desea realizar");
+			System.out.println("");
+			System.out.println("1.Llevar registro de subastas");
+			System.out.println("2.Salir al menu pricipal");
+			int input= scanner.nextInt();
+			scanner.nextLine();
+			
+			if (1==input) {
+				controler.llevarRegistroSubasta();
+			}else if (2==input) {
+				interfaz(galeria);
+			}else {
+				System.out.println("Valor incorrecto");
+			}
+		}
+		scanner.close();
 	}
 	
 

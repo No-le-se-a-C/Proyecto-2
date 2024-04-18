@@ -18,44 +18,44 @@ public class Controller {
 		return sesion.iniciarSesion(galeria);
 	}
 	
-	public void definirMetodoPago() {
+	public void definirMetodoPago(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void participarSubasta() {
+	public void participarSubasta(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void comprarPieza() {
+	public void comprarPieza(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void verPiezasDisponibles() {
+	public void verPiezasDisponibles(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void mirarMiPieza() {
+	public void mirarMiPieza(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void mirarInfoDePiezaAntigua() {
+	public void mirarInfoDePiezaAntigua(Galeria galeria, Usuario usuario) {
 		
 		
 	}
 	
-	public void aniadirPieza(String nTitulo, int nAnioCreacion, int nPrecio, int nSubasta) {
+	public void aniadirPieza() {
 		
 	}
 	
-	public void pedirCupoDeCompras() {
+	public void pedirCupoDeCompras(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void verificarVenta() {
+	public void verificarVenta(Galeria galeria, Usuario usuario) {
 		
 	}
 	
-	public void verificarSeriedadDeOferta() {
+	public void verificarSeriedadDeOferta(Galeria galeria, Usuario usuario) {
 		
 	}
 	
@@ -69,6 +69,10 @@ public class Controller {
 	}
 	
 	public void llevarRegistroSubasta() {
+		
+	}
+	
+	public void validarPiezasPorAniadir(Galeria galeria, Usuario usuario) {
 		
 	}
 	

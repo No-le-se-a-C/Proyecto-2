@@ -31,7 +31,7 @@ public class Inventario {
 	}
 	
 	public String getinfoPiezasSubasta() {
-		return infoPiezasAntiguas;
+		return null;
 		
 	}
 

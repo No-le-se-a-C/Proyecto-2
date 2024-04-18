@@ -23,7 +23,7 @@ public class Administrador extends Usuario {
 		
 	}
 	
-	public void aniadirPieza(String nTitulo, int nAnioCreacion, int nPrecio, int nSubasta) {
+	public void validarAniadirPieza(String nTitulo, int nAnioCreacion, int nPrecio, int nSubasta) {
 		
 	}
 	
