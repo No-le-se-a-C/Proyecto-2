@@ -2,6 +2,7 @@ package GaleriaConsola;
 
 import java.util.Scanner;
 
+import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Sesion;
 import GaleriaGestionSesion.Usuario;
@@ -48,7 +49,7 @@ public class Controller {
 			maximoCompra = 7;
 		}
 			
-			
+
 		usuario.definirMetodoPago(metodo);
 		//TODO
 		
@@ -190,6 +191,9 @@ public class Controller {
 		 * revisarlas, si dice que si se le muestra 1, (la forma en que la verifique es mostrando datos y 
 		 * preguntando si quiere admitir), si admite se pasa la pieza al inventario 
 		 * */
+		
+		Administrador admin= (Administrador) usuario;
+		admin.validarAniadirPieza(galeria);
 	}
 	
 

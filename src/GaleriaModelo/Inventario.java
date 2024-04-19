@@ -78,7 +78,7 @@ public class Inventario {
 				//verificar que hay almenos 1 pieza de precio fijo 	
 				hayPiezas=true;
 				//imprimir titulo y autor
-				System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario());
+				System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario()+ "---precio: "+ pieza.getPrecio()[0]);
 				}
 			}
 		}
@@ -95,12 +95,13 @@ public class Inventario {
 			System.out.println("No hay piezas disponibles por el momento");
 		}else {
 			for (Pieza pieza : piezas) {
-				//buscar piezas que no son subasta
+				//buscar piezas que son subasta
 				if (pieza.isSubasta()) {
 					//verificar que hay almenos 1 pieza de precio fijo 	
 					hayPiezas=true;
 					//imprimir titulo y autor
-					System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario());
+					System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario()
+							+"---precio actual: "+ pieza.getPrecio()[0] );
 				}
 			}
 		}
@@ -139,7 +140,7 @@ public class Inventario {
 		boolean seguir=true;
 		boolean subasta=false;
 		Object[] precio= new Object[2];
-		int preciMinimo=0;
+		int precioMinimo=0;
 		
 		while(seguir) {
 			System.out.println("Quiere que sea vendida(1) o subastada(2) (responda 1 o 2):");
@@ -161,7 +162,7 @@ public class Inventario {
 				precio[0]=input2;
 				precio[1]=null;
 				System.out.println("cual quiere que sea el valor minimo para que se entregue:");
-				int input3=scanner.nextInt();
+				precioMinimo=scanner.nextInt();
 				scanner.nextLine();
 				seguir=false;
 			}else {
@@ -192,7 +193,7 @@ public class Inventario {
 				String material=scanner.nextLine();
 				pieza=new Escultura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
-						random.nextBoolean(), preciMinimo, material, alto, ancho);
+						random.nextBoolean(), precioMinimo, material, alto, ancho);
 				seguir1=false;
 			}else if(input3==2) {
 				System.out.println("que filtro tiene:");
@@ -203,14 +204,14 @@ public class Inventario {
 				String calidad=scanner.nextLine();
 				pieza=new Fotografia(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
-						random.nextBoolean(), preciMinimo, filtro, cantidadPixeles, calidad);
+						random.nextBoolean(), precioMinimo, filtro, cantidadPixeles, calidad);
 				seguir1=false;
 			}else if(input3==3) {
 				System.out.println("que genero es:");
 				String genero=scanner.nextLine();
 				pieza= new Libro(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
-						random.nextBoolean(), preciMinimo, genero);
+						random.nextBoolean(), precioMinimo, genero);
 				seguir1=false;
 			}else if(input3==4) {
 				System.out.println("que altura tiene:");
@@ -221,7 +222,7 @@ public class Inventario {
 				String estilo=scanner.nextLine();
 				pieza=new Pintura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
-						random.nextBoolean(), preciMinimo, alto, ancho, estilo);
+						random.nextBoolean(), precioMinimo, alto, ancho, estilo);
 				seguir1=false;
 			}else if(input3==5) {
 				System.out.println("que duracion tiene:");
@@ -232,7 +233,7 @@ public class Inventario {
 				String estilo=scanner.nextLine();
 				pieza= new Video(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
-						random.nextBoolean(), preciMinimo, duracion, formato, estilo);
+						random.nextBoolean(), precioMinimo, duracion, formato, estilo);
 				seguir1=false;
 			}else {
 				System.out.println("Valor incorrecto elija un numero de 1 al 5");
@@ -247,6 +248,9 @@ public class Inventario {
 	
 	public void eliminarPieza(String nTitulo, Artista autor) {
 		
+	}
+	public void anadirPiezaVerificada(Pieza pieza) {
+		piezas.add(pieza);
 	}
 	
 }
