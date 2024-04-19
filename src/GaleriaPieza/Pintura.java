@@ -14,13 +14,6 @@ public class Pintura extends Pieza{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void getCaracteristicas() {
-		// TODO Auto-generated method stub
-		System.out.println("////////////////////////////////////////");
-		System.out.println("");
-		System.out.println("");
-	}
-	
+
 	
 }

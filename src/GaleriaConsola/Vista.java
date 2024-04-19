@@ -148,7 +148,7 @@ public class Vista {
 			}else if(7==input) {
 				controler.mirarInfoDePiezaAntigua(galeria, usuario);
 			}else if(8==input) {
-				controler.aniadirPieza();
+				controler.aniadirPieza(usuario, galeria);
 			}
 			else {
 				System.out.println("Valor incorrecto");

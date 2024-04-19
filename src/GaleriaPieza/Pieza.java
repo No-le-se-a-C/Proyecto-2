@@ -1,5 +1,7 @@
 package GaleriaPieza;
 
+import java.util.TreeSet;
+
 import GaleriaGestionSesion.Artista;
 
 public abstract class Pieza {
@@ -83,5 +85,40 @@ public abstract class Pieza {
 	public void nuevoPrecio(int monto) {
 		
 	}
-	public abstract void getCaracteristicas();
+	
+	public void getCaracteristicas() {
+		System.out.println("////////////////////////////////////////");
+		System.out.println("");
+		System.out.println("Estado de "+ titulo);
+		System.out.println("");
+		if(consignacion) {
+			System.out.println("--Estado de consignacion: la Galeria todavia la tiene. ");
+		}else {
+			System.out.println("--Estado de consignacion: la Galeria ya se le acabo el periodo de tiempo");
+		}
+		System.out.println("--Precio actual: "+ precio[0]);
+		
+		
+		if(exhibido) {
+			System.out.println("La pieza se encuentra exhibida");
+		}else {
+			System.out.println("La pieza se encuentra en bodega");
+		}
+	}
+	
+	public void getCaracteristicasAntiguas() {
+		System.out.println("////////////////////////////////////////");
+		System.out.println("");
+		System.out.println("Estado de "+ titulo);
+		System.out.println("");
+		
+		System.out.println("--Estado de consignacion: Se acabo devido a la venta de esta ");
+		
+		
+		System.out.println("--Precio final: "+ precio[0]);
+		
+		
+		System.out.println("--la Pieza ya fue entregada al comprador");
+	}
+	
 }

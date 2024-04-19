@@ -1,8 +1,10 @@
 package GaleriaModelo;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import GaleriaGestionSesion.Artista;
+import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Pieza;
 
 public class Inventario {
@@ -27,7 +29,7 @@ public class Inventario {
 			
 		}
 		//imprime las caracteristicas de la pieza si la encuentra
-		if(piezaEncontrada.equals(null)) {
+		if(piezaEncontrada==null) {
 			System.out.println("No se encontro la pieza, verifique que lo datos esten bien");
 		}else {
 			piezaEncontrada.getCaracteristicas();
@@ -48,10 +50,10 @@ public class Inventario {
 			
 		}
 		//imprime las caracteristicas de la pieza si la encuentra
-		if(piezaEncontrada.equals(null)) {
+		if(piezaEncontrada==null) {
 			System.out.println("No se encontro la pieza, verifique que lo datos esten bien");
 		}else {
-			piezaEncontrada.getCaracteristicas();
+			piezaEncontrada.getCaracteristicasAntiguas();
 		}
 
 	}
@@ -112,7 +114,22 @@ public class Inventario {
 		return infoPiezasAntiguas;
 	}
 
-	public void aniadirPieza(Pieza pieza) {
+	public void aniadirPieza(Galeria galeria, Usuario usuario) {
+		/*String nTitulo, String nAnioCreacion, String nLugarCreacion, Artista nAutor, boolean nConsignacion, 
+			int[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo
+		 * */
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("//////////////////////////////////////////////");
+		System.out.println("Añadir pieza");
+		System.out.println("");
+		System.out.println("Como se llama su pieza:");
+		String titulo=scanner.nextLine();
+		System.out.println("En que año fue creada:");
+		String anioCreacion=scanner.nextLine();
+		System.out.println("En que lugar fue creada:");
+		String lugarCreacion=scanner.nextLine();
+		System.out.println("Quiere que sea vendida o subastada");
 		
 	}
 	

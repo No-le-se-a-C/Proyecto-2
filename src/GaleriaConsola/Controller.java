@@ -40,8 +40,8 @@ public class Controller {
 		 * 
 		 * la idea es que el usuario pase el titulo de la pieza en la que quiere participar en subasta, 
 		despues busca la pieza en la lista de subasta de la galeria y que pueda ofrecer un precio y 
-		si este valor no es mayor al precio, no lo admita (el precio va a ser un arbol binario de listas 
-		donde la primera posicion es el precio dado por el usuario y la segunda posicion sea el usuario.),si supera el 
+		si este valor no es mayor al precio, no lo admita ( el precio es  una lista de 2 posiciones 
+		donde la posicion 1 es el precio dado por el usuario y la segunda posicion sea el usuario.),si supera el 
 		precio se actualiza el precio de la subasta (cada precio que den los usuarios se manda a una lista de la 
 		subasta que es registroSubasta ),
 		en la clase de subasta van a haber mas atributos como "fechaFinal" que va ayudar a saber cuando 
@@ -97,13 +97,15 @@ public class Controller {
 		
 	}
 	
-	public void aniadirPieza() {
+	public void aniadirPieza(Usuario usuario,Galeria galeria) {
 		/*Esto lo hacen los artistas mandan la pieza que quieren añadir
 		 * sea foto, escultura, etc, apenas diligencien la pieza que quieran añadir 
 		 * se le manda la pieza al admin a la lista de piezasPorAnadir y si el usuario 
 		 * quiere saber si ya se añadio debe buscarla en la funcion mirarMiPieza
 		 * 
 		 * */
+		
+		galeria.getInventario().aniadirPieza(galeria, usuario);
 	}
 	
 	public void pedirCupoDeCompras(Galeria galeria, Usuario usuario) {

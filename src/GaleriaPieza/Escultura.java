@@ -19,10 +19,5 @@ public class Escultura extends Pieza {
 		this.material=nMaterial;
 	}
 
-	@Override
-	public void getCaracteristicas() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

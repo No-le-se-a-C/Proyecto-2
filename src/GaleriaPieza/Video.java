@@ -14,10 +14,5 @@ public class Video extends Pieza{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void getCaracteristicas() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
