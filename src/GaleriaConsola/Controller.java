@@ -3,7 +3,9 @@ package GaleriaConsola;
 import java.util.Scanner;
 
 import GaleriaEmpleados.Administrador;
+import GaleriaEmpleados.Cajero;
 import GaleriaGestionSesion.Artista;
+import GaleriaGestionSesion.Comprador;
 import GaleriaGestionSesion.Sesion;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
@@ -49,10 +51,15 @@ public class Controller {
 			maximoCompra = 7;
 		}
 			
-
 		usuario.definirMetodoPago(metodo);
-		//TODO
-		
+		usuario.definirCartera(cantidad);
+		if(usuario.getIDENTIFICADOR().contentEquals("COMPRADOR")){
+			( (Comprador)usuario ).definirMaximoCompras(maximoCompra);
+			
+		}else if(usuario.getIDENTIFICADOR().contentEquals("ARTISTA")) {
+			( (Artista)usuario ).definirMaximoCompras(maximoCompra);;
+		}	
+		scanner.close();
 	}
 	
 	public void participarSubasta(Galeria galeria, Usuario usuario) {
@@ -70,6 +77,12 @@ public class Controller {
 		acaba la subasta y apenas acabe se va a ver el precio mayor y el usuario y se añade la pieza de la 
 		subasta al usuario. 
 		*/
+		if( ((Comprador)usuario).getAdmitido() || ((Artista)usuario).getAdmitido() ) {
+			galeria.participarSubasta();
+		}else {
+			((Administrador)usuario).aniadirPeticionSubasta(usuario);
+			System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
+		}
 	}
 	
 	public void comprarPieza(Galeria galeria, Usuario usuario) {
@@ -135,6 +148,14 @@ public class Controller {
 		 * (primera pos es usuario, segunda pos el int de cuanto quiere añadir) a 
 		 * el admin a la lista de pedidosCupoCompra.
 		 * */
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("///////////////////////////////////////");
+		System.out.println("");
+		System.out.println("-Ingrese la cantidad que desea aniadir:");
+		int cantidad = scanner.nextInt();
+		((Administrador)usuario).aniadirPedidoCupoCompra(usuario, cantidad);
+		scanner.close();
 	}
 	
 	public void verificarVenta(Galeria galeria, Usuario usuario) {
@@ -157,7 +178,16 @@ public class Controller {
 		 * que al igual que los precios normales sera una lista de 2 posiciones, 
 		 * este precio sera en el que la subasta empezo
 		 * */
-		
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("///////////////////////////////////////");
+		System.out.println("");
+		System.out.println("-En este momento usted tiene "+ Integer.toString( ((Cajero)usuario).getPagosPendientes().size())+ " verificaciones pendientes.");
+		System.out.println("Desea revisarlas(SI/NO): ");
+		String respuesta = scanner.nextLine();
+		if (respuesta.toUpperCase().contentEquals("SI")) {
+			((Administrador)usuario).verificarSeriedadDeOferta();	
+		}
+		scanner.close();
 	}
 	
 	public Boolean verificarUsuarioSubasta(Pieza usuario) {
@@ -170,12 +200,27 @@ public class Controller {
 		
 	}
 	
-	public void revisarPago(Compra comprador) {
+	public void revisarPago(Galeria galeria, Usuario usuario) {
 		/*e le muestra al empleado la cantidad de verificaciones que tiene que revisar 
 		 * que esto es la cantidad de elementos de la lista de pagos , y se pregunta si quiere 
 		 * revisarlas, si dice que si se le muestra 1, (la forma en que la verifique es mostrando datos y 
 		 * preguntando si quiere admitir), si admite se manda la lista a la lista de ventasAVerificar del admin
 		 * */
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("///////////////////////////////////////");
+		System.out.println("");
+		System.out.println("-En este momento usted tiene "+ Integer.toString( ((Cajero)usuario).getPagosPendientes().size())+ " verificaciones pendientes.");
+		System.out.println("Desea revisarlas(SI/NO): ");
+		String respuesta = scanner.nextLine();
+		if (respuesta.toUpperCase().contentEquals("SI")) {
+			for (Usuario userPago: ((Cajero)usuario).getPagosPendientes()) {
+				boolean valor = ((Cajero)usuario).revisarPago(userPago);
+				if( valor ) {
+					((Administrador)usuario).aniadirVentasAVerificar(userPago);
+				}
+		scanner.close();		
+			}
+		}
 	}
 	
 	public void llevarRegistroSubasta() {

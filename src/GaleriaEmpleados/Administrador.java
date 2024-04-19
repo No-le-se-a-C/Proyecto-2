@@ -1,6 +1,7 @@
 package GaleriaEmpleados;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
@@ -11,6 +12,10 @@ public class Administrador extends Usuario {
 	
 	private String IDENTIFICADOR="ADMINISTRADOR";
 	private ArrayList<Pieza> piezasPorAnadir;
+	private ArrayList<Usuario> peticionesSubasta;
+	private HashMap<Usuario, Integer> pedidosCupoCompra;
+	
+	private ArrayList<Usuario> ventasAVerificar;
 	
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;
@@ -20,7 +25,23 @@ public class Administrador extends Usuario {
 		piezasPorAnadir.add(pieza);
 		
 	}
+	
+	public ArrayList<Usuario> getPeticionesSubasta(){
+		return peticionesSubasta;
+	}
+	public void aniadirVentasAVerificar(Usuario user) {
+		ventasAVerificar.add(user);
+	}
+	
+	public void aniadirPeticionSubasta(Usuario user) {
+		peticionesSubasta.add(user);
+	}
 
+	public void aniadirPedidoCupoCompra(Usuario usuario, int cantidad) {
+		pedidosCupoCompra.put(usuario, cantidad);
+	}
+	
+	
 	public Administrador(String usuario, String contraseña) {
 		super(usuario, contraseña);
 		piezasPorAnadir= new ArrayList<Pieza>();

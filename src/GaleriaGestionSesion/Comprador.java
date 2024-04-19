@@ -23,10 +23,19 @@ public class Comprador extends Usuario {
 	public ArrayList<Pieza> getCompras() {
 		return compras;
 	}
+	
+	public boolean getAdmitido() {
+		return admitido;
+	}
 
 	public Comprador(String usuario, String contrasenia) {
 		super(usuario, contrasenia);
 		// TODO Auto-generated constructor stub
+	}
+
+	public void definirMaximoCompras( int maximo ) {
+		this.maxCompras = maximo;
+		
 	}
 
 }
