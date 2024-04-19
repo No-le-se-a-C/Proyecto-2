@@ -50,8 +50,8 @@ public abstract class Usuario {
 
 
 
-	public void definirMetodoPago() {
-		
+	public void definirMetodoPago( String metodoPago ) {
+		this.metodoPago = metodoPago;
 	}
 	
 	public abstract String getIDENTIFICADOR();

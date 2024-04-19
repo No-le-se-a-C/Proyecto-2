@@ -31,6 +31,27 @@ public class Controller {
 		por ultimo si la cartera esta entre 1 y 100 se le da un maximo de compra al comprador de 3  piezas
 		 si es de 100 a 100 se le da 5 maximo de compras y si es mas de 1000 se le da 7 maximo de compras
 		*/
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("///////////////////////////////////////");
+		System.out.println("");
+		System.out.println("-Ingrese el metodo de pago que desea definir:");
+		String metodo = scanner.nextLine();
+		System.out.println("-Ingrese cuanto desea añadir a su cartera: ");
+		int cantidad = scanner.nextInt();
+		int maximoCompra = 0;
+		if (cantidad >= 1 && cantidad < 100) {
+			maximoCompra = 3;
+		}else if(cantidad >= 100 && cantidad < 1000) {
+			maximoCompra = 5;
+		}else if(cantidad >= 1000) {
+			maximoCompra = 7;
+		}
+			
+			
+		usuario.definirMetodoPago(metodo);
+		//TODO
+		
 	}
 	
 	public void participarSubasta(Galeria galeria, Usuario usuario) {
