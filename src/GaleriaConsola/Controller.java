@@ -1,5 +1,8 @@
 package GaleriaConsola;
 
+import java.util.Scanner;
+
+import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Sesion;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
@@ -21,6 +24,7 @@ public class Controller {
 	
 	
 	public void definirMetodoPago(Galeria galeria, Usuario usuario) {
+		
 		/*esta funcion lo que hace es decirle al usuario que metodo de pago 
 		quiere definir esta "EFECTIVO", "TARJETA", "EN LINEA", ademas se le pregunta cuanto 
 		quiere tener en la cartera y queda actualizado los atributos de metodo de pago, cartera,
@@ -55,6 +59,7 @@ public class Controller {
 		 * y segun lo que escoja se imprime los titulos de estas piezas que estan en el inventario.
 		 * 
 		 * */
+		galeria.verPiezasDisponibles(galeria, usuario);
 	}
 	
 	public void mirarMiPieza(Galeria galeria, Usuario usuario) {
@@ -63,6 +68,15 @@ public class Controller {
 		 * si el artista de la pieza no coincide con el artista que la esta pidiendo
 		 * 
 		 * */
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("///////////////////////////////////////");
+		System.out.println("");
+		System.out.println("-Ingrese el titulo de su pieza a buscar:");
+		String titulo=scanner.nextLine();
+		
+		
+		galeria.getInventario().buscarPieza(titulo, (Artista) usuario);
 	}
 	
 	public void mirarInfoDePiezaAntigua(Galeria galeria, Usuario usuario) {
@@ -71,6 +85,15 @@ public class Controller {
 		 * si el artista de la pieza no coincide con el artista que la esta pidiendo
 		 * 
 		 * */
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("///////////////////////////////////////");
+		System.out.println("");
+		System.out.println("-Ingrese el titulo de la pieza que quiera saber su informacion:");
+		String titulo=scanner.nextLine();
+		
+		
+		galeria.getInventario().buscarPieza(titulo, (Artista) usuario);
 		
 	}
 	

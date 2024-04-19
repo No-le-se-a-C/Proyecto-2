@@ -29,6 +29,7 @@ public class Main {
 		galeria.aniadirUsuarioEmpleado(operador);
 		
 		
+		
 		Vista vista= new Vista();
 		vista.interfaz(galeria);
 		

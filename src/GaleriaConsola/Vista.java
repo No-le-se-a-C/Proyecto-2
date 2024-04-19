@@ -76,6 +76,7 @@ public class Vista {
 		System.out.println("bienvenido Comprador");
 		
 		while(seguir) {
+			System.out.println("//////////////////////////////////////7");
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Definir Metodo de pago.");
@@ -115,6 +116,7 @@ public class Vista {
 		Scanner scanner = new Scanner(System.in);
 
 		while(seguir) {
+			System.out.println("//////////////////////////////////////7");
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Definir Metodo de pago.");
@@ -163,6 +165,7 @@ public class Vista {
 		Controller controler=new Controller();
 		
 		while(seguir) {
+			System.out.println("//////////////////////////////////////7");
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Verificar Ventas");
@@ -198,6 +201,7 @@ public class Vista {
 		Controller controler=new Controller();
 		
 		while(seguir) {
+			System.out.println("//////////////////////////////////////7");
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Verificar los pagos");
@@ -225,6 +229,7 @@ public class Vista {
 		Controller controler=new Controller();
 		
 		while(seguir) {
+			System.out.println("//////////////////////////////////////7");
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Llevar registro de subastas");
