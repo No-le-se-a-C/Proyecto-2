@@ -107,7 +107,7 @@ public class Controller {
 		
 		galeria.getInventario().aniadirPieza(galeria, usuario);
 	}
-	
+
 	public void pedirCupoDeCompras(Galeria galeria, Usuario usuario) {
 		/*Se pregunta cuanto quiere añadir y se le envia una lista de 2 posiciones
 		 * (primera pos es usuario, segunda pos el int de cuanto quiere añadir) a 

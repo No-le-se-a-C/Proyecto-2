@@ -5,11 +5,11 @@ import GaleriaGestionSesion.Artista;
 public class Escultura extends Pieza {
 	
 	private String material;
-	private int altura;
-	private int ancho;
+	private String altura;
+	private String ancho;
 
 	public Escultura(String nTitulo, String nAnioCreacion, String nLugarCreacion, Artista nAutor, boolean nConsignacion,
-			int[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo, String nMaterial, int nAltura, int nAncho) {
+			Object[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo, String nMaterial, String nAltura, String nAncho) {
 		super(nTitulo, nAnioCreacion, nLugarCreacion, nAutor, nConsignacion, nPrecio, nSubasta, exhibido, nPrecioMinimo);
 		
 		this.altura=nAltura;

@@ -1,11 +1,18 @@
 package GaleriaModelo;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
+import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
+import GaleriaPieza.Escultura;
+import GaleriaPieza.Fotografia;
+import GaleriaPieza.Libro;
 import GaleriaPieza.Pieza;
+import GaleriaPieza.Pintura;
+import GaleriaPieza.Video;
 
 public class Inventario {
 	
@@ -115,10 +122,9 @@ public class Inventario {
 	}
 
 	public void aniadirPieza(Galeria galeria, Usuario usuario) {
-		/*String nTitulo, String nAnioCreacion, String nLugarCreacion, Artista nAutor, boolean nConsignacion, 
-			int[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo
-		 * */
+		Pieza pieza=null;
 		Scanner scanner=new Scanner(System.in);
+		Random random = new Random();
 		
 		System.out.println("//////////////////////////////////////////////");
 		System.out.println("Añadir pieza");
@@ -129,8 +135,114 @@ public class Inventario {
 		String anioCreacion=scanner.nextLine();
 		System.out.println("En que lugar fue creada:");
 		String lugarCreacion=scanner.nextLine();
-		System.out.println("Quiere que sea vendida o subastada");
 		
+		boolean seguir=true;
+		boolean subasta=false;
+		Object[] precio= new Object[2];
+		int preciMinimo=0;
+		
+		while(seguir) {
+			System.out.println("Quiere que sea vendida(1) o subastada(2) (responda 1 o 2):");
+			int input= scanner.nextInt();
+			scanner.nextLine();
+			if (input==1) {
+				subasta=false;
+				System.out.println("en cuanto quiere vender su pieza:");
+				int input2=scanner.nextInt();
+				scanner.nextLine();
+				precio[0]=input2;
+				precio[1]=null;
+				seguir=false;
+			}else if(input==2) {
+				subasta=true;
+				System.out.println("en cuanto quiere que empiece el precio de su pieza:");
+				int input2=scanner.nextInt();
+				scanner.nextLine();
+				precio[0]=input2;
+				precio[1]=null;
+				System.out.println("cual quiere que sea el valor minimo para que se entregue:");
+				int input3=scanner.nextInt();
+				scanner.nextLine();
+				seguir=false;
+			}else {
+				System.out.println("Valor incorrecto");
+				System.out.println("");
+			} 
+		}
+		
+		// preguntar que tipo de pieza quiere añadir para terminar es constructor de cada una
+		boolean seguir1=true;
+		
+		while(seguir1) {
+			System.out.println("que tipo de pieza es" );
+			System.out.println("1. Escultura");
+			System.out.println("2. fotografia");
+			System.out.println("3. libro");
+			System.out.println("4. pintura");
+			System.out.println("5. video");
+			System.out.println("Responda un numero del 1 al 5:");
+			int input3 =scanner.nextInt();
+			scanner.nextLine();
+			if (input3==1) {
+				System.out.println("que ancho tiene:");
+				String ancho=scanner.nextLine();
+				System.out.println("que alto tiene:");
+				String alto=scanner.nextLine();
+				System.out.println("que material tiene:");
+				String material=scanner.nextLine();
+				pieza=new Escultura(titulo, anioCreacion, lugarCreacion, 
+						(Artista) usuario, true, precio, subasta, 
+						random.nextBoolean(), preciMinimo, material, alto, ancho);
+				seguir1=false;
+			}else if(input3==2) {
+				System.out.println("que filtro tiene:");
+				String filtro=scanner.nextLine();
+				System.out.println("que cantidad de pixeles tiene:");
+				String cantidadPixeles=scanner.nextLine();
+				System.out.println("que calidad tiene:");
+				String calidad=scanner.nextLine();
+				pieza=new Fotografia(titulo, anioCreacion, lugarCreacion, 
+						(Artista) usuario, true, precio, subasta, 
+						random.nextBoolean(), preciMinimo, filtro, cantidadPixeles, calidad);
+				seguir1=false;
+			}else if(input3==3) {
+				System.out.println("que genero es:");
+				String genero=scanner.nextLine();
+				pieza= new Libro(titulo, anioCreacion, lugarCreacion, 
+						(Artista) usuario, true, precio, subasta, 
+						random.nextBoolean(), preciMinimo, genero);
+				seguir1=false;
+			}else if(input3==4) {
+				System.out.println("que altura tiene:");
+				String alto=scanner.nextLine();
+				System.out.println("que ancho tiene:");
+				String ancho=scanner.nextLine();
+				System.out.println("que estilo tiene:");
+				String estilo=scanner.nextLine();
+				pieza=new Pintura(titulo, anioCreacion, lugarCreacion, 
+						(Artista) usuario, true, precio, subasta, 
+						random.nextBoolean(), preciMinimo, alto, ancho, estilo);
+				seguir1=false;
+			}else if(input3==5) {
+				System.out.println("que duracion tiene:");
+				String duracion=scanner.nextLine();
+				System.out.println("que formato tiene:");
+				String formato=scanner.nextLine();
+				System.out.println("que estilo tiene:");
+				String estilo=scanner.nextLine();
+				pieza= new Video(titulo, anioCreacion, lugarCreacion, 
+						(Artista) usuario, true, precio, subasta, 
+						random.nextBoolean(), preciMinimo, duracion, formato, estilo);
+				seguir1=false;
+			}else {
+				System.out.println("Valor incorrecto elija un numero de 1 al 5");
+			} 
+		}
+		Administrador admin=(Administrador) galeria.getMapaUsuariosEmpleados().get("Administrador");
+		
+		admin.SolicitudAnadirPieza(pieza);
+		System.out.println("La pieza fue diligenciada y se mando la solicitud para añadirla");
+		System.out.println("si quiere revisar si fue añadida valla a la funcion 'mirar mi pieza' ");
 	}
 	
 	public void eliminarPieza(String nTitulo, Artista autor) {

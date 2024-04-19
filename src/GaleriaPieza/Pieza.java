@@ -12,7 +12,7 @@ public abstract class Pieza {
 	private String anioCreacion;
 	private Artista autor; // Estan deacuerdo con que el autor sea de tipo Artista?
 	private boolean consignacion;
-	private int[] precio;
+	private Object[] precio;
 	private boolean subasta; // Si subasta es Falso es una pieza de precio fijo
 	private int estado; // no sé a que se refiere esta atributo
 	private boolean exhibido;
@@ -39,7 +39,7 @@ public abstract class Pieza {
 	}
 
 
-	public int[] getPrecio() {
+	public Object[] getPrecio() {
 		return precio;
 	}
 
@@ -69,7 +69,7 @@ public abstract class Pieza {
 
 
 	public Pieza(String nTitulo, String nAnioCreacion, String nLugarCreacion, Artista nAutor, boolean nConsignacion, 
-			int[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo) {
+			Object[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo) {
 		titulo=nTitulo;
 		anioCreacion=nAnioCreacion;
 		lugarCreacion=nLugarCreacion;
