@@ -54,6 +54,10 @@ public abstract class Usuario {
 		this.metodoPago = metodoPago;
 	}
 	
+	public void definirCartera( int cantidad ) {
+		this.cartera = cantidad;
+	}
+	
 	public abstract String getIDENTIFICADOR();
 	
 }

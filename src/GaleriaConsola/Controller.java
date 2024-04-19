@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
+import GaleriaGestionSesion.Comprador;
 import GaleriaGestionSesion.Sesion;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
@@ -49,10 +50,14 @@ public class Controller {
 			maximoCompra = 7;
 		}
 			
-
 		usuario.definirMetodoPago(metodo);
-		//TODO
-		
+		usuario.definirCartera(cantidad);
+		if(usuario.getIDENTIFICADOR().contentEquals("COMPRADOR")){
+			( (Comprador)usuario ).definirMaximoCompras(maximoCompra);
+			
+		}else if(usuario.getIDENTIFICADOR().contentEquals("ARTISTA")) {
+			( (Artista)usuario ).definirMaximoCompras(maximoCompra);;
+		}	
 	}
 	
 	public void participarSubasta(Galeria galeria, Usuario usuario) {
@@ -70,6 +75,13 @@ public class Controller {
 		acaba la subasta y apenas acabe se va a ver el precio mayor y el usuario y se añade la pieza de la 
 		subasta al usuario. 
 		*/
+		if( ((Comprador)usuario).getAdmitido() || ((Artista)usuario).getAdmitido() ) {
+			galeria.participarSubasta();
+		}else {
+			Administrador admin = (Administrador)usuario;
+			admin.aniadirPeticionSubasta(usuario);
+			System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al admistrador.");
+		}
 	}
 	
 	public void comprarPieza(Galeria galeria, Usuario usuario) {

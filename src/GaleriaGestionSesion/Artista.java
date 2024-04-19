@@ -28,6 +28,15 @@ public class Artista extends Usuario {
 	public ArrayList<Pieza> getListaPiezas() {
 		return listaPiezas;
 	}
+	
+	public boolean getAdmitido() {
+		return admitido;
+	}
+	
+	public void definirMaximoCompras( int maximo ) {
+		this.maxCompras = maximo;
+		
+	}
 
 	public Artista(String usuario, String contrasenia) {
 		super(usuario, contrasenia);
@@ -37,5 +46,6 @@ public class Artista extends Usuario {
 	public void subirPieza(String nTitulo, int nAnioCreacion, int nPrecio, int nSubasta) {
 		
 	}
+	
 
 }

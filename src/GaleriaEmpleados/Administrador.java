@@ -11,6 +11,7 @@ public class Administrador extends Usuario {
 	
 	private String IDENTIFICADOR="ADMINISTRADOR";
 	private ArrayList<Pieza> piezasPorAnadir;
+	private ArrayList<Usuario> peticionesSubasta;
 	
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;
@@ -19,6 +20,14 @@ public class Administrador extends Usuario {
 	public void SolicitudAnadirPieza(Pieza pieza) {
 		piezasPorAnadir.add(pieza);
 		
+	}
+	
+	public ArrayList<Usuario> getPeticionesSubasta(){
+		return peticionesSubasta;
+	}
+	
+	public void aniadirPeticionSubasta(Usuario user) {
+		peticionesSubasta.add(user);
 	}
 
 	public Administrador(String usuario, String contraseña) {
