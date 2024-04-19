@@ -211,7 +211,7 @@ public class Vista {
 			scanner.nextLine();
 			
 			if (1==input) {
-				controler.revisarPago(null);
+				controler.revisarPago(galeria, usuario);
 			}else if (2==input) {
 				interfaz(galeria);
 			}else {
