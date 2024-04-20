@@ -58,6 +58,11 @@ public abstract class Usuario {
 		this.cartera = cantidad;
 	}
 	
+	public void gastado(int pago) {
+		this.cartera=this.cartera-pago;
+		
+	}
+	
 	public abstract String getIDENTIFICADOR();
 	
 }

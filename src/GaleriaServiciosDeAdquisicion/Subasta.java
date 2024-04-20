@@ -1,6 +1,7 @@
 package GaleriaServiciosDeAdquisicion;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
@@ -12,6 +13,7 @@ public class Subasta {
 	private Pieza pieza;
 	private boolean subastaActiva;
 	private LocalDate fechaFinal;
+	private ArrayList<Object[]> registroSubasta;
 	
 	
 	public Subasta(Pieza pieza, LocalDate fechaFinal) {
@@ -26,6 +28,9 @@ public class Subasta {
 
 	public LocalDate getFechaFinal() {
 		return fechaFinal;
+	}
+	public void anadirRegistroSubasta(Object[] precio) {
+		registroSubasta.add(precio);
 	}
 
 	public void ofertar(int monto){

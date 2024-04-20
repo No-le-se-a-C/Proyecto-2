@@ -46,6 +46,18 @@ public class Inventario {
 	
 	}
 	
+	public Pieza buscarPieza(String titulo) {
+		Pieza piezaEncontrada= null;
+
+		for (Pieza pieza : piezas) {
+			//se verifica que pieza coincide con el titulo 
+			if(pieza.getTitulo().equalsIgnoreCase(titulo)) {
+				piezaEncontrada=pieza;
+			}
+		}
+		return piezaEncontrada;
+	}
+	
 	// Hace referencia a las piezas que ya se vendieron sale de infoPiezasAntiguas
 	public void buscarInfoPiezaAntigua(String nTitulo, Artista nAutor) {
 		

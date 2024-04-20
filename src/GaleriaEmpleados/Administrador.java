@@ -7,6 +7,7 @@ import java.util.Scanner;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import GaleriaPieza.Pieza;
+import GaleriaServiciosDeAdquisicion.Compra;
 
 public class Administrador extends Usuario {
 	
@@ -15,7 +16,7 @@ public class Administrador extends Usuario {
 	private ArrayList<Usuario> peticionesSubasta;
 	private HashMap<Usuario, Integer> pedidosCupoCompra;
 	
-	private ArrayList<Usuario> ventasAVerificar;
+	private ArrayList<Compra> ventasAVerificar;
 	
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;
@@ -29,8 +30,8 @@ public class Administrador extends Usuario {
 	public ArrayList<Usuario> getPeticionesSubasta(){
 		return peticionesSubasta;
 	}
-	public void aniadirVentasAVerificar(Usuario user) {
-		ventasAVerificar.add(user);
+	public void aniadirVentasAVerificar(Compra compra) {
+		ventasAVerificar.add(compra);
 	}
 	
 	public void aniadirPeticionSubasta(Usuario user) {

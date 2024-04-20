@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
+import GaleriaPieza.Pieza;
+import GaleriaServiciosDeAdquisicion.Compra;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Galeria {
@@ -83,6 +85,8 @@ public class Galeria {
 				scanner.nextLine();
 				if((int)subastaEncontrada.getPieza().getPrecio()[0]<oferta) {
 					subastaEncontrada.getPieza().nuevoPrecio(oferta, usuario);
+					Object[] precio=new Object[2];
+					subastaEncontrada.anadirRegistroSubasta(precio);
 					System.out.println("ahora eres la oferta mas alta");
 					System.out.println("si quieres saber si ganaste la oferta revisa tus adqusisiones al finalizar la subasta");
 					seguir=false;
@@ -144,8 +148,60 @@ public class Galeria {
 		return mapaUsuariosEmpleados;
 	}
 
-	public void comprarPieza() {
+	public void comprarPieza(Galeria galeria , Usuario usuario) {
+		Compra compra=null;
+		Pieza piezaEncontrada= null;
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("/////////////////////////////////////////");
+		System.out.println("Bienvenido al sistema de Compras!!");
+		System.out.println("");
+		boolean seguir=true;
+		while (seguir) {
+			System.out.println("1. buscar pieza");
+			System.out.println("2. salir ");
+			int input=scanner.nextInt();
+			scanner.nextLine();
+			if(input==1) {
+				System.out.println("Ingrese el titulo de la pieza");
+				String titulo=scanner.nextLine();
+				piezaEncontrada=inventario.buscarPieza(titulo);
+				
+			}else if(input==2) {
+				seguir=false;
+			}else {
+				System.out.println("Valor incorrecto");
+			}
+		}
 		
+		if (piezaEncontrada!=null) {
+			boolean seguir1=true;
+			int precio=(int)piezaEncontrada.getPrecio()[0];
+			while(seguir1) {
+				System.out.println("/////////////////////////////////////");
+				System.out.println("el precio de esta pieza es de: "+precio);
+				System.out.println("");
+				System.out.println("Desea comprarla");
+				System.out.println("1. Si");
+				System.out.println("2. No");
+				int input3=scanner.nextInt();
+				scanner.nextLine();
+				if(input3==1) {
+					if(precio>usuario.getCartera()) {
+						System.out.println("No cuenta con suficientes recursos en su cartera");
+					}else {
+						usuario.gastado(precio);
+						compra=new Compra(piezaEncontrada, precio, usuario);
+						
+						seguir1=false;
+					}
+				}else if(input3==2) {
+					seguir1=false;
+					
+				}
+			}
+		}else {
+			System.out.println("Pieza no encontrada");
+		}
 	}
 	
 	public void mirarMiPieza() {
