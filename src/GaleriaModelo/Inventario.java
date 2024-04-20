@@ -11,6 +11,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Escultura;
 import GaleriaPieza.Fotografia;
 import GaleriaPieza.Libro;
+import GaleriaPieza.ObjectMapper;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
 import GaleriaPieza.Video;
@@ -258,6 +259,16 @@ public class Inventario {
 		admin.SolicitudAnadirPieza(pieza);
 		System.out.println("La pieza fue diligenciada y se mando la solicitud para añadirla");
 		System.out.println("si quiere revisar si fue añadida valla a la funcion 'mirar mi pieza' ");
+		
+		
+		
+		// Guardamos las piezas en archivos Json
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		  
+		String jsonPieza = objectMapper.writeValueAsString(pieza);
+		
+	
 	}
 	
 	public void eliminarPieza(String nTitulo, Artista autor) {
