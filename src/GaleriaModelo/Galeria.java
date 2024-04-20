@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Pieza;
 import GaleriaServiciosDeAdquisicion.Compra;
@@ -165,7 +166,7 @@ public class Galeria {
 				System.out.println("Ingrese el titulo de la pieza");
 				String titulo=scanner.nextLine();
 				piezaEncontrada=inventario.buscarPieza(titulo);
-				
+				seguir=false;
 			}else if(input==2) {
 				seguir=false;
 			}else {
@@ -191,7 +192,9 @@ public class Galeria {
 					}else {
 						usuario.gastado(precio);
 						compra=new Compra(piezaEncontrada, precio, usuario);
-						
+						Administrador admin=(Administrador) galeria.getMapaUsuariosEmpleados().get("Administrador");
+						admin.aniadirVentasAVerificar(compra);
+						System.out.println("La compra fue mandada a verificar, a mas tardar 1 dia revise si fue aprobado");
 						seguir1=false;
 					}
 				}else if(input3==2) {

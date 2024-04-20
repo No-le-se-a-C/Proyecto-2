@@ -101,7 +101,7 @@ public class Controller {
 	}
 	
 	public void comprarPieza(Galeria galeria, Usuario usuario) {
-		
+		galeria.comprarPieza(galeria, usuario);
 	}
 	
 	public void verPiezasDisponibles(Galeria galeria, Usuario usuario) {

@@ -17,6 +17,7 @@ public class Administrador extends Usuario {
 	private HashMap<Usuario, Integer> pedidosCupoCompra;
 	
 	private ArrayList<Compra> ventasAVerificar;
+	private ArrayList<Usuario> ventasAVerificarUsuario;
 	
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;
@@ -33,6 +34,9 @@ public class Administrador extends Usuario {
 	public void aniadirVentasAVerificar(Compra compra) {
 		ventasAVerificar.add(compra);
 	}
+	public void aniadirVentasAVerificar(Usuario usuario) {
+		ventasAVerificarUsuario.add(usuario);
+	}
 	
 	public void aniadirPeticionSubasta(Usuario user) {
 		peticionesSubasta.add(user);
@@ -46,6 +50,12 @@ public class Administrador extends Usuario {
 	public Administrador(String usuario, String contraseña) {
 		super(usuario, contraseña);
 		piezasPorAnadir= new ArrayList<Pieza>();
+		
+		this.peticionesSubasta=new ArrayList<Usuario>();
+		pedidosCupoCompra= new HashMap<Usuario, Integer>() ;
+		
+		ventasAVerificar= new ArrayList<Compra>();
+		ventasAVerificarUsuario= new ArrayList<Usuario>();
 	}
 	
 	public void verificarVenta() {
