@@ -94,7 +94,7 @@ public class Administrador extends Usuario {
 							
 							if (input3==1) {
 								piezasPorAnadir.remove(0);
-								galeria.getInventario().anadirPiezaVerificada(pieza);
+								galeria.getInventario().anadirPiezaVerificada(pieza, galeria);
 								System.out.println("La pieza acaba de ser agregada y la solicitud completa");
 								System.out.println("Buen trabajo!!!");
 							}else if(input3==2) {

@@ -1,5 +1,6 @@
 package GaleriaModelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ import GaleriaPieza.Libro;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
 import GaleriaPieza.Video;
+import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Inventario {
 	
@@ -249,8 +251,35 @@ public class Inventario {
 	public void eliminarPieza(String nTitulo, Artista autor) {
 		
 	}
-	public void anadirPiezaVerificada(Pieza pieza) {
+	public void anadirPiezaVerificada(Pieza pieza, Galeria galeria) {
+		Scanner scanner= new Scanner(System.in);
 		piezas.add(pieza);
+		LocalDate fechaFin=null;
+		if (pieza.isSubasta()) {
+			System.out.println("/////////////////////////////");
+			System.out.println("Ya que la pieza debe ser dada en subasta que fecha quiere que acabe esta");
+			System.out.println("");
+			boolean seguir=true;
+			while (seguir) {
+				System.out.println("----mes(1>=x<=12):");
+				int mes=scanner.nextInt();
+				scanner.nextLine();
+				System.out.println("----dia(0>x<32):");
+				int dia=scanner.nextInt();
+				scanner.nextLine();
+				
+				if(13>mes && mes>0 && 0<dia && dia<32) {
+					seguir=false;
+					fechaFin= LocalDate.of(2024, mes, dia);
+				}else {
+					System.out.println();
+				}
+
+			}
+			
+			Subasta subasta= new Subasta(pieza, fechaFin);
+			galeria.aniadirSubasta(subasta);
+
+		}
 	}
-	
 }

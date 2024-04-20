@@ -42,6 +42,7 @@ public class Controller {
 		String metodo = scanner.nextLine();
 		System.out.println("-Ingrese cuanto desea añadir a su cartera: ");
 		int cantidad = scanner.nextInt();
+		scanner.nextLine();
 		int maximoCompra = 0;
 		if (cantidad >= 1 && cantidad < 100) {
 			maximoCompra = 3;
@@ -59,7 +60,6 @@ public class Controller {
 		}else if(usuario.getIDENTIFICADOR().contentEquals("ARTISTA")) {
 			( (Artista)usuario ).definirMaximoCompras(maximoCompra);;
 		}	
-		scanner.close();
 	}
 	
 	public void participarSubasta(Galeria galeria, Usuario usuario) {
@@ -77,11 +77,26 @@ public class Controller {
 		acaba la subasta y apenas acabe se va a ver el precio mayor y el usuario y se añade la pieza de la 
 		subasta al usuario. 
 		*/
-		if( ((Comprador)usuario).getAdmitido() || ((Artista)usuario).getAdmitido() ) {
-			galeria.participarSubasta();
-		}else {
-			((Administrador)usuario).aniadirPeticionSubasta(usuario);
-			System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
+		try {
+			if( !((Comprador)usuario).getAdmitido()) {
+				galeria.participarSubasta(galeria, usuario);
+			}else {
+				//se busca el admin de la galeria
+				Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+				
+				admin.aniadirPeticionSubasta(usuario);
+				System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
+			}
+		}catch(Exception e){
+			if(!((Artista)usuario).getAdmitido() ) {
+				galeria.participarSubasta(galeria, usuario);
+			}else {
+				//se busca el admin de la galeria
+				Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+				
+				admin.aniadirPeticionSubasta(usuario);
+				System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
+			}
 		}
 	}
 	

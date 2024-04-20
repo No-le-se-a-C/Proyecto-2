@@ -3,6 +3,7 @@ package GaleriaPieza;
 import java.util.TreeSet;
 
 import GaleriaGestionSesion.Artista;
+import GaleriaGestionSesion.Usuario;
 
 public abstract class Pieza {
 
@@ -82,8 +83,9 @@ public abstract class Pieza {
 	}
 	
 	
-	public void nuevoPrecio(int monto) {
-		
+	public void nuevoPrecio(int monto, Usuario usuario) {
+		 precio[0]=monto;
+		 precio[1]=usuario;
 	}
 	
 	public void getCaracteristicas() {

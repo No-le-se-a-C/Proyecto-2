@@ -1,21 +1,33 @@
 package GaleriaServiciosDeAdquisicion;
 
+import java.time.LocalDate;
+import java.util.Scanner;
+
+import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
 import GaleriaPieza.Pieza;
 
 public class Subasta {
 	
 	private Pieza pieza;
 	private boolean subastaActiva;
+	private LocalDate fechaFinal;
 	
 	
-	public Subasta(Pieza pieza) {
-		
+	public Subasta(Pieza pieza, LocalDate fechaFinal) {
+		this.pieza=pieza;
+		this.fechaFinal=fechaFinal;
 	}
-	
-	public void empezarSubasta() {
 		
-	}
 	
+	public Pieza getPieza() {
+		return pieza;
+	}
+
+	public LocalDate getFechaFinal() {
+		return fechaFinal;
+	}
+
 	public void ofertar(int monto){
 		
 	}

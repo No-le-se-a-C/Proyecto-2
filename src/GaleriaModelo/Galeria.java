@@ -1,5 +1,6 @@
 package GaleriaModelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,8 +34,64 @@ public class Galeria {
 	}
 
 
-	public void participarSubasta() {
+	public void participarSubasta(Galeria galeria , Usuario usuario) {
+		Subasta subastaEncontrada=null;
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("/////////////////////////////////////////");
+		System.out.println("Bienvenido al sistema de subastas!!");
+		System.out.println("");
+		boolean seguir=true;
+		while (seguir) {
+			System.out.println("1. buscar Subasta");
+			System.out.println("2. salir ");
+			int input=scanner.nextInt();
+			scanner.nextLine();
+			
+			if(input==1) {
+				System.out.println("Ingrese el titulo de la pieza");
+				String titulo=scanner.nextLine();
+				
+				for (Subasta subasta : galeria.getSubastasProgramadas()) {
+					// se busca la subasta por el titulo de la pieza 
+					if(subasta.getPieza().getTitulo().equals(titulo)) {
+						subastaEncontrada=subasta;
+					}
+				}
+				//no se encontro la pieza 
+				if (subastaEncontrada==null) {
+					System.out.println("No se ha encontrador la pieza");
+				}else if(subastaEncontrada.getFechaFinal().isBefore(LocalDate.now())){
+					System.out.println("Esta subasta de la pieza "+ titulo + "  ya finalizo");
+					seguir=false;
+				}else {
+					seguir=false;
+				}
+			}else if(input==2) {
+				seguir=false;
+			}else {
+				System.out.println("valor incorrecto");
+			}
+		}
 		
+		if (subastaEncontrada!=null ) {
+			boolean seguir2=true;
+			while (seguir2) {
+				System.out.println("///////////////////////////////////////////////////////////");
+				System.out.println("el precio de la pieza esta en: "+ subastaEncontrada.getPieza().getPrecio()[0]);
+				System.out.println("Ingrese el su oferta:");
+				int oferta= scanner.nextInt();
+				scanner.nextLine();
+				if((int)subastaEncontrada.getPieza().getPrecio()[0]<oferta) {
+					subastaEncontrada.getPieza().nuevoPrecio(oferta, usuario);
+					System.out.println("ahora eres la oferta mas alta");
+					System.out.println("si quieres saber si ganaste la oferta revisa tus adqusisiones al finalizar la subasta");
+					seguir=false;
+				}else {
+					System.out.println("el monto es incorrecto");
+				}
+			}
+			
+		}
 	}
 	public void verPiezasDisponibles(Galeria galeria, Usuario usuario) {
 		/*esta pregunta si quiere ver piezas de subasta o de compra 
@@ -108,7 +165,7 @@ public class Galeria {
 	}
 	
 	public void aniadirSubasta(Subasta subasta) {
-		
+		SubastasProgramadas.add(subasta);
 	}
 	
 	
