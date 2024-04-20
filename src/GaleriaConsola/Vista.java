@@ -238,7 +238,7 @@ public class Vista {
 			scanner.nextLine();
 			
 			if (1==input) {
-				controler.llevarRegistroSubasta();
+				controler.llevarRegistroSubasta(galeria, usuario);
 			}else if (2==input) {
 				interfaz(galeria);
 			}else {

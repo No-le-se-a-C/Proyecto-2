@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import GaleriaEmpleados.Administrador;
 import GaleriaEmpleados.Cajero;
+import GaleriaEmpleados.Operador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Comprador;
 import GaleriaGestionSesion.Sesion;
@@ -87,7 +88,7 @@ public class Controller {
 				admin.aniadirPeticionSubasta(usuario);
 				System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
 			}
-		}catch(Exception e){
+		}catch(ClassCastException e){
 			if(!((Artista)usuario).getAdmitido() ) {
 				galeria.participarSubasta(galeria, usuario);
 			}else {
@@ -243,11 +244,13 @@ public class Controller {
 		}
 	}
 	
-	public void llevarRegistroSubasta() {
-		/*se le muestra al operador la lista de subastas que acabaron y se le pregunta si quiere revisarlas
+	public void llevarRegistroSubasta(Galeria galeria, Usuario usuario) {
+		/*se le muestra al operador la lista de subastas  y se le pregunta si quiere revisarlas
 		 * , si dice que si se entra a una subasta, y se imprime primero el nombre de la pieza de l subasta y siguiente 
 		 * se imprimen los elementos de la lista registroSubasta 
 		 * */
+		Operador ope=(Operador) usuario;
+		ope.llevarResgistroSubasta(galeria, usuario);
 	}
 	
 	public void validarPiezasPorAniadir(Galeria galeria, Usuario usuario) {

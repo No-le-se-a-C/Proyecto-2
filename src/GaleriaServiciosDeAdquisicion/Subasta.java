@@ -19,6 +19,7 @@ public class Subasta {
 	public Subasta(Pieza pieza, LocalDate fechaFinal) {
 		this.pieza=pieza;
 		this.fechaFinal=fechaFinal;
+		this.registroSubasta=new ArrayList<Object[]>();
 	}
 		
 	
@@ -33,12 +34,16 @@ public class Subasta {
 		registroSubasta.add(precio);
 	}
 
-	public void ofertar(int monto){
-		
+
+	public boolean isSubastaActiva() {
+		return subastaActiva;
 	}
-	
-	public void finalizarSubasta() {
-		
+
+
+	public ArrayList<Object[]> getRegistroSubasta() {
+		return registroSubasta;
 	}
+
+
 
 }

@@ -81,16 +81,18 @@ public class Galeria {
 			while (seguir2) {
 				System.out.println("///////////////////////////////////////////////////////////");
 				System.out.println("el precio de la pieza esta en: "+ subastaEncontrada.getPieza().getPrecio()[0]);
-				System.out.println("Ingrese el su oferta:");
+				System.out.println("Ingrese su oferta:");
 				int oferta= scanner.nextInt();
 				scanner.nextLine();
 				if((int)subastaEncontrada.getPieza().getPrecio()[0]<oferta) {
 					subastaEncontrada.getPieza().nuevoPrecio(oferta, usuario);
 					Object[] precio=new Object[2];
+					precio[0]=oferta;
+					precio[1]=usuario;
 					subastaEncontrada.anadirRegistroSubasta(precio);
 					System.out.println("ahora eres la oferta mas alta");
 					System.out.println("si quieres saber si ganaste la oferta revisa tus adqusisiones al finalizar la subasta");
-					seguir=false;
+					seguir2=false;
 				}else {
 					System.out.println("el monto es incorrecto");
 				}
