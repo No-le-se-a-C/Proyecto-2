@@ -2,11 +2,12 @@ package GaleriaConsola;
 
 import GaleriaModelo.Galeria;
 import GaleriaModelo.Inventario;
+
 import GaleriaEmpleados.Administrador;
 import GaleriaEmpleados.Cajero;
 import GaleriaEmpleados.Operador;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import GaleriaGestionSesion.Usuario;
+import com.google.gson.Gson;
 
 public class Main {
 	
@@ -30,13 +31,11 @@ public class Main {
 		
 		
 		// Guardamos los empleados en archivos Json
-		ObjectMapper objectMapper = new ObjectMapper();
-
-  
-        String jsonAdmin = objectMapper.writeValueAsString(administrador);
-        String jsonCajero = objectMapper.writeValueAsString(cajero);
-        String jsonOperador = objectMapper.writeValueAsString(operador);
-        
+		Gson gson = new Gson();
+	    String jsonAdministrador = gson.toJson(administrador);
+	    String jsonCajero = gson.toJson(cajero);
+	    String jsonOperador = gson.toJson(operador);
+       
 		
 		Vista vista= new Vista();
 		vista.interfaz(galeria);

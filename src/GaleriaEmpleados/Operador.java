@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
-import GaleriaPieza.ObjectMapper;
-import com.fasterxml.jackson.databind;
+import com.google.gson.Gson;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Operador extends Usuario {
@@ -62,10 +61,8 @@ public class Operador extends Usuario {
 		
 		
 		// Guardamos el registro de subastas en archivos Json
-		ObjectMapper objectMapper = new ObjectMapper();
-
-		  
-		String jsonSubasta = objectMapper.writeValueAsString(subastas);
+		Gson gson = new Gson();
+	    String jsonAdministrador = gson.toJson(subastas);
 		
 	
 	}

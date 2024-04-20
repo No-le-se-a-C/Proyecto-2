@@ -4,14 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+import com.google.gson.Gson;
 import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Escultura;
 import GaleriaPieza.Fotografia;
 import GaleriaPieza.Libro;
-import GaleriaPieza.ObjectMapper;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
 import GaleriaPieza.Video;
@@ -263,10 +262,8 @@ public class Inventario {
 		
 		
 		// Guardamos las piezas en archivos Json
-		ObjectMapper objectMapper = new ObjectMapper();
-
-		  
-		String jsonPieza = objectMapper.writeValueAsString(pieza);
+		Gson gson = new Gson();
+	    String jsonAdministrador = gson.toJson(pieza);
 		
 	
 	}
