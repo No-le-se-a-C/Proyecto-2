@@ -8,6 +8,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import GaleriaPieza.Pieza;
 import GaleriaServiciosDeAdquisicion.Compra;
+import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Administrador extends Usuario {
 	
@@ -60,6 +61,11 @@ public class Administrador extends Usuario {
 	
 	public void verificarVenta() {
 		
+		if(ventasAVerificar.isEmpty()) {
+			
+			System.out.println("Venta Exitosa");
+			
+		}
 	}
 	
 	public void verificarSeriedadDeOferta() {
@@ -134,8 +140,18 @@ public class Administrador extends Usuario {
 		
 	}
 	
-	public Boolean verificarUsuarioSubasta(Pieza usuario) {
-		return null;
+	public Boolean verificarUsuarioSubasta(Usuario usuario , Galeria galeria) {
+		
+		if (true){
+			
+			usuario.getUsuario();
+		}
+			
+			{
+			
+		}
+		
+		return false;
 		
 	}
 
