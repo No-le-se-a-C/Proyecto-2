@@ -5,8 +5,8 @@ import GaleriaModelo.Inventario;
 import GaleriaEmpleados.Administrador;
 import GaleriaEmpleados.Cajero;
 import GaleriaEmpleados.Operador;
-import GaleriaGestionSesion.Usuario;;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import GaleriaGestionSesion.Usuario;
 
 public class Main {
 	
@@ -29,6 +29,14 @@ public class Main {
 		galeria.aniadirUsuarioEmpleado(operador);
 		
 		
+		// Guardamos los empleados en archivos Json
+		ObjectMapper objectMapper = new ObjectMapper();
+
+  
+        String jsonAdmin = objectMapper.writeValueAsString(administrador);
+        String jsonCajero = objectMapper.writeValueAsString(cajero);
+        String jsonOperador = objectMapper.writeValueAsString(operador);
+        
 		
 		Vista vista= new Vista();
 		vista.interfaz(galeria);

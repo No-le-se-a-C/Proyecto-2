@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
+import GaleriaPieza.ObjectMapper;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Operador extends Usuario {
@@ -58,6 +59,14 @@ public class Operador extends Usuario {
 		
 		
 		
+		
+		// Guardamos el registro de subastas en archivos Json
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		  
+		String jsonSubasta = objectMapper.writeValueAsString(subastas);
+		
+	
 	}
 
 }
