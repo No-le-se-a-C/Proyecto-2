@@ -169,7 +169,8 @@ public class Controller {
 		System.out.println("");
 		System.out.println("-Ingrese la cantidad que desea aniadir:");
 		int cantidad = scanner.nextInt();
-		((Administrador)usuario).aniadirPedidoCupoCompra(usuario, cantidad);
+		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+		admin.aniadirPedidoCupoCompra(usuario, cantidad);
 		scanner.close();
 	}
 	
@@ -194,13 +195,15 @@ public class Controller {
 		 * este precio sera en el que la subasta empezo
 		 * */
 		Scanner scanner=new Scanner(System.in);
+		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+		Cajero cajero = (Cajero)galeria.getMapaUsuariosEmpleados().get("Cajero");
 		System.out.println("///////////////////////////////////////");
 		System.out.println("");
-		System.out.println("-En este momento usted tiene "+ Integer.toString( ((Cajero)usuario).getPagosPendientes().size())+ " verificaciones pendientes.");
+		System.out.println("-En este momento usted tiene "+ Integer.toString( cajero.getPagosPendientes().size())+ " verificaciones pendientes.");
 		System.out.println("Desea revisarlas(SI/NO): ");
 		String respuesta = scanner.nextLine();
 		if (respuesta.toUpperCase().contentEquals("SI")) {
-			((Administrador)usuario).verificarSeriedadDeOferta();	
+			admin.verificarSeriedadDeOferta();	
 		}
 		scanner.close();
 	}
@@ -222,16 +225,18 @@ public class Controller {
 		 * preguntando si quiere admitir), si admite se manda la lista a la lista de ventasAVerificar del admin
 		 * */
 		Scanner scanner=new Scanner(System.in);
+		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+		Cajero cajero = (Cajero)galeria.getMapaUsuariosEmpleados().get("Cajero");
 		System.out.println("///////////////////////////////////////");
 		System.out.println("");
-		System.out.println("-En este momento usted tiene "+ Integer.toString( ((Cajero)usuario).getPagosPendientes().size())+ " verificaciones pendientes.");
+		System.out.println("-En este momento usted tiene "+ Integer.toString( cajero.getPagosPendientes().size())+ " verificaciones pendientes.");
 		System.out.println("Desea revisarlas(SI/NO): ");
 		String respuesta = scanner.nextLine();
 		if (respuesta.toUpperCase().contentEquals("SI")) {
-			for (Usuario userPago: ((Cajero)usuario).getPagosPendientes()) {
-				boolean valor = ((Cajero)usuario).revisarPago(userPago);
+			for (Usuario userPago: cajero.getPagosPendientes()) {
+				boolean valor = cajero.revisarPago(userPago);
 				if( valor ) {
-					((Administrador)usuario).aniadirVentasAVerificar(userPago);
+					admin.aniadirVentasAVerificar(userPago);
 				}
 		scanner.close();		
 			}
