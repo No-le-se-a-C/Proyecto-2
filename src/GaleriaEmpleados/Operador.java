@@ -7,6 +7,7 @@ import java.util.Scanner;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import GaleriaPieza.ObjectMapper;
+import com.fasterxml.jackson.databind;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Operador extends Usuario {
