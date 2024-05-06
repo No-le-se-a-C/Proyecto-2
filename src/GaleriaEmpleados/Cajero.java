@@ -23,8 +23,10 @@ public class Cajero extends Usuario{
 	}	
 	
 	public boolean revisarPago(Usuario userPago) {
+		//Retorna un valor booleano si una solicitud de pago de un usuario de entrada fue admitida
 		Scanner scanner=new Scanner(System.in);
 		
+		//Muestra informacion del comprador al cajero
 		System.out.println("Nombre de usuario: "+userPago.getUsuario());
 		System.out.println("Lista de adquisiciones: ");
 		for (Pieza adquisicion: userPago.getListaAdquisiciones()) {

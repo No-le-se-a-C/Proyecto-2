@@ -44,6 +44,7 @@ public class Controller {
 		System.out.println("-Ingrese cuanto desea añadir a su cartera: ");
 		int cantidad = scanner.nextInt();
 		scanner.nextLine();
+		//Define el maximo de compras segun la cartera
 		int maximoCompra = 0;
 		if (cantidad >= 1 && cantidad < 100) {
 			maximoCompra = 3;
@@ -55,6 +56,8 @@ public class Controller {
 			
 		usuario.definirMetodoPago(metodo);
 		usuario.definirCartera(cantidad);
+		
+		//Asigna el maximo de compras al usuario
 		if(usuario.getIDENTIFICADOR().contentEquals("COMPRADOR")){
 			( (Comprador)usuario ).definirMaximoCompras(maximoCompra);
 			
@@ -170,6 +173,8 @@ public class Controller {
 		System.out.println("");
 		System.out.println("-Ingrese la cantidad que desea aniadir:");
 		int cantidad = scanner.nextInt();
+		
+		//Se añade la solicitud de compra al admin
 		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
 		admin.aniadirPedidoCupoCompra(usuario, cantidad);
 		scanner.close();
@@ -233,7 +238,9 @@ public class Controller {
 		System.out.println("-En este momento usted tiene "+ Integer.toString( cajero.getPagosPendientes().size())+ " verificaciones pendientes.");
 		System.out.println("Desea revisarlas(SI/NO): ");
 		String respuesta = scanner.nextLine();
+		
 		if (respuesta.toUpperCase().contentEquals("SI")) {
+		//Se recorren todos los pagos pendientes	
 			for (Usuario userPago: cajero.getPagosPendientes()) {
 				boolean valor = cajero.revisarPago(userPago);
 				if( valor ) {
