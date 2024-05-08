@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
@@ -262,8 +262,8 @@ public class Inventario {
 		
 		
 		// Guardamos las piezas en archivos Json
-		Gson gson = new Gson();
-	    String jsonAdministrador = gson.toJson(pieza);
+		//Gson gson = new Gson();
+	    //String jsonAdministrador = gson.toJson(pieza);
 		
 	
 	}

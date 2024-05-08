@@ -7,7 +7,7 @@ import GaleriaEmpleados.Administrador;
 import GaleriaEmpleados.Cajero;
 import GaleriaEmpleados.Operador;
 import GaleriaGestionSesion.Usuario;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 public class Main {
 	
@@ -31,10 +31,10 @@ public class Main {
 		
 		
 		// Guardamos los empleados en archivos Json
-		Gson gson = new Gson();
-	    String jsonAdministrador = gson.toJson(administrador);
-	    String jsonCajero = gson.toJson(cajero);
-	    String jsonOperador = gson.toJson(operador);
+	//	Gson gson = new Gson();
+	  //  String jsonAdministrador = gson.toJson(administrador);
+	    //String jsonCajero = gson.toJson(cajero);
+	   // String jsonOperador = gson.toJson(operador);
        
 		
 		Vista vista= new Vista();

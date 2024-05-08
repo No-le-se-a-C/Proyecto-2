@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Operador extends Usuario {
@@ -61,8 +61,8 @@ public class Operador extends Usuario {
 		
 		
 		// Guardamos el registro de subastas en archivos Json
-		Gson gson = new Gson();
-	    String jsonAdministrador = gson.toJson(subastas);
+		//Gson gson = new Gson();
+	    //String jsonAdministrador = gson.toJson(subastas);
 		
 	
 	}
