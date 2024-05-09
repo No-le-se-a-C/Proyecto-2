@@ -84,7 +84,8 @@ public class Vista {
 			System.out.println("3.Comprar una pieza");
 			System.out.println("4.Participar en una subasta");
 			System.out.println("5.Pedir mas cupo de compra");
-			System.out.println("6.Salir al menu pricipal");
+			System.out.println("6.Mirar historia de un artista");
+			System.out.println("7.Salir al menu pricipal");
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
@@ -98,7 +99,9 @@ public class Vista {
 				controler.participarSubasta(galeria, usuario);
 			}else if (5==input) {
 				controler.pedirCupoDeCompras(galeria, usuario);
-			}else if (6==input) {
+			}else if(6==input) {
+				controler.mirarHistoriaArtista(galeria, usuario);
+			}else if (7==input) {
 				interfaz(galeria);
 			}else {
 				System.out.println("Valor incorrecto");
@@ -127,7 +130,8 @@ public class Vista {
 			System.out.println("6.Mirar mi pieza ");
 			System.out.println("7.Mirar info de pieza antigua");
 			System.out.println("8.Añadir pieza a la galeria");
-			System.out.println("9.Salir al menu pricipal");
+			System.out.println("9.Mirar historia de un artista");
+			System.out.println("10.Salir al menu pricipal");
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
@@ -141,7 +145,7 @@ public class Vista {
 				controler.participarSubasta(galeria, usuario);
 			}else if (5==input) {
 				controler.pedirCupoDeCompras(galeria, usuario);
-			}else if (9==input) {
+			}else if (10==input) {
 				interfaz(galeria);
 			}else if(6==input) {
 				controler.mirarMiPieza(galeria, usuario);
@@ -149,6 +153,8 @@ public class Vista {
 				controler.mirarInfoDePiezaAntigua(galeria, usuario);
 			}else if(8==input) {
 				controler.aniadirPieza(usuario, galeria);
+			}else if(9==input){
+				controler.mirarHistoriaArtista(galeria, usuario);
 			}
 			else {
 				System.out.println("Valor incorrecto");
@@ -172,7 +178,8 @@ public class Vista {
 			System.out.println("2.Verificar seriedad de las ofertas");
 			System.out.println("3.Validar piezas por aniadir");
 			System.out.println("4.Verificar usuario para las subastas");
-			System.out.println("5.Salir al menu pricipal");
+			System.out.println("5.Mirar historia de un artista");
+			System.out.println("6.Salir al menu pricipal");
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
@@ -184,7 +191,9 @@ public class Vista {
 				controler.validarPiezasPorAniadir(galeria, usuario);
 			}else if (4==input) {
 				controler.verificarUsuarioSubasta(null);
-			}else if (5==input) {
+			}else if(5==input) {
+				controler.mirarHistoriaArtista(galeria, usuario);
+			}else if (6==input) {
 				interfaz(galeria);
 			}else {
 				System.out.println("Valor incorrecto");
@@ -205,14 +214,17 @@ public class Vista {
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Verificar los pagos");
-			System.out.println("2.Salir al menu pricipal");
+			System.out.println("2.Mirar historia de un artista");
+			System.out.println("3.Salir al menu pricipal");
 			
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
 			if (1==input) {
 				controler.revisarPago(galeria, usuario);
-			}else if (2==input) {
+			}else if(2==input){
+				controler.mirarHistoriaArtista(galeria, usuario);
+			}else if (3==input) {
 				interfaz(galeria);
 			}else {
 				System.out.println("Valor incorrecto");
@@ -233,13 +245,16 @@ public class Vista {
 			System.out.println("Que desea realizar");
 			System.out.println("");
 			System.out.println("1.Llevar registro de subastas");
-			System.out.println("2.Salir al menu pricipal");
+			System.out.println("2.Mirar historia de un artista");
+			System.out.println("3.Salir al menu pricipal");
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
 			if (1==input) {
 				controler.llevarRegistroSubasta(galeria, usuario);
-			}else if (2==input) {
+			}else if(2==input) { 
+				controler.mirarHistoriaArtista(galeria, usuario);
+			}else if (3==input) {
 				interfaz(galeria);
 			}else {
 				System.out.println("Valor incorrecto");

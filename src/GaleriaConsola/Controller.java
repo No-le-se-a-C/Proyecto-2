@@ -172,8 +172,8 @@ public class Controller {
 		System.out.println("///////////////////////////////////////");
 		System.out.println("");
 		System.out.println("-Ingrese la cantidad que desea aniadir:");
+	
 		int cantidad = scanner.nextInt();
-		
 		//Se añade la solicitud de compra al admin
 		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
 		admin.aniadirPedidoCupoCompra(usuario, cantidad);
@@ -188,6 +188,8 @@ public class Controller {
 		 * a la lista de piezas antiguas y se borra del la lista de piezas de la galeria. 
 		 * 
 		 * */
+		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+		admin.verificarVenta(galeria, usuario);
 	}
 	
 	public void verificarSeriedadDeOferta(Galeria galeria, Usuario usuario) {
@@ -269,6 +271,10 @@ public class Controller {
 		
 		Administrador admin= (Administrador) usuario;
 		admin.validarAniadirPieza(galeria);
+	}
+	
+	public void mirarHistoriaArtista(Galeria galeria, Usuario usuario) {
+		galeria.mirarHistoriaArtista(galeria, usuario);
 	}
 	
 

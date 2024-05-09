@@ -1,5 +1,6 @@
 package GaleriaGestionSesion;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import GaleriaPieza.Pieza;
@@ -41,10 +42,12 @@ public class Artista extends Usuario {
 	public Artista(String usuario, String contrasenia) {
 		super(usuario, contrasenia);
 		// TODO Auto-generated constructor stub
+		this.listaPiezas=new ArrayList<Pieza>();
+		this.compras=new ArrayList<Pieza>();
 	}
 
-	public void subirPieza(String nTitulo, int nAnioCreacion, int nPrecio, int nSubasta) {
-		
+	public void aniadirPieza(Pieza  pieza) {
+		listaPiezas.add(pieza);
 	}
 	
 

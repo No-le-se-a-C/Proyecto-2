@@ -1,9 +1,11 @@
 package GaleriaPieza;
 
+import java.time.LocalDate;
 import java.util.TreeSet;
 
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
+import GaleriaServiciosDeAdquisicion.Precio;
 
 public abstract class Pieza {
 
@@ -13,13 +15,24 @@ public abstract class Pieza {
 	private String anioCreacion;
 	private Artista autor; // Estan deacuerdo con que el autor sea de tipo Artista?
 	private boolean consignacion;
-	private Object[] precio;
+	private Precio precio;
 	private boolean subasta; // Si subasta es Falso es una pieza de precio fijo
-	private int estado; // no sé a que se refiere esta atributo
+	private boolean disponible; // no sé a que se refiere esta atributo
 	private boolean exhibido;
 	private int precioMinimo;
+	private LocalDate fechaDeVenta;
 	
 	
+	public LocalDate getFechaDeVenta() {
+		return fechaDeVenta;
+	}
+
+
+	public void setFechaDeVenta(LocalDate fechaDeVenta) {
+		this.fechaDeVenta = fechaDeVenta;
+	}
+
+
 	public String getLugarCreacion() {
 		return lugarCreacion;
 	}
@@ -40,7 +53,7 @@ public abstract class Pieza {
 	}
 
 
-	public Object[] getPrecio() {
+	public Precio getPrecio() {
 		return precio;
 	}
 
@@ -50,8 +63,8 @@ public abstract class Pieza {
 	}
 
 
-	public int getEstado() {
-		return estado;
+	public boolean getEstado() {
+		return disponible;
 	}
 
 
@@ -70,7 +83,7 @@ public abstract class Pieza {
 
 
 	public Pieza(String nTitulo, String nAnioCreacion, String nLugarCreacion, Artista nAutor, boolean nConsignacion, 
-			Object[] nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo) {
+			Precio nPrecio, boolean nSubasta, boolean exhibido, int nPrecioMinimo) {
 		titulo=nTitulo;
 		anioCreacion=nAnioCreacion;
 		lugarCreacion=nLugarCreacion;
@@ -84,8 +97,8 @@ public abstract class Pieza {
 	
 	
 	public void nuevoPrecio(int monto, Usuario usuario) {
-		 precio[0]=monto;
-		 precio[1]=usuario;
+		 precio.setPrecio(monto);
+		 precio.setUsuario(usuario);
 	}
 	
 	public void getCaracteristicas() {
@@ -98,7 +111,7 @@ public abstract class Pieza {
 		}else {
 			System.out.println("--Estado de consignacion: la Galeria ya se le acabo el periodo de tiempo");
 		}
-		System.out.println("--Precio actual: "+ precio[0]);
+		System.out.println("--Precio actual: "+ precio.getPrecio());
 		
 		
 		if(exhibido) {
@@ -117,7 +130,7 @@ public abstract class Pieza {
 		System.out.println("--Estado de consignacion: Se acabo devido a la venta de esta ");
 		
 		
-		System.out.println("--Precio final: "+ precio[0]);
+		System.out.println("--Precio final: "+ precio.getPrecio());
 		
 		
 		System.out.println("--la Pieza ya fue entregada al comprador");

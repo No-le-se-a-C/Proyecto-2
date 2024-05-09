@@ -1,5 +1,7 @@
 package GaleriaServiciosDeAdquisicion;
 
+import java.time.LocalDate;
+
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Pieza;
 
@@ -15,11 +17,24 @@ public class Compra {
 		this.valorPagado=valorPagado;
 		this.usuarioComprador=usuarioComprador;
 		
-	}
-	
-	public boolean comprar() {
-		return false;
 		
 	}
+
+
+	public Pieza getPieza() {
+		return pieza;
+	}
+
+
+	public int getValorPagado() {
+		return valorPagado;
+	}
+
+
+	public Usuario getUsuarioComprador() {
+		return usuarioComprador;
+	}
+	
+	
 
 }

@@ -16,6 +16,7 @@ public abstract class Usuario {
 	public Usuario(String usuario, String contrasenia) {
 		this.usuario=usuario;
 		this.contrasenia=contrasenia;
+		this.listaAdquisiciones=new ArrayList<Pieza>();
 	}
 	
 	
@@ -60,9 +61,13 @@ public abstract class Usuario {
 	
 	public void gastado(int pago) {
 		this.cartera=this.cartera-pago;
-		
+	}
+	
+	public void anadirAdquisicion(Pieza pieza ) {
+		listaAdquisiciones.add(pieza);
 	}
 	
 	public abstract String getIDENTIFICADOR();
+	
 	
 }

@@ -14,6 +14,7 @@ import GaleriaPieza.Libro;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
 import GaleriaPieza.Video;
+import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Inventario {
@@ -26,6 +27,15 @@ public class Inventario {
 		infoPiezasAntiguas= new ArrayList<Pieza>();
 	}
 	
+	
+	public void anadirPiezaInfoAntigua(Pieza pieza) {
+		infoPiezasAntiguas.add(pieza);
+	}
+	
+	public void eliminarpiezaVendida(Pieza pieza) {
+		piezas.remove(pieza);
+		
+	}
 	public void buscarPieza(String nTitulo, Artista nAutor) {
 		
 		Pieza piezaEncontrada= null;
@@ -92,7 +102,7 @@ public class Inventario {
 				//verificar que hay almenos 1 pieza de precio fijo 	
 				hayPiezas=true;
 				//imprimir titulo y autor
-				System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario()+ "---precio: "+ pieza.getPrecio()[0]);
+				System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario()+ "---precio: "+ pieza.getPrecio().getPrecio());
 				}
 			}
 		}
@@ -115,7 +125,7 @@ public class Inventario {
 					hayPiezas=true;
 					//imprimir titulo y autor
 					System.out.println("Titulo: "+pieza.getTitulo()+"---Autor: "+pieza.getAutor().getUsuario()
-							+"---precio actual: "+ pieza.getPrecio()[0] );
+							+"---precio actual: "+ pieza.getPrecio().getPrecio() );
 				}
 			}
 		}
@@ -153,7 +163,7 @@ public class Inventario {
 		
 		boolean seguir=true;
 		boolean subasta=false;
-		Object[] precio= new Object[2];
+		Precio precio= new Precio();
 		int precioMinimo=0;
 		
 		while(seguir) {
@@ -165,16 +175,16 @@ public class Inventario {
 				System.out.println("en cuanto quiere vender su pieza:");
 				int input2=scanner.nextInt();
 				scanner.nextLine();
-				precio[0]=input2;
-				precio[1]=null;
+				precio.setPrecio(input2);
+				precio.setUsuario(null);
 				seguir=false;
 			}else if(input==2) {
 				subasta=true;
 				System.out.println("en cuanto quiere que empiece el precio de su pieza:");
 				int input2=scanner.nextInt();
 				scanner.nextLine();
-				precio[0]=input2;
-				precio[1]=null;
+				precio.setPrecio(input2);
+				precio.setUsuario(null);
 				System.out.println("cual quiere que sea el valor minimo para que se entregue:");
 				precioMinimo=scanner.nextInt();
 				scanner.nextLine();
@@ -268,9 +278,7 @@ public class Inventario {
 	
 	}
 	
-	public void eliminarPieza(String nTitulo, Artista autor) {
-		
-	}
+
 	public void anadirPiezaVerificada(Pieza pieza, Galeria galeria) {
 		Scanner scanner= new Scanner(System.in);
 		piezas.add(pieza);

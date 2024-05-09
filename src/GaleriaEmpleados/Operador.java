@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
+import GaleriaServiciosDeAdquisicion.Precio;
 //import com.google.gson.Gson;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
@@ -39,12 +40,12 @@ public class Operador extends Usuario {
 				scanner.nextLine();
 				
 				if(input==1 && i <subastas.size()) {
-					ArrayList<Object[]> registro=subastas.get(i).getRegistroSubasta();
+					ArrayList<Precio> registro=subastas.get(i).getRegistroSubasta();
 					System.out.println("Subasta de "+ subastas.get(i).getPieza().getTitulo());
 					System.out.println("asi a trascurrido la subasta");
 					System.out.println("");
-					for (Object[] precio : registro) {
-						System.out.println("Oferta: "+precio[0]+"--Usuario: "+((Usuario) precio[1]).getUsuario());				
+					for (Precio precio : registro) {
+						System.out.println("Oferta: "+precio.getPrecio()+"--Usuario: "+((Usuario) precio.getUsuario()).getUsuario());				
 					}
 					i++;
 				}else if(input==2) {

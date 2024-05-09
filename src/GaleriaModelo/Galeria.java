@@ -1,15 +1,19 @@
 package GaleriaModelo;
 
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 import GaleriaEmpleados.Administrador;
+import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Pieza;
 import GaleriaServiciosDeAdquisicion.Compra;
+import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Galeria {
@@ -22,16 +26,20 @@ public class Galeria {
 	
 	private Inventario inventario;
 	
-	
+
 	public Galeria(Inventario inventario) {
 		this.SubastasProgramadas= new ArrayList<Subasta>();
 		this.mapaUsuarios= new HashMap<String, Usuario>();
 		this.mapaUsuariosEmpleados= new HashMap<String, Usuario>();
 		this.inventario=inventario;
+
 	}
 	
 	
 	
+	
+
+
 	public Inventario getInventario() {
 		return inventario;
 	}
@@ -80,15 +88,15 @@ public class Galeria {
 			boolean seguir2=true;
 			while (seguir2) {
 				System.out.println("///////////////////////////////////////////////////////////");
-				System.out.println("el precio de la pieza esta en: "+ subastaEncontrada.getPieza().getPrecio()[0]);
+				System.out.println("el precio de la pieza esta en: "+ subastaEncontrada.getPieza().getPrecio().getPrecio());
 				System.out.println("Ingrese su oferta:");
 				int oferta= scanner.nextInt();
 				scanner.nextLine();
-				if((int)subastaEncontrada.getPieza().getPrecio()[0]<oferta) {
+				if((int)subastaEncontrada.getPieza().getPrecio().getPrecio()<oferta) {
 					subastaEncontrada.getPieza().nuevoPrecio(oferta, usuario);
-					Object[] precio=new Object[2];
-					precio[0]=oferta;
-					precio[1]=usuario;
+					Precio precio=new Precio();
+					precio.setPrecio(oferta);
+					precio.setUsuario(usuario);
 					subastaEncontrada.anadirRegistroSubasta(precio);
 					System.out.println("ahora eres la oferta mas alta");
 					System.out.println("si quieres saber si ganaste la oferta revisa tus adqusisiones al finalizar la subasta");
@@ -178,7 +186,7 @@ public class Galeria {
 		
 		if (piezaEncontrada!=null) {
 			boolean seguir1=true;
-			int precio=(int)piezaEncontrada.getPrecio()[0];
+			int precio=(int)piezaEncontrada.getPrecio().getPrecio();
 			while(seguir1) {
 				System.out.println("/////////////////////////////////////");
 				System.out.println("el precio de esta pieza es de: "+precio);
@@ -194,6 +202,7 @@ public class Galeria {
 					}else {
 						usuario.gastado(precio);
 						compra=new Compra(piezaEncontrada, precio, usuario);
+						piezaEncontrada.setFechaDeVenta(LocalDate.now());
 						Administrador admin=(Administrador) galeria.getMapaUsuariosEmpleados().get("Administrador");
 						admin.aniadirVentasAVerificar(compra);
 						System.out.println("La compra fue mandada a verificar, a mas tardar 1 dia revise si fue aprobado");
@@ -209,12 +218,67 @@ public class Galeria {
 		}
 	}
 	
-	public void mirarMiPieza() {
+	public void mirarHistoriaArtista(Galeria galeria,Usuario usuario) {
+		Scanner scanner= new Scanner(System.in);
 		
-	}
-	
-	public void mirarInfoDePiezaAntigua() {
 		
+		System.out.println("");
+		System.out.println("'Historia de artista'");
+		System.out.println("");
+		System.out.println("Escriba el nombre del artista:");
+		String nombreArtista=scanner.nextLine();
+		
+		if (mapaUsuarios.containsKey(nombreArtista) && mapaUsuarios.get(nombreArtista) instanceof Artista ) {
+			Artista artistaEcontrado =(Artista)mapaUsuarios.get(nombreArtista);
+			ArrayList<Pieza> piezasDeArtista= artistaEcontrado.getListaPiezas();
+			System.out.println("Estas son las piezas que ha realizado "+ nombreArtista);
+			System.out.println("");
+			
+			
+			for (Pieza pieza : piezasDeArtista) {
+				
+				System.out.println("////////////////");
+				System.out.println("Nombre: "+ pieza.getTitulo());
+				System.out.println("Fecha de creacion: "+ pieza.getLugarCreacion());
+				
+				//mirar si es una pieza en siubasta o en compra
+				if (pieza.isSubasta()) {
+					Subasta subastaDePieza=null;
+					//buscar la subasta de la pieza
+					for (Subasta subasta : SubastasProgramadas) {
+						if (pieza.equals(subasta.getPieza())) {
+							subastaDePieza=subasta;
+						}
+					}
+					//revisamos si la subasta ya acabo o no 
+					if(subastaDePieza.getFechaFinal().isBefore(LocalDate.now())) {
+						System.out.println("La pieza sigue en Subasta y acaba en: "+ subastaDePieza.getFechaFinal());
+						System.out.println("El precio actual de la pieza es: "+ subastaDePieza.getPieza().getPrecio().getPrecio());
+					}else {
+						System.out.println("La pieza ya fue vendida en Subasta el dia: "+ subastaDePieza.getFechaFinal());
+						System.out.println("El precio al cual la pieza fue subastada es: "+ subastaDePieza.getPieza().getPrecio().getPrecio());
+					}
+				}else {
+					Pieza piezaEncontrada=null;
+					//mirar si ya fue vendida o esta en venta
+					for (Pieza pieza2 : galeria.getInventario().getInfoPiezasAntiguas()) {
+						if (pieza.equals(pieza2)) {
+							piezaEncontrada=pieza2;
+						}
+					}
+					
+					if(piezaEncontrada==null) {
+						System.out.println("Esta pieza no ha sido vendida se encuentra en venta");
+					}else {
+						System.out.println("La pieza fue vendida el dia: "+ pieza.getFechaDeVenta());
+						System.out.println("El precio al cual fue vendido fue: "+ pieza.getPrecio().getPrecio());
+					}
+				}
+			}
+		}else {
+			System.out.println("El artista que busca no esta registrado en esta galeria");
+		}
+		 
 	}
 	
 	public void aniadirUsuario(Usuario usuario) {

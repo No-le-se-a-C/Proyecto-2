@@ -13,13 +13,13 @@ public class Subasta {
 	private Pieza pieza;
 	private boolean subastaActiva;
 	private LocalDate fechaFinal;
-	private ArrayList<Object[]> registroSubasta;
+	private ArrayList<Precio> registroSubasta;
 	
 	
 	public Subasta(Pieza pieza, LocalDate fechaFinal) {
 		this.pieza=pieza;
 		this.fechaFinal=fechaFinal;
-		this.registroSubasta=new ArrayList<Object[]>();
+		this.registroSubasta=new ArrayList<Precio>();
 	}
 		
 	
@@ -30,7 +30,7 @@ public class Subasta {
 	public LocalDate getFechaFinal() {
 		return fechaFinal;
 	}
-	public void anadirRegistroSubasta(Object[] precio) {
+	public void anadirRegistroSubasta(Precio precio) {
 		registroSubasta.add(precio);
 	}
 
@@ -40,7 +40,7 @@ public class Subasta {
 	}
 
 
-	public ArrayList<Object[]> getRegistroSubasta() {
+	public ArrayList<Precio> getRegistroSubasta() {
 		return registroSubasta;
 	}
 
