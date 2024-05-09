@@ -86,9 +86,7 @@ public class Inventario {
 		}else {
 			piezaEncontrada.getCaracteristicasAntiguas();
 		}
-
 	}
-	
 
 	public void getPiezasPrecioFijo() {
 		boolean hayPiezas=false;

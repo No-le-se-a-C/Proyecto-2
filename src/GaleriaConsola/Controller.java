@@ -175,7 +175,7 @@ public class Controller {
 	
 		int cantidad = scanner.nextInt();
 		//Se añade la solicitud de compra al admin
-		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+		Administrador admin=(Administrador)(galeria.getMapaUsuariosEmpleados().get("Administrador"));
 		admin.aniadirPedidoCupoCompra(usuario, cantidad);
 		scanner.close();
 	}
@@ -271,6 +271,10 @@ public class Controller {
 		
 		Administrador admin= (Administrador) usuario;
 		admin.validarAniadirPieza(galeria);
+	}
+	
+	public void verHistoriaPieza(Galeria galeria, Usuario usuario) {
+		galeria.verHistoriaPieza(galeria, usuario);
 	}
 	
 	public void mirarHistoriaArtista(Galeria galeria, Usuario usuario) {

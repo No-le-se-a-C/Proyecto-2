@@ -218,6 +218,60 @@ public class Galeria {
 		}
 	}
 	
+	public void verHistoriaPieza(Galeria galeria, Usuario usuario) {
+		Scanner scanner= new Scanner(System.in);
+		System.out.println("");
+		System.out.println("'Historia de pieza'");
+		System.out.println("");
+		boolean hecho = false;
+		while(!hecho) {
+			System.out.println("¿Cual tipo de pieza desea buscar?: ");
+			System.out.println("1.Pieza en venta");
+			System.out.println("2.Pieza ya vendida");
+			
+			int respuesta = scanner.nextInt();
+			// Buscar pieza en venta
+			if(respuesta==1) {
+				System.out.println("Ingrese el nombre de la pieza: ");
+				String nombrePieza = scanner.nextLine();
+				
+				System.out.println("Ingrese el nombre del artista: ");
+				String nombreArtista = scanner.nextLine();
+				
+				if (mapaUsuarios.containsKey(nombreArtista) && mapaUsuarios.get(nombreArtista) instanceof Artista ) {
+					Artista artista =(Artista)mapaUsuarios.get(nombreArtista);
+					inventario.buscarPieza(nombrePieza, artista);
+				}	
+				else {
+					System.out.println("El artista no fue encontrado");
+				}
+				
+				hecho = true;
+				
+			//Buscar pieza antigua	
+			}else if(respuesta==2) {
+				System.out.println("Ingrese el nombre de la pieza: ");
+				String nombrePieza = scanner.nextLine();
+				
+				System.out.println("Ingrese el nombre del artista: ");
+				String nombreArtista = scanner.nextLine();
+				
+				if (mapaUsuarios.containsKey(nombreArtista) && mapaUsuarios.get(nombreArtista) instanceof Artista ) {
+					Artista artista =(Artista)mapaUsuarios.get(nombreArtista);
+					inventario.buscarInfoPiezaAntigua(nombrePieza, artista);
+				}	
+				else {
+					System.out.println("El artista no fue encontrado");
+				}
+				
+				hecho = true;
+			}else {
+				System.out.println("Seleccione una opcion correcta");
+			}
+			scanner.close();
+		}
+	}
+	
 	public void mirarHistoriaArtista(Galeria galeria,Usuario usuario) {
 		Scanner scanner= new Scanner(System.in);
 		
