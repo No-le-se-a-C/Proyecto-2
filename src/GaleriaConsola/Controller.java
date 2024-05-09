@@ -277,5 +277,11 @@ public class Controller {
 		galeria.mirarHistoriaArtista(galeria, usuario);
 	}
 	
+	
+	public void historiaComprador(Galeria galeria ,Usuario usuario) {
+		
+		((Administrador) usuario).historiaComprador(galeria);
+		
+	}
 
 }

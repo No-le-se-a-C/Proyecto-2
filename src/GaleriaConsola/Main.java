@@ -19,11 +19,11 @@ public class Main {
 		
 		//se le introducen los 3 empleados de cada dominacion con su usuario
 		
-		Usuario administrador= new Administrador("Administrador", "202317352");
+		Usuario administrador= new Administrador("Administrador", "123");
 		
-		Usuario operador= new Operador("Operador", "202317352");
+		Usuario operador= new Operador("Operador", "123");
 		
-		Usuario cajero= new Cajero("Cajero", "202317352");
+		Usuario cajero= new Cajero("Cajero", "123");
 		
 		galeria.aniadirUsuarioEmpleado(cajero);
 		galeria.aniadirUsuarioEmpleado(administrador);
@@ -31,8 +31,8 @@ public class Main {
 		
 		
 		// Guardamos los empleados en archivos Json
-	//	Gson gson = new Gson();
-	  //  String jsonAdministrador = gson.toJson(administrador);
+		//Gson gson = new Gson();
+	   //String jsonAdministrador = gson.toJson(administrador);
 	    //String jsonCajero = gson.toJson(cajero);
 	   // String jsonOperador = gson.toJson(operador);
        
