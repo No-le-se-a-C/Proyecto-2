@@ -230,6 +230,7 @@ public class Galeria {
 			System.out.println("2.Pieza ya vendida");
 			
 			int respuesta = scanner.nextInt();
+			scanner.nextLine();
 			// Buscar pieza en venta
 			if(respuesta==1) {
 				System.out.println("Ingrese el nombre de la pieza: ");
@@ -268,7 +269,6 @@ public class Galeria {
 			}else {
 				System.out.println("Seleccione una opcion correcta");
 			}
-			scanner.close();
 		}
 	}
 	

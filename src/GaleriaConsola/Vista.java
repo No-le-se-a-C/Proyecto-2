@@ -258,8 +258,8 @@ public class Vista {
 			System.out.println("");
 			System.out.println("1.Llevar registro de subastas");
 			System.out.println("2.Mirar historia de una pieza");
-			System.out.println("2.Mirar historia de un artista");
-			System.out.println("3.Salir al menu pricipal");
+			System.out.println("3.Mirar historia de un artista");
+			System.out.println("4.Salir al menu pricipal");
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
