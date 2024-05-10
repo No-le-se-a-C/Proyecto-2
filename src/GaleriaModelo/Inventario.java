@@ -20,6 +20,7 @@ import GaleriaPieza.Libro;
 import GaleriaPieza.LibroPersistencia;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
+import GaleriaPieza.PinturaPersistencia;
 import GaleriaPieza.Video;
 import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
@@ -266,7 +267,13 @@ public class Inventario {
 				pieza=new Pintura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, alto, ancho, estilo);
+				//Se añade laPersistencia
+				Gson gsonPintura = new GsonBuilder()
+		                .registerTypeAdapter(Pintura.class, new PinturaPersistencia())
+		                .create();
+				
 				seguir1=false;
+				
 			}else if(input3==5) {
 				System.out.println("que duracion tiene:");
 				String duracion=scanner.nextLine();
