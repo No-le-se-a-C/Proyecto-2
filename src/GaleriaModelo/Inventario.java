@@ -4,11 +4,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-//import com.google.gson.Gson;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Escultura;
+import GaleriaPieza.EsculturaTypeAdapter;
 import GaleriaPieza.Fotografia;
 import GaleriaPieza.Libro;
 import GaleriaPieza.Pieza;
@@ -216,6 +219,9 @@ public class Inventario {
 				pieza=new Escultura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, material, alto, ancho);
+				Gson gson = new GsonBuilder()
+		                .registerTypeAdapter(Escultura.class, new EsculturaTypeAdapter())
+		                .create();
 				seguir1=false;
 			}else if(input3==2) {
 				System.out.println("que filtro tiene:");
@@ -271,7 +277,7 @@ public class Inventario {
 		
 		// Guardamos las piezas en archivos Json
 		//Gson gson = new Gson();
-	    //String jsonAdministrador = gson.toJson(pieza);
+	    //String jsonPieza = gson.toJson(pieza);
 		
 	
 	}
