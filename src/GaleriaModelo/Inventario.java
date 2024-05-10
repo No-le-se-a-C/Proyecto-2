@@ -14,8 +14,8 @@ import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Escultura;
 import GaleriaPieza.EsculturaPersistencia;
-import GaleriaPieza.EsculturaTypeAdapterFactory;
 import GaleriaPieza.Fotografia;
+import GaleriaPieza.FotografiaPersistencia;
 import GaleriaPieza.Libro;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
@@ -237,6 +237,9 @@ public class Inventario {
 				pieza=new Fotografia(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, filtro, cantidadPixeles, calidad);
+				Gson gson = new GsonBuilder()
+		                .registerTypeAdapter(Fotografia.class, new FotografiaPersistencia())
+		                .create();
 				seguir1=false;
 			}else if(input3==3) {
 				System.out.println("que genero es:");

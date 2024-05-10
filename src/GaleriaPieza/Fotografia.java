@@ -18,6 +18,30 @@ public class Fotografia extends Pieza {
 		this.filtro=filtro;
 	}
 
+	public String getFiltro() {
+		return filtro;
+	}
+
+	public void setFiltro(String filtro) {
+		this.filtro = filtro;
+	}
+
+	public String getCantidadPixeles() {
+		return cantidadPixeles;
+	}
+
+	public void setCantidadPixeles(String cantidadPixeles) {
+		this.cantidadPixeles = cantidadPixeles;
+	}
+
+	public String getCalidad() {
+		return calidad;
+	}
+
+	public void setCalidad(String calidad) {
+		this.calidad = calidad;
+	}
+
 
 	
 
