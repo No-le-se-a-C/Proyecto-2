@@ -17,6 +17,7 @@ import GaleriaPieza.EsculturaPersistencia;
 import GaleriaPieza.Fotografia;
 import GaleriaPieza.FotografiaPersistencia;
 import GaleriaPieza.Libro;
+import GaleriaPieza.LibroPersistencia;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
 import GaleriaPieza.Video;
@@ -222,7 +223,8 @@ public class Inventario {
 				pieza=new Escultura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, material, alto, ancho);
-				Gson gson = new GsonBuilder()
+				//Se añade laPersistencia
+				Gson gsonEscultura = new GsonBuilder()
 		                .registerTypeAdapter(Escultura.class, new EsculturaPersistencia())
 		                .create();
 				
@@ -237,7 +239,8 @@ public class Inventario {
 				pieza=new Fotografia(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, filtro, cantidadPixeles, calidad);
-				Gson gson = new GsonBuilder()
+				// Se añade persistencia
+				Gson gsonFotografia = new GsonBuilder()
 		                .registerTypeAdapter(Fotografia.class, new FotografiaPersistencia())
 		                .create();
 				seguir1=false;
@@ -247,6 +250,11 @@ public class Inventario {
 				pieza= new Libro(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, genero);
+				//Se añade laPersistencia
+				Gson gsonLibro = new GsonBuilder()
+		                .registerTypeAdapter(Libro.class, new LibroPersistencia())
+		                .create();
+				
 				seguir1=false;
 			}else if(input3==4) {
 				System.out.println("que altura tiene:");
