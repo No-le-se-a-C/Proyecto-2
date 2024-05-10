@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import GaleriaServiciosDeAdquisicion.Precio;
@@ -58,7 +60,7 @@ public class Operador extends Usuario {
 			System.out.println("No hay Subastas por el momento");
 		}
 		
-		
+
 		
 		
 		// Guardamos el registro de subastas en archivos Json
