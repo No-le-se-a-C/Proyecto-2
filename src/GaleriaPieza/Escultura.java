@@ -20,5 +20,29 @@ public class Escultura extends Pieza {
 		this.material=nMaterial;
 	}
 
+	public String getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getAltura() {
+		return altura;
+	}
+
+	public void setAltura(String altura) {
+		this.altura = altura;
+	}
+
+	public String getAncho() {
+		return ancho;
+	}
+
+	public void setAncho(String ancho) {
+		this.ancho = ancho;
+	}
+
 
 }
