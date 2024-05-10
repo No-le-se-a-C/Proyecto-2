@@ -22,6 +22,7 @@ import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
 import GaleriaPieza.PinturaPersistencia;
 import GaleriaPieza.Video;
+import GaleriaPieza.VideoPersistencia;
 import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
@@ -284,6 +285,11 @@ public class Inventario {
 				pieza= new Video(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, duracion, formato, estilo);
+				//Se añade laPersistencia
+				Gson gsonVideo = new GsonBuilder()
+		                .registerTypeAdapter(Video.class, new VideoPersistencia())
+		                .create();
+				
 				seguir1=false;
 			}else {
 				System.out.println("Valor incorrecto elija un numero de 1 al 5");
