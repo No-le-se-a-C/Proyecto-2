@@ -2,6 +2,8 @@ package GaleriaEmpleados;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import GaleriaGestionSesion.Usuario;
@@ -198,7 +200,7 @@ public class Administrador extends Usuario {
 		
 	}
 	
-	public Boolean verificarUsuarioSubasta(Usuario usuario , Galeria galeria) {
+	/*public Boolean verificarUsuarioSubasta(Usuario usuario , Galeria galeria) {
 		
 		if (true){
 			
@@ -212,5 +214,48 @@ public class Administrador extends Usuario {
 		return false;
 		
 	}
-
+	 */
+	public void historiaComprador(Galeria galeria) {
+		
+		Scanner scanner = new Scanner(System.in);
+		int valorDeColeccion = 0;
+		Usuario usuarioVisto = null;
+		HashMap<String,Usuario> listaUsuarios = galeria.getListaUsuariuos();
+		
+		System.out.println("/////////////////////////////////////");
+		System.out.println("Bienvenido a las Historias de Usuario");
+		System.out.println("");
+		System.out.println("Escriba el nombre del comprador que quiere verificar: ");
+		String nombreUsuario = scanner.nextLine();
+		usuarioVisto = listaUsuarios.get(nombreUsuario);
+		if (usuarioVisto != null) {
+		
+			
+			System.out.println("");
+			
+			System.out.println("El comprador " + nombreUsuario + " tiene el siguiente número de piezas " + usuarioVisto.getListaAdquisiciones().size());
+			
+			
+			
+			for (Pieza pieza:usuarioVisto.getListaAdquisiciones()) {
+						
+				System.out.println("////////////////////////////////////////////////");
+				System.out.println("El nombre de la pieza  es: " + pieza.getTitulo());
+				System.out.println("La fecha en la que fue vendida esta pieza fue: " + pieza.getFechaDeVenta());
+				
+				valorDeColeccion += pieza.getPrecio().getPrecio();
+						
+			}
+				
+			System.out.println("///////////////////////////////");	
+			System.out.println("El valor de la coleccion es: " + valorDeColeccion);	
+		}else {
+			
+			System.out.println("El comprador buscado no existe /nVerifique el nombre");
+			
+		}
+	}
+		
+		
 }
+	
