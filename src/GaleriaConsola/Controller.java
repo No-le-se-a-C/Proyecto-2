@@ -241,7 +241,7 @@ public class Controller {
 		System.out.println("Desea revisarlas(SI/NO): ");
 		String respuesta = scanner.nextLine();
 		
-		if (respuesta.toUpperCase().contentEquals("SI")) {
+		if (respuesta.equalsIgnoreCase("si")) {
 		//Se recorren todos los pagos pendientes	
 			for (Usuario userPago: cajero.getPagosPendientes()) {
 				boolean valor = cajero.revisarPago(userPago);
