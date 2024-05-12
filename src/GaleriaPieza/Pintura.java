@@ -18,6 +18,30 @@ public class Pintura extends Pieza{
 		this.estilo=estilo;
 	}
 
+	public String getAltura() {
+		return altura;
+	}
+
+	public void setAltura(String altura) {
+		this.altura = altura;
+	}
+
+	public String getAncho() {
+		return ancho;
+	}
+
+	public void setAncho(String ancho) {
+		this.ancho = ancho;
+	}
+
+	public String getEstilo() {
+		return estilo;
+	}
+
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
+	}
+
 
 	
 }

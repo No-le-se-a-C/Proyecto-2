@@ -14,5 +14,13 @@ public class Libro extends Pieza{
 		this.genero=genero;
 	}
 
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 
 }

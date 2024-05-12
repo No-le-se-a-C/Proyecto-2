@@ -4,16 +4,25 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 //import com.google.gson.Gson;
 import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.Artista;
 import GaleriaGestionSesion.Usuario;
 import GaleriaPieza.Escultura;
+import GaleriaPieza.EsculturaPersistencia;
 import GaleriaPieza.Fotografia;
+import GaleriaPieza.FotografiaPersistencia;
 import GaleriaPieza.Libro;
+import GaleriaPieza.LibroPersistencia;
 import GaleriaPieza.Pieza;
 import GaleriaPieza.Pintura;
+import GaleriaPieza.PinturaPersistencia;
 import GaleriaPieza.Video;
+import GaleriaPieza.VideoPersistencia;
 import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
@@ -216,6 +225,11 @@ public class Inventario {
 				pieza=new Escultura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, material, alto, ancho);
+				//Se añade laPersistencia
+				Gson gsonEscultura = new GsonBuilder()
+		                .registerTypeAdapter(Escultura.class, new EsculturaPersistencia())
+		                .create();
+				
 				seguir1=false;
 			}else if(input3==2) {
 				System.out.println("que filtro tiene:");
@@ -227,6 +241,10 @@ public class Inventario {
 				pieza=new Fotografia(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, filtro, cantidadPixeles, calidad);
+				// Se añade persistencia
+				Gson gsonFotografia = new GsonBuilder()
+		                .registerTypeAdapter(Fotografia.class, new FotografiaPersistencia())
+		                .create();
 				seguir1=false;
 			}else if(input3==3) {
 				System.out.println("que genero es:");
@@ -234,6 +252,11 @@ public class Inventario {
 				pieza= new Libro(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, genero);
+				//Se añade laPersistencia
+				Gson gsonLibro = new GsonBuilder()
+		                .registerTypeAdapter(Libro.class, new LibroPersistencia())
+		                .create();
+				
 				seguir1=false;
 			}else if(input3==4) {
 				System.out.println("que altura tiene:");
@@ -245,7 +268,13 @@ public class Inventario {
 				pieza=new Pintura(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, alto, ancho, estilo);
+				//Se añade laPersistencia
+				Gson gsonPintura = new GsonBuilder()
+		                .registerTypeAdapter(Pintura.class, new PinturaPersistencia())
+		                .create();
+				
 				seguir1=false;
+				
 			}else if(input3==5) {
 				System.out.println("que duracion tiene:");
 				String duracion=scanner.nextLine();
@@ -256,6 +285,11 @@ public class Inventario {
 				pieza= new Video(titulo, anioCreacion, lugarCreacion, 
 						(Artista) usuario, true, precio, subasta, 
 						random.nextBoolean(), precioMinimo, duracion, formato, estilo);
+				//Se añade laPersistencia
+				Gson gsonVideo = new GsonBuilder()
+		                .registerTypeAdapter(Video.class, new VideoPersistencia())
+		                .create();
+				
 				seguir1=false;
 			}else {
 				System.out.println("Valor incorrecto elija un numero de 1 al 5");

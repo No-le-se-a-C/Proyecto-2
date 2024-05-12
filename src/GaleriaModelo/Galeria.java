@@ -57,11 +57,11 @@ public class Galeria {
 			System.out.println("2. salir ");
 			int input=scanner.nextInt();
 			scanner.nextLine();
-			
+
 			if(input==1) {
 				System.out.println("Ingrese el titulo de la pieza");
 				String titulo=scanner.nextLine();
-				
+
 				for (Subasta subasta : galeria.getSubastasProgramadas()) {
 					// se busca la subasta por el titulo de la pieza 
 					if(subasta.getPieza().getTitulo().equals(titulo)) {
@@ -84,29 +84,30 @@ public class Galeria {
 			}
 		}
 		
-		if (subastaEncontrada!=null ) {
-			boolean seguir2=true;
-			while (seguir2) {
-				System.out.println("///////////////////////////////////////////////////////////");
-				System.out.println("el precio de la pieza esta en: "+ subastaEncontrada.getPieza().getPrecio().getPrecio());
-				System.out.println("Ingrese su oferta:");
-				int oferta= scanner.nextInt();
-				scanner.nextLine();
-				if((int)subastaEncontrada.getPieza().getPrecio().getPrecio()<oferta) {
-					subastaEncontrada.getPieza().nuevoPrecio(oferta, usuario);
-					Precio precio=new Precio();
-					precio.setPrecio(oferta);
-					precio.setUsuario(usuario);
-					subastaEncontrada.anadirRegistroSubasta(precio);
-					System.out.println("ahora eres la oferta mas alta");
-					System.out.println("si quieres saber si ganaste la oferta revisa tus adqusisiones al finalizar la subasta");
-					seguir2=false;
-				}else {
-					System.out.println("el monto es incorrecto");
+			if (subastaEncontrada!=null) {
+				if( !subastaEncontrada.getFechaFinal().isBefore(LocalDate.now())) {
+					boolean seguir2=true;
+					while (seguir2) {
+						System.out.println("///////////////////////////////////////////////////////////");
+						System.out.println("el precio de la pieza esta en: "+ subastaEncontrada.getPieza().getPrecio().getPrecio());
+						System.out.println("Ingrese su oferta:");
+						int oferta= scanner.nextInt();
+						scanner.nextLine();
+						if((int)subastaEncontrada.getPieza().getPrecio().getPrecio()<oferta) {
+							subastaEncontrada.getPieza().nuevoPrecio(oferta, usuario);
+							Precio precio=new Precio();
+							precio.setPrecio(oferta);
+							precio.setUsuario(usuario);
+							subastaEncontrada.anadirRegistroSubasta(precio);
+							System.out.println("ahora eres la oferta mas alta");
+							System.out.println("si quieres saber si ganaste la oferta revisa tus adqusisiones al finalizar la subasta");
+							seguir2=false;
+						}else {
+							System.out.println("el monto es incorrecto");
+						}
+					}
 				}
 			}
-			
-		}
 	}
 	public void verPiezasDisponibles(Galeria galeria, Usuario usuario) {
 		/*esta pregunta si quiere ver piezas de subasta o de compra 

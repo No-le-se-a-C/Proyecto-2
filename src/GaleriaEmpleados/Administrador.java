@@ -22,6 +22,24 @@ public class Administrador extends Usuario {
 	private ArrayList<Compra> ventasAVerificar;
 	private ArrayList<Usuario> ventasAVerificarUsuario;
 	
+	
+
+	public ArrayList<Pieza> getPiezasPorAnadir() {
+		return piezasPorAnadir;
+	}
+
+	public HashMap<Usuario, Integer> getPedidosCupoCompra() {
+		return pedidosCupoCompra;
+	}
+
+	public ArrayList<Compra> getVentasAVerificar() {
+		return ventasAVerificar;
+	}
+
+	public ArrayList<Usuario> getVentasAVerificarUsuario() {
+		return ventasAVerificarUsuario;
+	}
+
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;
 	}
