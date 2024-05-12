@@ -186,7 +186,8 @@ public class Vista {
 			System.out.println("4.Verificar usuario para las subastas");
 			System.out.println("5.Mirar historia de una pieza");
 			System.out.println("6.Mirar historia de un artista");
-			System.out.println("7.Salir al menu pricipal");
+			System.out.println("7.Mirar historia de un comprador");
+			System.out.println("8.Salir al menu pricipal");
 			int input= scanner.nextInt();
 			scanner.nextLine();
 			
@@ -202,7 +203,9 @@ public class Vista {
 				controler.verHistoriaPieza(galeria, usuario);
 			}else if(6==input) {
 				controler.mirarHistoriaArtista(galeria, usuario);
-			}else if (7==input) {
+			}else if(7==input) {
+				controler.historiaComprador(galeria, usuario);
+			}else if (8==input) {
 				interfaz(galeria);
 			}else {
 				System.out.println("Valor incorrecto");
