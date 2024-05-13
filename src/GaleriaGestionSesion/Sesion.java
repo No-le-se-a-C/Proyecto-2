@@ -112,13 +112,14 @@ public class Sesion {
 				
 		// se inicia centinela para inicio de sesion 
 		boolean seguir=true;
-		
+
 		while(seguir) {
 			System.out.println("Bienvenido al sistema de inicio de sesión.");
 			System.out.println("¿Desea iniciar sesión como Empleado o Usuario?");
 	        System.out.println("1. Empleado");
 	        System.out.println("2. Usuario");
-	        System.out.print("Por favor selecciona una opción (1/2): ");
+	        System.out.println("3. salir");
+	        System.out.print("Por favor selecciona una opción (1/2/3): ");
 
 	        int opcion = scanner.nextInt();
 	        scanner.nextLine(); // Limpiar el buffer de entrada
@@ -179,7 +180,10 @@ public class Sesion {
 						registrarse(galeria);
 					}
 				}
-	        } else {
+	        }else if(opcion==3){
+	        	seguir=false;
+	        	
+	        }else {
 	            System.out.println("Opción inválida. Por favor selecciona 1 para Empleado o 2 para Usuario.");
 	        }
 	        
