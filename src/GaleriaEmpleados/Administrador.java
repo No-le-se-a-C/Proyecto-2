@@ -147,9 +147,7 @@ public class Administrador extends Usuario {
 		}
 	}
 	
-<<<<<<< HEAD
 
-=======
 	public void verificarSeriedadDeOferta(Galeria galeria) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("//////////////////////////////////////////");
@@ -166,7 +164,7 @@ public class Administrador extends Usuario {
 		}
 		
 	}
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+
 	
 	public void validarAniadirPieza(Galeria galeria) {
 		Scanner scanner= new Scanner(System.in);
