@@ -48,19 +48,20 @@ public class Vista {
             }
         }
 		//segun que tipo de usuario se le muestra diversas funciones y diferentes interfaces 
-		
-        if ("ARTISTA".equals(usuario.getIDENTIFICADOR())) {
-            interfazPropietario(galeria, usuario);
-        } else if ("COMPRADOR".equals(usuario.getIDENTIFICADOR())) {
-            interfazComprador(galeria, usuario);
-        } else if ("ADMINISTRADOR".equals(usuario.getIDENTIFICADOR())) {
-            interfazAdmin(galeria, usuario);
-        } else if ("OPERADOR".equals(usuario.getIDENTIFICADOR())) {
-            interfazOperador(galeria, usuario);
-        } else if ("CAJERO".equals(usuario.getIDENTIFICADOR())) {
-            interfazCajero(galeria, usuario);
-        }
-		scanner.close();
+		if(usuario!=null) {
+	        if ("ARTISTA".equals(usuario.getIDENTIFICADOR())) {
+	            interfazPropietario(galeria, usuario);
+	        } else if ("COMPRADOR".equals(usuario.getIDENTIFICADOR())) {
+	            interfazComprador(galeria, usuario);
+	        } else if ("ADMINISTRADOR".equals(usuario.getIDENTIFICADOR())) {
+	            interfazAdmin(galeria, usuario);
+	        } else if ("OPERADOR".equals(usuario.getIDENTIFICADOR())) {
+	            interfazOperador(galeria, usuario);
+	        } else if ("CAJERO".equals(usuario.getIDENTIFICADOR())) {
+	            interfazCajero(galeria, usuario);
+	        }
+			scanner.close();
+		}
 		
 		
 		

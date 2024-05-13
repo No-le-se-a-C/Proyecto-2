@@ -1,26 +1,20 @@
 package testGestionDeSesion;
 import static org.junit.Assert.assertTrue;
 
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.time.LocalDate;
+
 
 import org.junit.jupiter.api.Test;
 
 import GaleriaEmpleados.Administrador;
-import GaleriaEmpleados.Cajero;
-import GaleriaEmpleados.Operador;
 import GaleriaGestionSesion.Comprador;
 import GaleriaGestionSesion.Sesion;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import GaleriaModelo.Inventario;
-import GaleriaPieza.Libro;
-import GaleriaServiciosDeAdquisicion.Precio;
-import GaleriaServiciosDeAdquisicion.Subasta;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 public class testSesion {
 	
 	// registro de un comprador

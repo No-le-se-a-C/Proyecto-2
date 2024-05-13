@@ -145,9 +145,7 @@ public class Administrador extends Usuario {
 		}
 	}
 	
-	public void verificarSeriedadDeOferta() {
-		
-	}
+
 	
 	public void validarAniadirPieza(Galeria galeria) {
 		Scanner scanner= new Scanner(System.in);
@@ -218,21 +216,7 @@ public class Administrador extends Usuario {
 		
 	}
 	
-	/*public Boolean verificarUsuarioSubasta(Usuario usuario , Galeria galeria) {
-		
-		if (true){
-			
-			usuario.getUsuario();
-		}
-			
-			{
-			
-		}
-		
-		return false;
-		
-	}
-	 */
+
 	public void historiaComprador(Galeria galeria) {
 		
 		Scanner scanner = new Scanner(System.in);
@@ -272,6 +256,11 @@ public class Administrador extends Usuario {
 			System.out.println("El comprador buscado no existe /nVerifique el nombre");
 			
 		}
+	}
+
+	public void verificarSeriedadDeOferta() {
+		// TODO Auto-generated method stub
+		
 	}
 		
 		
