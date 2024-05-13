@@ -1,5 +1,6 @@
 package GaleriaEmpleados;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +11,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import GaleriaPieza.Pieza;
 import GaleriaServiciosDeAdquisicion.Compra;
+import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
 public class Administrador extends Usuario {
@@ -145,7 +147,26 @@ public class Administrador extends Usuario {
 		}
 	}
 	
+<<<<<<< HEAD
 
+=======
+	public void verificarSeriedadDeOferta(Galeria galeria) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("//////////////////////////////////////////");
+		System.out.println("");
+		for( Subasta subasta: galeria.getSubastasProgramadas() ) {
+			if(!subasta.getFechaFinal().isBefore(LocalDate.now())) {
+				for(Precio precio: subasta.getRegistroSubasta()) {
+					System.out.println("Oferta del usuario: " + precio.getUsuario().getUsuario());
+					System.out.println("Cantidad ofrecida: " + Integer.toString(precio.getPrecio()));
+					System.out.println("");
+
+				}
+			}
+		}
+		
+	}
+>>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
 	
 	public void validarAniadirPieza(Galeria galeria) {
 		Scanner scanner= new Scanner(System.in);
