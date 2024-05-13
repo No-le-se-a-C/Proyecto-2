@@ -37,7 +37,7 @@ public class Cajero extends Usuario{
 		
 		System.out.println("\nDesea admitir la compra de este usuario?(SI/NO): ");
 		String respuesta = scanner.nextLine();
-		if (respuesta.toUpperCase().contentEquals("SI")) {
+		if (respuesta.equalsIgnoreCase("si")) {
 			return true;
 		}
 		return false;

@@ -60,9 +60,11 @@ public class Controller {
 		//Asigna el maximo de compras al usuario
 		if(usuario.getIDENTIFICADOR().contentEquals("COMPRADOR")){
 			( (Comprador)usuario ).definirMaximoCompras(maximoCompra);
+			System.out.println("Se ha definido el metodo de pago");
 			
 		}else if(usuario.getIDENTIFICADOR().contentEquals("ARTISTA")) {
-			( (Artista)usuario ).definirMaximoCompras(maximoCompra);;
+			( (Artista)usuario ).definirMaximoCompras(maximoCompra);
+			System.out.println("Se ha definido el metodo de pago");
 		}	
 	}
 	
@@ -202,18 +204,15 @@ public class Controller {
 		 * que al igual que los precios normales sera una lista de 2 posiciones, 
 		 * este precio sera en el que la subasta empezo
 		 * */
-		Scanner scanner=new Scanner(System.in);
 		Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
-		Cajero cajero = (Cajero)galeria.getMapaUsuariosEmpleados().get("Cajero");
+		Operador operador = (Operador)galeria.getMapaUsuariosEmpleados().get("Operador");
 		System.out.println("///////////////////////////////////////");
 		System.out.println("");
-		System.out.println("-En este momento usted tiene "+ Integer.toString( cajero.getPagosPendientes().size())+ " verificaciones pendientes.");
-		System.out.println("Desea revisarlas(SI/NO): ");
-		String respuesta = scanner.nextLine();
-		if (respuesta.toUpperCase().contentEquals("SI")) {
-			admin.verificarSeriedadDeOferta();	
-		}
-		scanner.close();
+		//System.out.println("-En este momento usted tiene "+ Integer.toString( galeria.getSubastasProgramadas().size())+ " subastas pendientes.");
+		//System.out.println("Desea revisarlas(SI/NO): ");
+		//String respuesta = scanner.nextLine();
+		operador.llevarResgistroSubasta(galeria, usuario);
+		//admin.verificarSeriedadDeOferta( galeria );	
 	}
 	
 	public Boolean verificarUsuarioSubasta(Pieza usuario) {
@@ -247,6 +246,7 @@ public class Controller {
 				boolean valor = cajero.revisarPago(userPago);
 				if( valor ) {
 					admin.aniadirVentasAVerificar(userPago);
+					System.out.println("Se envio la venta al administrador");
 				}
 		scanner.close();		
 			}
