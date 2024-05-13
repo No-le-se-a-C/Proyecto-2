@@ -3,6 +3,7 @@ package testModelop;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.time.LocalDate;
@@ -76,7 +77,7 @@ class testGaleria {
 	    Precio precio = new Precio();
 	    precio.setPrecio(11);
 	    Libro libro = new Libro("monalisa", "2003", "Bogota", null, true, precio, true, false, 0, "Romantico");
-	    LocalDate diaFinal = LocalDate.of(2024, 5, 10);
+	    LocalDate diaFinal = LocalDate.of(2025, 5, 10);
 	    Subasta subasta = new Subasta(libro, diaFinal);
 	    galeria.aniadirSubasta(subasta);
 
@@ -121,7 +122,7 @@ class testGaleria {
 	    Precio precio = new Precio();
 	    precio.setPrecio(11);
 	    Libro libro = new Libro("monalisa", "2003", "Bogota", null, true, precio, true, false, 0, "Romantico");
-	    LocalDate diaFinal = LocalDate.of(2024, 5, 10);
+	    LocalDate diaFinal = LocalDate.of(2025, 5, 10);
 	    Subasta subasta = new Subasta(libro, diaFinal);
 	    galeria.aniadirSubasta(subasta);
 
