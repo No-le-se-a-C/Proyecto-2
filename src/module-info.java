@@ -9,6 +9,7 @@ module Proyecto_2 {
 	requires com.google.gson;
 	requires java.naming;
 	requires junit;
+	requires java.desktop;
 
 
 }

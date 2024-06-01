@@ -199,7 +199,7 @@ public class Vista {
 			}else if (3==input) {
 				controler.validarPiezasPorAniadir(galeria, usuario);
 			}else if (4==input) {
-				controler.verificarUsuarioSubasta(null);
+				//controler.verificarUsuarioSubasta(null);
 			}else if(5==input) {
 				controler.verHistoriaPieza(galeria, usuario);
 			}else if(6==input) {

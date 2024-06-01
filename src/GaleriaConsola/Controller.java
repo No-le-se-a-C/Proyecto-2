@@ -215,16 +215,6 @@ public class Controller {
 		//admin.verificarSeriedadDeOferta( galeria );	
 	}
 	
-	public Boolean verificarUsuarioSubasta(Pieza usuario) {
-		/*se le muestra al empleado la cantidad de verificaciones que tiene que revisar 
-		 * que esto es la cantidad de elementos de la lista de peticionesSubasta, y se pregunta si quiere 
-		 * revisarlas, si dice que si se le muestra 1, (la forma en que la verifique es mostrando datos y 
-		 * preguntando si quiere admitir), si admite se cambia el boolean del usuario de admitido.
-		 * */
-		return null;
-		
-	}
-	
 	public void revisarPago(Galeria galeria, Usuario usuario) {
 		/*e le muestra al empleado la cantidad de verificaciones que tiene que revisar 
 		 * que esto es la cantidad de elementos de la lista de pagos , y se pregunta si quiere 
@@ -280,8 +270,7 @@ public class Controller {
 	public void mirarHistoriaArtista(Galeria galeria, Usuario usuario) {
 		galeria.mirarHistoriaArtista(galeria, usuario);
 	}
-	
-	
+
 	public void historiaComprador(Galeria galeria ,Usuario usuario) {
 		
 		((Administrador) usuario).historiaComprador(galeria);
