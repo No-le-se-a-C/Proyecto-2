@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
+import GaleriaEmpleados.Administrador;
 import GaleriaEmpleados.Cajero;
 import GaleriaEmpleados.Operador;
 import GaleriaGestionSesion.*;
@@ -144,7 +145,7 @@ public class InterfazSesion extends JFrame implements ActionListener{
 		Usuario usuario = null;
 
 		if (comando.equals("Iniciar Sesión")) {
-			if (usuario1.equals("messi") && contrasenia.equals("0126")) {
+			if (usuario1.equals("comprador") && contrasenia.equals("comprador")) {
 				usuario = new Comprador(usuario1, contrasenia);
 			} else if (usuario1.equals("artista") && contrasenia.equals("artista")) {
 				usuario = new Artista(usuario1, contrasenia);
@@ -152,7 +153,9 @@ public class InterfazSesion extends JFrame implements ActionListener{
 				usuario = new Cajero(usuario1, contrasenia);
 			} else if (usuario1.equals("operador") && contrasenia.equals("operador")) {
 				usuario = new Operador(usuario1, contrasenia);
-			} else {
+			} else if (usuario1.equals("administrador") && contrasenia.equals("administrador")) {
+				usuario = new Administrador(usuario1, contrasenia);
+			}else {
 				System.out.println("Usuario o contraseña incorrectos.");
 				return;
 			}
