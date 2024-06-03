@@ -18,78 +18,37 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-<<<<<<< HEAD
+
 import GaleriaEmpleados.Administrador;
-=======
+
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import GaleriaEmpleados.Administrador;
 import GaleriaEmpleados.Cajero;
 import GaleriaEmpleados.Operador;
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+
 import GaleriaGestionSesion.*;
 import GaleriaModelo.Galeria;
 
 public class InterfazSesion extends JFrame implements ActionListener{
 	
-<<<<<<< HEAD
-	private JButton boton;
+
+
 	private Galeria galeria;
-=======
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
-	
-<<<<<<< HEAD
-	public InterfazSesion(Galeria galeria) {
-=======
+
+
 	private JTextField campoUsuario;
 	private JPasswordField campoContraseña;
 	private JButton botonRegistrarse;
 	private JButton botonIniciarSesion;
 	
-	public InterfazSesion() {
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
-		
-<<<<<<< HEAD
-		//Cuando vallan a modificar este frame quiten todo esto que solo es para probar lo demas
-		
-		
-		
-		
-		super("Sesion");
-		this.galeria=galeria;
-		setSize(1000,650);
-		setResizable(false);
-		// Centrar el frame en la pantalla
-		setLocationRelativeTo(null);
-        // Especificar la operación predeterminada al cerrar la ventana
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-        
-        setVisible(true);
-         
-        JLabel label= new JLabel();
-        label.setText("Joban aqui haz lo de la sesion");
-        label.setFont(new Font("Ravie",Font.BOLD,35));
-        
-        boton= new JButton();
-        boton.setText("Tumben DALGO");
-        boton.setFont(new Font("arial",Font.BOLD,35));
-        boton.addActionListener(this);
-        
-        add(label, BorderLayout.NORTH);
-        add(boton, BorderLayout.CENTER);
-        
-    
-=======
+	public InterfazSesion(Galeria galeria) {
+
 		initialize();
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
-	}
-		
-		//Cuando vallan a modificar este this quiten todo esto que solo es para probar lo demas
+		}
+
 		
 		
 		
@@ -186,12 +145,7 @@ public class InterfazSesion extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-		if(e.getSource()== boton) {
-			Usuario usuario= new Artista("messi", "0126");
-			new InterfazMenu(usuario, galeria).setVisible(true);
-			dispose();
-=======
+
 		String comando = e.getActionCommand();
 		String usuario1 = campoUsuario.getText();
 		String contrasenia = new String(campoContraseña.getPassword());
@@ -213,11 +167,10 @@ public class InterfazSesion extends JFrame implements ActionListener{
 				return;
 			}
 			
-			new InterfazMenu(usuario).setVisible(true);
+			new InterfazMenu(usuario, galeria).setVisible(true);
 			this.dispose();
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+
 		}
-
-
-}
+	}
+	
 }
