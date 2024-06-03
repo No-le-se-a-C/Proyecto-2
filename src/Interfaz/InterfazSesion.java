@@ -9,21 +9,25 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import GaleriaEmpleados.Administrador;
 import GaleriaGestionSesion.*;
+import GaleriaModelo.Galeria;
 
 public class InterfazSesion extends JFrame implements ActionListener{
 	
 	private JButton boton;
+	private Galeria galeria;
 	
-	
-	public InterfazSesion() {
+	public InterfazSesion(Galeria galeria) {
 		
 		//Cuando vallan a modificar este frame quiten todo esto que solo es para probar lo demas
 		
 		
 		
 		
-		super("Sesion");		
+		super("Sesion");
+		this.galeria=galeria;
 		setSize(1000,650);
 		setResizable(false);
 		// Centrar el frame en la pantalla
@@ -45,13 +49,15 @@ public class InterfazSesion extends JFrame implements ActionListener{
         
         add(label, BorderLayout.NORTH);
         add(boton, BorderLayout.CENTER);
+        
+    
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()== boton) {
-			Usuario usuario= new Comprador("messi", "0126");
-			new InterfazMenu(usuario).setVisible(true);
+			Usuario usuario= new Artista("messi", "0126");
+			new InterfazMenu(usuario, galeria).setVisible(true);
 			dispose();
 		}
 		

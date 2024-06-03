@@ -18,6 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
+
 public class Interfaz extends JFrame implements ActionListener{
 
 	
@@ -25,8 +28,12 @@ public class Interfaz extends JFrame implements ActionListener{
 	
 	private JButton botonPasar;
 	
-	public Interfaz() {
-		super("Bienvenido");		
+	private Galeria galeria;
+
+	
+	public Interfaz(Galeria galeria) {
+		super("Bienvenido");
+		this.galeria=galeria;
 		setSize(1000,650);
 		setResizable(false);
 		// Centrar el frame en la pantalla
@@ -83,13 +90,15 @@ public class Interfaz extends JFrame implements ActionListener{
         add(panel);
         
 		setVisible(true);
+		
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()== botonPasar) {
-			new InterfazSesion();
+			new InterfazSesion(galeria);
 			dispose();
 		}else if(e.getSource()== botonCerrar) {
 			dispose();

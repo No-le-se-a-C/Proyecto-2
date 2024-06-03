@@ -5,15 +5,21 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
 
 public class BotonActionListenerComprador implements ActionListener{
 	 private final int opcion;
 	 private JFrame frame;
+	 private Galeria galeria;
+	 private Usuario usuario;
      
-     public BotonActionListenerComprador(int opcion, JFrame frame) {
+     public BotonActionListenerComprador(int opcion, JFrame frame, Galeria galeria, Usuario usuario) {
          this.opcion = opcion;
          this.frame=frame;
+         this.galeria=galeria;
+         this.usuario=usuario;
      }
      
    
@@ -43,7 +49,7 @@ public class BotonActionListenerComprador implements ActionListener{
                  break;
              case 8:
             	 frame.dispose();
-                 new InterfazSesion();
+                 new InterfazSesion(galeria);
                  break;
              default:
                  break;

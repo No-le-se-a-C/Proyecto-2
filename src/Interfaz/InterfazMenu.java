@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
 import Listeners.BotonActionListenerAdmin;
 import Listeners.BotonActionListenerArtista;
 import Listeners.BotonActionListenerCajero;
@@ -24,6 +25,8 @@ import Listeners.BotonActionListenerOperador;
 
 public class InterfazMenu extends JFrame{
 	
+	private Galeria galeria;
+	private Usuario usuario;
 	// Comprador
 	public static String[] comprador = {"comprador",
 			"1.Definir Metodo de pago.",
@@ -56,11 +59,10 @@ public class InterfazMenu extends JFrame{
 			"1.Verificar Ventas",
 			"2.Verificar seriedad de las ofertas",
 			"3.Validar piezas por aniadir",
-			"4.Verificar usuario para las subastas",
-			"5.Mirar historia de una pieza",
-			"6.Mirar historia de un artista",
-			"7.Mirar historia de un comprador",
-			"8.Salir del menu pricipal"
+			"4.Mirar historia de una pieza",
+			"5.Mirar historia de un artista",
+			"6.Mirar historia de un comprador",
+			"7.Salir del menu pricipal"
 	};
 
 	// Operador
@@ -81,8 +83,10 @@ public class InterfazMenu extends JFrame{
 
 
 
-	public InterfazMenu(Usuario usuario) {
+	public InterfazMenu(Usuario usuario, Galeria galeria) {
 		super("Menu pricipal");
+		this.galeria=galeria;
+	    this.usuario=usuario;
 		String[] opcion= DefinirMenu(usuario);
         setSize(900, 750);
         setResizable(false);
@@ -123,27 +127,27 @@ public class InterfazMenu extends JFrame{
             	
      	        gbc.insets = new Insets(7, 7, 7, 7); // Márgenes
      	        
-                boton.addActionListener(new BotonActionListenerArtista(i, this));
+                boton.addActionListener(new BotonActionListenerArtista(i, this, galeria, usuario));
             } else if (opcion[0].equals("comprador")) {
   
      	        gbc.insets = new Insets(7, 7, 7, 7); // Márgenes
      	       
-                boton.addActionListener(new BotonActionListenerComprador(i, this));
+                boton.addActionListener(new BotonActionListenerComprador(i, this, galeria, usuario));
             } else if (opcion[0].equals("admin")) {
             	
      	        gbc.insets = new Insets(9, 9, 9, 9); // Márgenes
      	       
-                boton.addActionListener(new BotonActionListenerAdmin(i, this));
+                boton.addActionListener(new BotonActionListenerAdmin(i, this, galeria, usuario));
             } else if (opcion[0].equals("cajero")) {
             	
      	        gbc.insets = new Insets(20, 20, 20, 20); // Márgenes
      	     
-                boton.addActionListener(new BotonActionListenerCajero(i, this));
+                boton.addActionListener(new BotonActionListenerCajero(i, this, galeria, usuario));
             } else if (opcion[0].equals("operador")) {
          
      	        gbc.insets = new Insets(20, 20, 20, 20); // Márgenes
      	     
-                boton.addActionListener(new BotonActionListenerOperador(i, this));
+                boton.addActionListener(new BotonActionListenerOperador(i, this, galeria, usuario));
             }
 
          
@@ -152,17 +156,14 @@ public class InterfazMenu extends JFrame{
             gbc.gridy = i;
             panelIzquierda.add(boton, gbc);
         }
-
-        JPanel panelDerecha = new JPanel();
-        panelDerecha.setLayout(new BorderLayout()); // Añadir un layout para el panel derecho
-        panelDerecha.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        panelDerecha.add(new JLabel("Contenido del Panel Derecho"), BorderLayout.CENTER);
-
+        
         JPanel panel2 = new JPanel();
         panel2.setLayout(new GridLayout(1, 2));
         panel2.add(panelIzquierda);
-        panel2.add(panelDerecha);
+        
         add(panel2, BorderLayout.CENTER);
+        
+ 
 		
 	}
 

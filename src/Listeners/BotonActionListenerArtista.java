@@ -1,19 +1,27 @@
 package Listeners;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
+import Interfaz.PanelSubasta;
 
 public class BotonActionListenerArtista implements ActionListener {
 	private final int opcion;
 	private JFrame frame;
+	private Galeria galeria;
+	private Usuario usuario;
     
-    public BotonActionListenerArtista(int opcion, JFrame frame) {
+    public BotonActionListenerArtista(int opcion, JFrame frame, Galeria galeria, Usuario usuario ) {
         this.opcion = opcion;
         this.frame=frame;
+        this.galeria=galeria;
+        this.usuario=usuario;
     }
     
     
@@ -31,6 +39,7 @@ public class BotonActionListenerArtista implements ActionListener {
           
                 break;
             case 4:
+               new PanelSubasta(frame, galeria, usuario);
                
                 break;
             case 5:
@@ -53,7 +62,7 @@ public class BotonActionListenerArtista implements ActionListener {
                 break;
             case 11:
             	frame.dispose();
-                new InterfazSesion();
+                new InterfazSesion(galeria);
                
                 break;
             default:

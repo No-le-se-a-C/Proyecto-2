@@ -5,16 +5,22 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import GaleriaGestionSesion.Usuario;
+import GaleriaModelo.Galeria;
 import Interfaz.InterfazMenu;
 import Interfaz.InterfazSesion;
 
 public class BotonActionListenerAdmin implements ActionListener{
 	private final int opcion;
     private JFrame frame;
+    private Galeria galeria;
+	private Usuario usuario;
     
-    public BotonActionListenerAdmin(int opcion, JFrame frame) {
+    public BotonActionListenerAdmin(int opcion, JFrame frame, Galeria galeria, Usuario usuario) {
         this.opcion = opcion;
         this.frame=frame;
+        this.galeria=galeria;
+        this.usuario=usuario;
     }
 
    
@@ -24,6 +30,7 @@ public class BotonActionListenerAdmin implements ActionListener{
         // Aquí puedes añadir la lógica para cada opción
         switch (opcion) {
             case 1:
+            	
                 break;
             case 2:
                
@@ -41,11 +48,8 @@ public class BotonActionListenerAdmin implements ActionListener{
                 
                 break;
             case 7:
-               
-                break;
-            case 8:
                 frame.dispose();
-                new InterfazSesion();
+                new InterfazSesion(galeria);
                 break;
             default:
                 break;
