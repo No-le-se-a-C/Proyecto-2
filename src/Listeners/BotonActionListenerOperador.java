@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import GaleriaEmpleados.Operador;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
@@ -30,6 +31,7 @@ public class BotonActionListenerOperador implements ActionListener{
         // Aquí puedes añadir la lógica para cada opción
         switch (opcion) {
             case 1:
+            	((Operador) usuario).llevarResgistroSubasta( galeria,  usuario);
                 break;
             case 2:
             	new PanelHistorial(galeria, usuario);
