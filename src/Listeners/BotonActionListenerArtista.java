@@ -41,6 +41,8 @@ public class BotonActionListenerArtista implements ActionListener {
               
                 break;
             case 3:
+            	galeria.comprarPieza( galeria , usuario);            	
+
           
                 break;
             case 4:
@@ -54,7 +56,6 @@ public class BotonActionListenerArtista implements ActionListener {
           
                 break;
             case 7:
-            	
               
                 break;
             case 8:
