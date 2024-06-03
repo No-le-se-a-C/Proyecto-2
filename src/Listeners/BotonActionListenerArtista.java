@@ -11,6 +11,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
 import Interfaz.PanelHistorial;
+import Interfaz.PanelPiezaDisponible;
 import Interfaz.PanelSubasta;
 
 
@@ -36,6 +37,7 @@ public class BotonActionListenerArtista implements ActionListener {
             case 1:
                 break;
             case 2:
+            	new PanelPiezaDisponible(galeria, usuario);
               
                 break;
             case 3:

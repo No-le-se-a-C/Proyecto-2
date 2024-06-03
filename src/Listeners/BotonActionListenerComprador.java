@@ -9,6 +9,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
 import Interfaz.PanelHistorial;
+import Interfaz.PanelPiezaDisponible;
 
 public class BotonActionListenerComprador implements ActionListener{
 	 private final int opcion;
@@ -31,7 +32,7 @@ public class BotonActionListenerComprador implements ActionListener{
              case 1:
                  break;
              case 2:
-            	
+            	 new PanelPiezaDisponible(galeria, usuario);
                  
                  break;
              case 3:
