@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
+import Interfaz.PanelHistorial;
 
 public class BotonActionListenerCajero implements ActionListener {
 	private final int opcion;
@@ -29,7 +30,7 @@ public class BotonActionListenerCajero implements ActionListener {
             case 1:
                 break;
             case 2:
-               
+            	new PanelHistorial(galeria, usuario);
                 break;
             case 3:
 

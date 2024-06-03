@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
+import Interfaz.PanelHistorial;
 import Interfaz.PanelSubasta;
 
 
@@ -51,12 +52,14 @@ public class BotonActionListenerArtista implements ActionListener {
           
                 break;
             case 7:
+            	
               
                 break;
             case 8:
 
                 break;
             case 9:
+            	new PanelHistorial(galeria, usuario);
           
                 break;
             case 10:
