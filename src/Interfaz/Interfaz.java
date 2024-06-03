@@ -97,7 +97,7 @@ public class Interfaz extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getSource()== botonPasar) {
+		if(e.getSource().equals(botonPasar)) {
 			new InterfazSesion(galeria);
 			dispose();
 		}else if(e.getSource()== botonCerrar) {

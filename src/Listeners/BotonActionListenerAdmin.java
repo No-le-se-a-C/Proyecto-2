@@ -10,6 +10,7 @@ import GaleriaModelo.Galeria;
 import Interfaz.InterfazMenu;
 import Interfaz.InterfazSesion;
 import Interfaz.PanelHistorial;
+import Interfaz.PanelVerificarVenta;
 
 public class BotonActionListenerAdmin implements ActionListener{
 	private final int opcion;
@@ -31,6 +32,7 @@ public class BotonActionListenerAdmin implements ActionListener{
         // Aquí puedes añadir la lógica para cada opción
         switch (opcion) {
             case 1:
+            	new PanelVerificarVenta(frame, galeria, usuario);
             	
                 break;
             case 2:

@@ -45,6 +45,7 @@ public class InterfazSesion extends JFrame implements ActionListener{
 	private JButton botonIniciarSesion;
 	
 	public InterfazSesion(Galeria galeria) {
+		this.galeria = galeria;
 
 		initialize();
 		}
