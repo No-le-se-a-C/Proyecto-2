@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 /Interfaz/
 /Listeners/
 /GaleriaConsola/
 /GaleriaModelo/
 /GaleriaEmpleados/
 /GaleriaPieza/
+=======
+/GaleriaConsola/
+/GaleriaModelo/
+/Interfaz/
+/Listeners/
+/GaleriaEmpleados/
+/org/
+/GaleriaPieza/
+/testEmpleados/
+/testGestionDeSesion/
+/GaleriaGestionSesion/
+>>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git

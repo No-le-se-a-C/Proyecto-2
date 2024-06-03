@@ -53,6 +53,8 @@ public class Main {
        
 		galeria.aniadirSubasta(subasta);
 		
+		/*Vista vista= new Vista();
+		vista.interfaz(galeria);*/
 		
 		Interfaz interfaz= new Interfaz(galeria);
 	}

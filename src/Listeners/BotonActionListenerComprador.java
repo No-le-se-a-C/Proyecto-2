@@ -8,8 +8,13 @@ import javax.swing.JFrame;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
+<<<<<<< HEAD
 import Interfaz.PanelDefinirMetodoPago;
 import Interfaz.PanelSubasta;
+=======
+import Interfaz.PanelHistorial;
+import Interfaz.PanelPiezaDisponible;
+>>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
 
 public class BotonActionListenerComprador implements ActionListener{
 	 private final int opcion;
@@ -33,9 +38,12 @@ public class BotonActionListenerComprador implements ActionListener{
             	 new PanelDefinirMetodoPago(galeria, usuario, frame);
                  break;
              case 2:
+            	 new PanelPiezaDisponible(galeria, usuario);
                  
                  break;
              case 3:
+             	galeria.comprarPieza( galeria , usuario);            	
+
                 
                  break;
              case 4:
@@ -45,6 +53,7 @@ public class BotonActionListenerComprador implements ActionListener{
              
                  break;
              case 6:
+            	 new PanelHistorial(galeria, usuario);
            
                  break;
              case 7:
