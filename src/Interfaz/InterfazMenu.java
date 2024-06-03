@@ -88,7 +88,7 @@ public class InterfazMenu extends JFrame{
 		this.galeria=galeria;
 	    this.usuario=usuario;
 		String[] opcion= DefinirMenu(usuario);
-        setSize(900, 750);
+        setSize(1000, 650);
         setResizable(false);
         // Centrar el frame en la pantalla
         setLocationRelativeTo(null);
