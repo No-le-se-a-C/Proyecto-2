@@ -92,13 +92,13 @@ public class Vista {
 			scanner.nextLine();
 			
 			if (1==input) {
-				controler.definirMetodoPago(galeria, usuario);
+	
 			}else if (2==input) {
 				controler.verPiezasDisponibles(galeria, usuario);
 			}else if (3==input) {
 				controler.comprarPieza(galeria, usuario);
 			}else if (4==input) {
-				controler.participarSubasta(galeria, usuario);
+				
 			}else if (5==input) {
 				controler.pedirCupoDeCompras(galeria, usuario);
 			}else if(6==input) {
@@ -141,13 +141,13 @@ public class Vista {
 			scanner.nextLine();
 			
 			if (1==input) {
-				controler.definirMetodoPago(galeria, usuario);
+			
 			}else if (2==input) {
 				controler.verPiezasDisponibles(galeria, usuario);
 			}else if (3==input) {
 				controler.comprarPieza(galeria, usuario);
 			}else if (4==input) {
-				controler.participarSubasta(galeria, usuario);
+				
 			}else if (5==input) {
 				controler.pedirCupoDeCompras(galeria, usuario);
 			}else if(6==input) {
@@ -155,7 +155,7 @@ public class Vista {
 			}else if(7==input) {
 				controler.mirarInfoDePiezaAntigua(galeria, usuario);
 			}else if(8==input) {
-				controler.aniadirPieza(usuario, galeria);
+				
 			}else if(9==input) {
 				controler.verHistoriaPieza(galeria, usuario);
 			}else if(10==input){
@@ -197,7 +197,7 @@ public class Vista {
 			}else if (2==input) {
 				controler.verificarSeriedadDeOferta(galeria, usuario);
 			}else if (3==input) {
-				controler.validarPiezasPorAniadir(galeria, usuario);
+				
 			}else if (4==input) {
 				//controler.verificarUsuarioSubasta(null);
 			}else if(5==input) {

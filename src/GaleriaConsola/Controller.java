@@ -27,7 +27,7 @@ public class Controller {
 	
 	
 	
-	public void definirMetodoPago(Galeria galeria, Usuario usuario) {
+	public void definirMetodoPago(Galeria galeria, Usuario usuario, String metodo, int cantidad) {
 		
 		/*esta funcion lo que hace es decirle al usuario que metodo de pago 
 		quiere definir esta "EFECTIVO", "TARJETA", "EN LINEA", ademas se le pregunta cuanto 
@@ -35,15 +35,8 @@ public class Controller {
 		por ultimo si la cartera esta entre 1 y 100 se le da un maximo de compra al comprador de 3  piezas
 		 si es de 100 a 100 se le da 5 maximo de compras y si es mas de 1000 se le da 7 maximo de compras
 		*/
-		Scanner scanner=new Scanner(System.in);
 		
-		System.out.println("///////////////////////////////////////");
-		System.out.println("");
-		System.out.println("-Ingrese el metodo de pago que desea definir:");
-		String metodo = scanner.nextLine();
-		System.out.println("-Ingrese cuanto desea añadir a su cartera: ");
-		int cantidad = scanner.nextInt();
-		scanner.nextLine();
+		
 		//Define el maximo de compras segun la cartera
 		int maximoCompra = 0;
 		if (cantidad >= 1 && cantidad < 100) {
@@ -60,51 +53,13 @@ public class Controller {
 		//Asigna el maximo de compras al usuario
 		if(usuario.getIDENTIFICADOR().contentEquals("COMPRADOR")){
 			( (Comprador)usuario ).definirMaximoCompras(maximoCompra);
-			System.out.println("Se ha definido el metodo de pago");
 			
 		}else if(usuario.getIDENTIFICADOR().contentEquals("ARTISTA")) {
 			( (Artista)usuario ).definirMaximoCompras(maximoCompra);
-			System.out.println("Se ha definido el metodo de pago");
 		}	
 	}
 	
-	public void participarSubasta(Galeria galeria, Usuario usuario) {
-		/* Primero se debe ver si el usuario fue admitido para participar en subastas si no fue admitido entonces se 
-		 * manda una peticion al admin para que lo admita, esto se hace añadiendo el usuario a una lista del 
-		 * admin que se llamara peticionesSubasta
-		 * 
-		 * la idea es que el usuario pase el titulo de la pieza en la que quiere participar en subasta, 
-		despues busca la pieza en la lista de subasta de la galeria y que pueda ofrecer un precio y 
-		si este valor no es mayor al precio, no lo admita ( el precio es  una lista de 2 posiciones 
-		donde la posicion 1 es el precio dado por el usuario y la segunda posicion sea el usuario.),si supera el 
-		precio se actualiza el precio de la subasta (cada precio que den los usuarios se manda a una lista de la 
-		subasta que es registroSubasta ),
-		en la clase de subasta van a haber mas atributos como "fechaFinal" que va ayudar a saber cuando 
-		acaba la subasta y apenas acabe se va a ver el precio mayor y el usuario y se añade la pieza de la 
-		subasta al usuario. 
-		*/
-		try {
-			if( !((Comprador)usuario).getAdmitido()) {
-				galeria.participarSubasta(galeria, usuario);
-			}else {
-				//se busca el admin de la galeria
-				Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
-				
-				admin.aniadirPeticionSubasta(usuario);
-				System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
-			}
-		}catch(ClassCastException e){
-			if(!((Artista)usuario).getAdmitido() ) {
-				galeria.participarSubasta(galeria, usuario);
-			}else {
-				//se busca el admin de la galeria
-				Administrador admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
-				
-				admin.aniadirPeticionSubasta(usuario);
-				System.out.println("-Usted no fue admitido para participar en una subasta, se le mando una peticion al administrador.");
-			}
-		}
-	}
+
 	
 	public void comprarPieza(Galeria galeria, Usuario usuario) {
 		galeria.comprarPieza(galeria, usuario);
@@ -153,16 +108,6 @@ public class Controller {
 		
 	}
 	
-	public void aniadirPieza(Usuario usuario,Galeria galeria) {
-		/*Esto lo hacen los artistas mandan la pieza que quieren añadir
-		 * sea foto, escultura, etc, apenas diligencien la pieza que quieran añadir 
-		 * se le manda la pieza al admin a la lista de piezasPorAnadir y si el usuario 
-		 * quiere saber si ya se añadio debe buscarla en la funcion mirarMiPieza
-		 * 
-		 * */
-		
-		galeria.getInventario().aniadirPieza(galeria, usuario);
-	}
 
 	public void pedirCupoDeCompras(Galeria galeria, Usuario usuario) {
 		/*Se pregunta cuanto quiere añadir y se le envia una lista de 2 posiciones
@@ -252,16 +197,7 @@ public class Controller {
 		ope.llevarResgistroSubasta(galeria, usuario);
 	}
 	
-	public void validarPiezasPorAniadir(Galeria galeria, Usuario usuario) {
-		/*se le muestra al empleado la cantidad de verificaciones que tiene que revisar 
-		 * que esto es la cantidad de elementos de la lista de piezasPorAnadir, y se pregunta si quiere 
-		 * revisarlas, si dice que si se le muestra 1, (la forma en que la verifique es mostrando datos y 
-		 * preguntando si quiere admitir), si admite se pasa la pieza al inventario 
-		 * */
-		
-		Administrador admin= (Administrador) usuario;
-		admin.validarAniadirPieza(galeria);
-	}
+
 	
 	public void verHistoriaPieza(Galeria galeria, Usuario usuario) {
 		galeria.verHistoriaPieza(galeria, usuario);

@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
+import Interfaz.PanelAnadirPieza;
+import Interfaz.PanelDefinirMetodoPago;
 import Interfaz.PanelSubasta;
 
 
@@ -33,6 +35,7 @@ public class BotonActionListenerArtista implements ActionListener {
         // Aquí puedes añadir la lógica para cada opción
         switch (opcion) {
             case 1:
+            	new PanelDefinirMetodoPago(galeria, usuario, frame);
                 break;
             case 2:
               
@@ -54,7 +57,7 @@ public class BotonActionListenerArtista implements ActionListener {
               
                 break;
             case 8:
-
+            	new PanelAnadirPieza(galeria, usuario, frame);
                 break;
             case 9:
           

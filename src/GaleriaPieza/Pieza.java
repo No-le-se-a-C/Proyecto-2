@@ -136,4 +136,8 @@ public abstract class Pieza {
 		System.out.println("--la Pieza ya fue entregada al comprador");
 	}
 	
+	@Override
+	public String toString() {
+		return titulo;
+	}
 }

@@ -9,6 +9,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazMenu;
 import Interfaz.InterfazSesion;
+import Interfaz.PanelVerificarPieza;
 
 public class BotonActionListenerAdmin implements ActionListener{
 	private final int opcion;
@@ -36,7 +37,7 @@ public class BotonActionListenerAdmin implements ActionListener{
                
                 break;
             case 3:
-               
+               new PanelVerificarPieza(galeria, usuario, frame);
                 break;
             case 4:
               

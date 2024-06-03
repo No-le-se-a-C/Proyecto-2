@@ -2,6 +2,7 @@ package Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -99,6 +100,9 @@ public class PanelSubasta extends JPanel implements ActionListener{
 	}
 	
 	public void buscarSubasta() {
+		frame.dispose();
+	    this.frame = new InterfazMenu(usuario, galeria);
+	    frame.setVisible(true);
 		setLayout(new BorderLayout());
 		setOpaque(true);
 		setBackground(Color.BLACK);
@@ -120,7 +124,6 @@ public class PanelSubasta extends JPanel implements ActionListener{
 		infoButton.setForeground(Color.WHITE);
 		infoButton.setFont(new Font("arial", Font.BOLD, 30));
 
- 
         
         JPanel panelText= new JPanel();
         JPanel panelText1= new JPanel();
