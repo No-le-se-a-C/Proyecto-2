@@ -9,12 +9,11 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazMenu;
 import Interfaz.InterfazSesion;
-<<<<<<< HEAD
 import Interfaz.PanelVerificarPieza;
-=======
+
 import Interfaz.PanelHistorial;
 import Interfaz.PanelVerificarVenta;
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+
 
 public class BotonActionListenerAdmin implements ActionListener{
 	private final int opcion;

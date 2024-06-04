@@ -1,20 +1,15 @@
 package Listeners;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
-import Interfaz.InterfazSesion;
-<<<<<<< HEAD
-import Interfaz.PanelDefinirMetodoPago;
-import Interfaz.PanelSubasta;
-=======
-import Interfaz.PanelHistorial;
-import Interfaz.PanelPiezaDisponible;
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+import Interfaz.*;
+
 
 public class BotonActionListenerComprador implements ActionListener{
 	 private final int opcion;
@@ -47,7 +42,7 @@ public class BotonActionListenerComprador implements ActionListener{
                 
                  break;
              case 4:
-            	 new PanelSubasta(frame, galeria, usuario);
+            	 new PanelSubasta2(frame, galeria, usuario);
                  break;
              case 5:
              

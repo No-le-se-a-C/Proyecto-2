@@ -2,6 +2,7 @@ package Interfaz;
 
 import java.awt.BorderLayout;
 
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
@@ -19,55 +20,23 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-<<<<<<< HEAD
 
 import GaleriaEmpleados.Administrador;
 
-=======
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import GaleriaEmpleados.Administrador;
+
 import GaleriaEmpleados.Cajero;
 import GaleriaEmpleados.Operador;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
 import GaleriaGestionSesion.*;
 import GaleriaModelo.Galeria;
 
-<<<<<<< HEAD
-public class InterfazSesion extends JFrame implements ActionListener{
-	
-
-	private JButton boton;
-	private Galeria galeria;
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 
-
-	private JTextField campoUsuario;
-	private JPasswordField campoContraseña;
-	private JButton botonRegistrarse;
-	private JButton botonIniciarSesion;
-	
-	public InterfazSesion(Galeria galeria) {
-
-		//Cuando vallan a modificar este frame quiten todo esto que solo es para probar lo demas
-		
-		
-		
-		
-		super("Sesion");
-		this.galeria=galeria;
 		
     
-=======
+
 public class InterfazSesion extends JFrame implements ActionListener {
 
     private Galeria galeria;
@@ -82,20 +51,15 @@ public class InterfazSesion extends JFrame implements ActionListener {
  
 	public InterfazSesion(Galeria galeria) {
 		this.galeria = galeria;
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+
 
 		initialize();
-<<<<<<< HEAD
+
 
 	}
 		
-		//Cuando vallan a modificar este this quiten todo esto que solo es para probar lo demas
-		
-		
-=======
-		}
 
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+		
 		
 	private void initialize()  {
 		
@@ -108,102 +72,65 @@ public class InterfazSesion extends JFrame implements ActionListener {
 
 		JPanel panel = new JPanel();
 
-        panel.setBackground(Color.BLUE);
-        this.getContentPane().add(panel, BorderLayout.CENTER);
-        GridBagLayout gbl_panel = new GridBagLayout();
-        gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0};
-        gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
-        gbl_panel.columnWeights = new double[]{1.0, 0.2, 0.6, 0.2, 1.0};  // Adjusted column weights
-        gbl_panel.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 1.0};
-        panel.setLayout(gbl_panel);
+		panel.setBackground(Color.BLUE);
+		this.getContentPane().add(panel, BorderLayout.CENTER);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWeights = new double[]{1.0, 0.2, 0.6, 0.2, 1.0};  // Adjusted column weights
+		gbl_panel.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 1.0};
+		panel.setLayout(gbl_panel);
 
-        JLabel etiquetaImagen = new JLabel();
-<<<<<<< HEAD
-        etiquetaImagen.setIcon(new ImageIcon("Imagenes\\ImagenDeSesion.jpg")); // Ajustar la ruta según sea necesario
-=======
-        etiquetaImagen.setIcon(new ImageIcon("C:\\Users\\usuario\\eclipse-workspace\\Proyecto_2\\Imagenes\\ImagenDeSesion.jpg"));
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
-        GridBagConstraints gbc_etiquetaImagen = new GridBagConstraints();
-        gbc_etiquetaImagen.insets = new Insets(10, 10, 5, 10);
-        gbc_etiquetaImagen.gridx = 2;
-        gbc_etiquetaImagen.gridy = 0;
-        gbc_etiquetaImagen.anchor = GridBagConstraints.CENTER;
-        panel.add(etiquetaImagen, gbc_etiquetaImagen);
-<<<<<<< HEAD
-     
-		        JLabel etiquetaUsuario = new JLabel("Usuario");
-		        etiquetaUsuario.setForeground(Color.WHITE);
-		        GridBagConstraints gbc_etiquetaUsuario = new GridBagConstraints();
-		        gbc_etiquetaUsuario.insets = new Insets(0, 0, 5, 5);
-		        gbc_etiquetaUsuario.gridx = 1;
-		        gbc_etiquetaUsuario.gridy = 1;
-		        panel.add(etiquetaUsuario, gbc_etiquetaUsuario);
-		
-		        campoUsuario = new JTextField();
-		        GridBagConstraints gbc_campoUsuario = new GridBagConstraints();
-		        gbc_campoUsuario.insets = new Insets(10, 10, 5, 10);
-		        gbc_campoUsuario.gridx = 2;  // Centering the text field
-		        gbc_campoUsuario.gridy = 1;
-		        gbc_campoUsuario.fill = GridBagConstraints.HORIZONTAL;
-		        campoUsuario.setColumns(10);
-		        panel.add(campoUsuario, gbc_campoUsuario);
-		        
-		        JLabel etiquetaContraseña = new JLabel("Contraseña");
-		        etiquetaContraseña.setForeground(Color.WHITE);
-		        GridBagConstraints gbc_etiquetaContraseña = new GridBagConstraints();
-		        gbc_etiquetaContraseña.insets = new Insets(0, 0, 5, 5);
-		        gbc_etiquetaContraseña.gridx = 1;
-		        gbc_etiquetaContraseña.gridy = 2;
-		        panel.add(etiquetaContraseña, gbc_etiquetaContraseña);
-		
-		        campoContraseña = new JPasswordField();
-		        GridBagConstraints gbc_campoContraseña = new GridBagConstraints();
-		        gbc_campoContraseña.insets = new Insets(5, 10, 10, 10);
-		        gbc_campoContraseña.gridx = 2;  // Centering the text field
-		        gbc_campoContraseña.gridy = 2;
-		        gbc_campoContraseña.fill = GridBagConstraints.HORIZONTAL;
-		        campoContraseña.setColumns(10);
-		        panel.add(campoContraseña, gbc_campoContraseña);
-		        
+		JLabel etiquetaImagen = new JLabel();
+
+		etiquetaImagen.setIcon(new ImageIcon("Imagenes\\ImagenDeSesion.jpg")); // Ajustar la ruta según sea necesario
+
+		GridBagConstraints gbc_etiquetaImagen = new GridBagConstraints();
+		gbc_etiquetaImagen.insets = new Insets(10, 10, 5, 10);
+		gbc_etiquetaImagen.gridx = 2;
+		gbc_etiquetaImagen.gridy = 0;
+		gbc_etiquetaImagen.anchor = GridBagConstraints.CENTER;
+		panel.add(etiquetaImagen, gbc_etiquetaImagen);
+
+
+		JLabel etiquetaUsuario = new JLabel("Usuario");
+		etiquetaUsuario.setForeground(Color.WHITE);
+		GridBagConstraints gbc_etiquetaUsuario = new GridBagConstraints();
+		gbc_etiquetaUsuario.insets = new Insets(0, 0, 5, 5);
+		gbc_etiquetaUsuario.gridx = 1;
+		gbc_etiquetaUsuario.gridy = 1;
+		panel.add(etiquetaUsuario, gbc_etiquetaUsuario);
+
+		campoUsuario = new JTextField();
+		GridBagConstraints gbc_campoUsuario = new GridBagConstraints();
+		gbc_campoUsuario.insets = new Insets(10, 10, 5, 10);
+		gbc_campoUsuario.gridx = 2;  // Centering the text field
+		gbc_campoUsuario.gridy = 1;
+		gbc_campoUsuario.fill = GridBagConstraints.HORIZONTAL;
+		campoUsuario.setColumns(10);
+		panel.add(campoUsuario, gbc_campoUsuario);
+
+		JLabel etiquetaContraseña = new JLabel("Contraseña");
+		etiquetaContraseña.setForeground(Color.WHITE);
+		GridBagConstraints gbc_etiquetaContraseña = new GridBagConstraints();
+		gbc_etiquetaContraseña.insets = new Insets(0, 0, 5, 5);
+		gbc_etiquetaContraseña.gridx = 1;
+		gbc_etiquetaContraseña.gridy = 2;
+		panel.add(etiquetaContraseña, gbc_etiquetaContraseña);
+
+		campoContraseña = new JPasswordField();
+		GridBagConstraints gbc_campoContraseña = new GridBagConstraints();
+		gbc_campoContraseña.insets = new Insets(5, 10, 10, 10);
+		gbc_campoContraseña.gridx = 2;  // Centering the text field
+		gbc_campoContraseña.gridy = 2;
+		gbc_campoContraseña.fill = GridBagConstraints.HORIZONTAL;
+		campoContraseña.setColumns(10);
+		panel.add(campoContraseña, gbc_campoContraseña);
+
 		botonIniciarSesion = new JButton("Iniciar Sesión");
-=======
 
-        JLabel etiquetaUsuario = new JLabel("Usuario");
-        etiquetaUsuario.setForeground(Color.WHITE);
-        GridBagConstraints gbc_etiquetaUsuario = new GridBagConstraints();
-        gbc_etiquetaUsuario.insets = new Insets(0, 0, 5, 5);
-        gbc_etiquetaUsuario.gridx = 1;
-        gbc_etiquetaUsuario.gridy = 1;
-        panel.add(etiquetaUsuario, gbc_etiquetaUsuario);
 
-        campoUsuario = new JTextField();
-        GridBagConstraints gbc_campoUsuario = new GridBagConstraints();
-        gbc_campoUsuario.insets = new Insets(10, 10, 5, 10);
-        gbc_campoUsuario.gridx = 2;  // Centering the text field
-        gbc_campoUsuario.gridy = 1;
-        gbc_campoUsuario.fill = GridBagConstraints.HORIZONTAL;
-        campoUsuario.setColumns(10);
-        panel.add(campoUsuario, gbc_campoUsuario);
-
-        JLabel etiquetaContraseña = new JLabel("Contraseña");
-        etiquetaContraseña.setForeground(Color.WHITE);
-        GridBagConstraints gbc_etiquetaContraseña = new GridBagConstraints();
-        gbc_etiquetaContraseña.insets = new Insets(0, 0, 5, 5);
-        gbc_etiquetaContraseña.gridx = 1;
-        gbc_etiquetaContraseña.gridy = 2;
-        panel.add(etiquetaContraseña, gbc_etiquetaContraseña);
-
-        campoContraseña = new JPasswordField();
-        GridBagConstraints gbc_campoContraseña = new GridBagConstraints();
-        gbc_campoContraseña.insets = new Insets(5, 10, 10, 10);
-        gbc_campoContraseña.gridx = 2;  // Centering the text field
-        gbc_campoContraseña.gridy = 2;
-        gbc_campoContraseña.fill = GridBagConstraints.HORIZONTAL;
-        campoContraseña.setColumns(10);
-        panel.add(campoContraseña, gbc_campoContraseña);
-
-        botonIniciarSesion = new JButton("Iniciar Sesión");
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+		
         botonIniciarSesion.setBackground(new Color(25, 25, 112));
         botonIniciarSesion.setForeground(Color.WHITE);
         GridBagConstraints gbc_botonIniciarSesion = new GridBagConstraints();
@@ -225,48 +152,14 @@ public class InterfazSesion extends JFrame implements ActionListener {
         botonRegistrarse.addActionListener(this);  // Añadir ActionListener
         panel.add(botonRegistrarse, gbc_botonRegistrarse);
 
-<<<<<<< HEAD
+
 		this.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{this.getContentPane(), panel, botonIniciarSesion, campoUsuario, campoContraseña, botonRegistrarse, etiquetaUsuario, etiquetaContraseña}));
 		this.setVisible(true);
 		
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
 
-		String comando = e.getActionCommand();
-		String usuario1 = campoUsuario.getText();
-		String contrasenia = new String(campoContraseña.getPassword());
-		Usuario usuario = null;
-=======
-        this.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{this.getContentPane(), panel, botonIniciarSesion, campoUsuario, campoContraseña, botonRegistrarse, etiquetaUsuario, etiquetaContraseña}));
-        this.setVisible(true);
-    }
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
 
-<<<<<<< HEAD
-		if (comando.equals("Iniciar Sesión")) {
-			if (usuario1.equals("comprador") && contrasenia.equals("comprador")) {
-				usuario = new Comprador(usuario1, contrasenia);
-			} else if (usuario1.equals("artista") && contrasenia.equals("artista")) {
-				usuario = new Artista(usuario1, contrasenia);
-			} else if (usuario1.equals("cajero") && contrasenia.equals("cajero")) {
-				usuario = new Cajero(usuario1, contrasenia);
-			} else if (usuario1.equals("operador") && contrasenia.equals("operador")) {
-				usuario = new Operador(usuario1, contrasenia);
-			} else if (usuario1.equals("administrador") && contrasenia.equals("administrador")) {
-				usuario = new Administrador(usuario1, contrasenia);
-			}else {
-				System.out.println("Usuario o contraseña incorrectos.");
-				return;
-			}
-			
-			new InterfazMenu(usuario, galeria).setVisible(true);
-			this.dispose();
-		}
-	}
-}
-=======
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
@@ -297,4 +190,4 @@ public class InterfazSesion extends JFrame implements ActionListener {
         }
     }
 }
->>>>>>> branch 'main' of https://github.com/No-le-se-a-C/Proyecto-2.git
+
