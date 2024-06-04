@@ -167,7 +167,7 @@ public class Administrador extends Usuario {
 
 	
 	public void validarAniadirPieza(Galeria galeria, int mes, int dia, Pieza pieza) {
-		piezasPorAnadir.remove(0);
+	
 		if(pieza.isSubasta()) {
 			galeria.getInventario().anadirPiezaVerificada(pieza, galeria,mes, dia);
 			pieza.getAutor().aniadirPieza(pieza);

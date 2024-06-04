@@ -87,7 +87,7 @@ public class InterfazMenu extends JFrame{
 		super("Menu pricipal");
 		this.galeria=galeria;
 	    this.usuario=usuario;
-	    System.out.println(usuario.getIDENTIFICADOR());
+	    
 		String[] opcion= DefinirMenu(usuario);
         setSize(1000, 650);
         setResizable(false);
