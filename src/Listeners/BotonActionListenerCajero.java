@@ -9,6 +9,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazSesion;
 import Interfaz.PanelHistorial;
+import Interfaz.PanelVerificarPagos;
 
 public class BotonActionListenerCajero implements ActionListener {
 	private final int opcion;
@@ -28,6 +29,7 @@ public class BotonActionListenerCajero implements ActionListener {
         // Aquí puedes añadir la lógica para cada opción
         switch (opcion) {
             case 1:
+            	new PanelVerificarPagos(frame, galeria, usuario);
                 break;
             case 2:
             	new PanelHistorial(galeria, usuario);

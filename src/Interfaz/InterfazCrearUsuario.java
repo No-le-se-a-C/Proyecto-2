@@ -140,7 +140,7 @@ public class InterfazCrearUsuario extends JFrame implements ActionListener {
                 galeria.aniadirUsuario(new Artista(nombre, contraseña));
             } else {
                 // Manejar un caso inesperado (opcional)
-                System.out.println("Tipo de usuario no reconocido.");
+            	JOptionPane.showMessageDialog(this, "Tipo de usuario no reconocido.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 

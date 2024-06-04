@@ -45,7 +45,7 @@ public class Inventario {
 		piezas.remove(pieza);
 		
 	}
-	public void buscarPieza(String nTitulo, Artista nAutor) {
+	public Pieza buscarPieza(String nTitulo, Artista nAutor) {
 		
 		Pieza piezaEncontrada= null;
 		
@@ -56,12 +56,8 @@ public class Inventario {
 			}
 			
 		}
-		//imprime las caracteristicas de la pieza si la encuentra
-		if(piezaEncontrada==null) {
-			System.out.println("No se encontro la pieza, verifique que lo datos esten bien");
-		}else {
-			piezaEncontrada.getCaracteristicas();
-		}
+		
+		return piezaEncontrada;
 	
 	}
 	
@@ -249,10 +245,15 @@ public class Inventario {
 		LocalDate fechaFin=null;
 
 		fechaFin= LocalDate.of(2024, mes, dia);
-
+		piezas.add(pieza);
 		Subasta subasta= new Subasta(pieza, fechaFin);
 		galeria.aniadirSubasta(subasta);
 
+	}
+
+
+	public void anadirPiezaVerificada(Pieza pieza, Galeria galeria) {
+		piezas.add(pieza);
 	}
 	
 }

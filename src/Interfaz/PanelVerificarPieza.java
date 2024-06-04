@@ -132,6 +132,7 @@ public class PanelVerificarPieza extends JPanel {
 		        JTextField textField2 = new JTextField(10);
 
 		        // Creamos un JPanel para contener los JTextFields
+		      
 		        JPanel panel = new JPanel();
 		        panel.add(new JLabel("Defina que dia acabara la subasta de esta pieza:"));
 		        panel.add(Box.createHorizontalStrut(15));
@@ -140,7 +141,7 @@ public class PanelVerificarPieza extends JPanel {
 		        panel.add(Box.createHorizontalStrut(15)); // Espaciado entre los componentes
 		        panel.add(new JLabel("Mes:"));
 		        panel.add(textField2);
-
+		       
 		        // Mostramos el JOptionPane con el JPanel personalizado
 		        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese Texto", JOptionPane.OK_CANCEL_OPTION);
 		        

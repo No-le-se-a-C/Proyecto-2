@@ -182,8 +182,7 @@ public class Controller {
 				if( valor ) {
 					admin.aniadirVentasAVerificar(userPago);
 					System.out.println("Se envio la venta al administrador");
-				}
-		scanner.close();		
+				}	
 			}
 		}
 	}
