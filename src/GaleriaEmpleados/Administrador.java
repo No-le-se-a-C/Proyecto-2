@@ -21,8 +21,8 @@ public class Administrador extends Usuario {
 	private ArrayList<Usuario> peticionesSubasta;
 	private HashMap<Usuario, Integer> pedidosCupoCompra;
 	
-	private ArrayList<Compra> ventasAVerificar;
-	private ArrayList<Usuario> ventasAVerificarUsuario;
+	private ArrayList<Compra> ventasAVerificar = new ArrayList<Compra>();
+	private ArrayList<Usuario> ventasAVerificarUsuario = new ArrayList<Usuario>();
 	
 	
 
