@@ -1,6 +1,7 @@
 package Listeners;
 
 import java.awt.*;
+
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
@@ -9,10 +10,8 @@ import javax.swing.JFrame;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
-import Interfaz.InterfazSesion;
-import Interfaz.PanelHistorial;
-import Interfaz.PanelPiezaDisponible;
-import Interfaz.PanelSubasta;
+import Interfaz.*;
+
 
 
 public class BotonActionListenerArtista implements ActionListener {
@@ -35,6 +34,7 @@ public class BotonActionListenerArtista implements ActionListener {
         // Aquí puedes añadir la lógica para cada opción
         switch (opcion) {
             case 1:
+            	new PanelDefinirMetodoPago(galeria, usuario, frame);
                 break;
             case 2:
             	new PanelPiezaDisponible(galeria, usuario);
@@ -46,7 +46,7 @@ public class BotonActionListenerArtista implements ActionListener {
           
                 break;
             case 4:
-               new PanelSubasta(frame, galeria, usuario);
+            	new PanelSubasta2(frame, galeria, usuario);
                
                 break;
             case 5:
@@ -59,7 +59,7 @@ public class BotonActionListenerArtista implements ActionListener {
               
                 break;
             case 8:
-
+            	new PanelAnadirPieza(galeria, usuario, frame);
                 break;
             case 9:
             	new PanelHistorial(galeria, usuario);

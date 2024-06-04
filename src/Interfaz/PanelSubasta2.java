@@ -25,7 +25,7 @@ import GaleriaModelo.Galeria;
 import GaleriaServiciosDeAdquisicion.Precio;
 import GaleriaServiciosDeAdquisicion.Subasta;
 
-public class PanelSubasta extends JPanel implements ActionListener{
+public class PanelSubasta2 extends JPanel implements ActionListener{
 	
 	private JTextField textField1;
 	private JTextField textField2;
@@ -35,7 +35,7 @@ public class PanelSubasta extends JPanel implements ActionListener{
 	private Usuario usuario;
 	private JFrame frame;
 	    
-	public PanelSubasta(JFrame frame, Galeria galeria, Usuario usuario) {
+	public PanelSubasta2(JFrame frame, Galeria galeria, Usuario usuario) {
 		super();
 		
 		this.galeria=galeria;
