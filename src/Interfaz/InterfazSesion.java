@@ -10,6 +10,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -166,24 +167,31 @@ public class InterfazSesion extends JFrame implements ActionListener {
         String usuario1 = campoUsuario.getText();
         String contrasenia = new String(campoContraseña.getPassword());
         Usuario usuario = null;
-
+        
         if (comando.equals("Iniciar Sesión")) {
-            if (usuario1.equals("comprador") && contrasenia.equals("comprador")) {
-                usuario = new Comprador(usuario1, contrasenia);
-            } else if (usuario1.equals("artista") && contrasenia.equals("artista")) {
-                usuario = new Artista(usuario1, contrasenia);
-            } else if (usuario1.equals("cajero") && contrasenia.equals("cajero")) {
-                usuario = new Cajero(usuario1, contrasenia);
-            } else if (usuario1.equals("operador") && contrasenia.equals("operador")) {
-                usuario = new Operador(usuario1, contrasenia);
-            } else if (usuario1.equals("administrador") && contrasenia.equals("administrador")) {
-                usuario = new Administrador(usuario1, contrasenia);
-            } else {
-                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
-                return;
+        	HashMap<String, Usuario> usuarios= galeria.getListaUsuariuos();
+        	Usuario usuarioEncontrado= usuarios.get(usuario1);
+        	
+        	if(usuarioEncontrado!=null) {
+        		if(usuarioEncontrado.getContrasenia().equals(contrasenia)) {
+        			new InterfazMenu(usuarioEncontrado, galeria).setVisible(true);
+                    this.dispose();
+        		}else {
+        			JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+        		}
+            }else {
+            	HashMap<String, Usuario> usuariosEmpleados= galeria.getMapaUsuariosEmpleados();
+            	Usuario usuarioEncontradoEmpleado= usuariosEmpleados.get(usuario1);
+            	
+            	if(usuarioEncontradoEmpleado!=null) {
+            		new InterfazMenu(usuarioEncontradoEmpleado, galeria).setVisible(true);
+                    this.dispose();
+            	}else {
+            		JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+                    return;
+            	}   
             }
-            new InterfazMenu(usuario, galeria).setVisible(true);
-            this.dispose();
+            
         } else if (comando.equals("Registrarse")) {
             new InterfazCrearUsuario(galeria).setVisible(true);
             this.dispose();
