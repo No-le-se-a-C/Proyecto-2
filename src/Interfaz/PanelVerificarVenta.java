@@ -40,8 +40,13 @@ public class PanelVerificarVenta extends JPanel implements ActionListener{
 		this.frame = frame;
 		this.galeria = galeria;
 		this.usuario = usuario;
-		
 		admin=(Administrador)galeria.getMapaUsuariosEmpleados().get("Administrador");
+		inicializar();
+	}
+	
+	public void inicializar() {
+		frame.dispose();
+		this.frame = new InterfazMenu(usuario, galeria);
 		
 		setLayout(new BorderLayout());
 		setOpaque(true);
@@ -53,7 +58,6 @@ public class PanelVerificarVenta extends JPanel implements ActionListener{
 		texto = new JLabel();
 		label2 = new JLabel();
 		texto.setFont(new Font("arial", Font.BOLD, 20));
-		
 		texto.setText("Tiene " + admin.getVentasAVerificar().size()+  " solicitudes para verificar ventas");
 		texto.setHorizontalAlignment(SwingConstants.CENTER);
 		texto.setPreferredSize( new Dimension(500, 100) );
@@ -94,11 +98,15 @@ public class PanelVerificarVenta extends JPanel implements ActionListener{
 		dejar.addActionListener(this);
 		dejar.setFont( new Font("arial", Font.BOLD, 20));
 		
-		
+		frame.setVisible(true);
+		frame.getContentPane().add(this, BorderLayout.EAST);
 		frame.add(this, BorderLayout.EAST);
-		revalidate();
-		repaint();
+		frame.revalidate();
+		frame.repaint();
+		
+	
 	}
+	
 	public void cambiar() {
 		remove(0);
 		remove(0);

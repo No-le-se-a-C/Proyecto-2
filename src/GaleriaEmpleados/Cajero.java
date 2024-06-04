@@ -9,7 +9,7 @@ import GaleriaServiciosDeAdquisicion.Compra;
 
 public class Cajero extends Usuario{
 	private String IDENTIFICADOR="CAJERO";
-	private ArrayList<Usuario> pagosPendientes;
+	private ArrayList<Usuario> pagosPendientes = new ArrayList<Usuario>();
 	
 	public String getIDENTIFICADOR() {
 		return IDENTIFICADOR;

@@ -4,11 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -33,6 +35,8 @@ public class PanelSeriedadOferta extends JPanel implements ActionListener{
 	Cajero cajero;
 	
 	ArrayList<Subasta> subastas;
+	
+	JButton si;
 
 	public PanelSeriedadOferta(JFrame frame, Galeria galeria, Usuario usuario) {
 		super();
@@ -46,10 +50,23 @@ public class PanelSeriedadOferta extends JPanel implements ActionListener{
 		
 		label1 = new JLabel();
 		
+		si = new JButton();
+		si.setText("SI");
+		si.addActionListener(this);
+		si.setPreferredSize( new Dimension(70,40) );
+		operacion();
+	}
+	
+	public void operacion() {
+		frame.dispose();
+		this.frame = new InterfazMenu(usuario, galeria);
+		
 		setLayout(new BorderLayout());
 		setOpaque(true);
 		setPreferredSize(new Dimension(500, 660));
 		setVisible(true);
+		
+		JLabel pregunta = new JLabel();
 		
 		label1.setText("Title");
 		label1.setFont(new Font("arial", Font.BOLD, 20));
@@ -58,50 +75,21 @@ public class PanelSeriedadOferta extends JPanel implements ActionListener{
 		label1.setOpaque(true);
 		label1.setBackground(new Color(25, 25, 112));
 		label1.setForeground(Color.white);
-		
-		
-		add(label1);
-		
-		operacion();
-		
-		frame.add(this, BorderLayout.EAST);
-		revalidate();
-		repaint();
-	}
-	
-	public void operacion() {
-		Scanner scanner= new Scanner(System.in);
-
-		boolean seguir=true;
-		System.out.println("Bienvenido al registro de subastas");
-		int i=0;
+		add(label1, BorderLayout.CENTER);
 		
 		if (!subastas.isEmpty()) {
-			label1.setText("Por el momento hay "+subastas.size() +" subastas"   );
-			/*
-			while(seguir) {
+			label1.setText("Por el momento hay "+subastas.size() +" subasta(s)"   );
 				
-				System.out.println("Desea ver sus registros de la siguiente subasta");
-				System.out.println("1.Si");
-				System.out.println("2.No");
-				int input= scanner.nextInt();
-				scanner.nextLine();
+				pregunta.setText("Desea ver sus registros de la siguiente subasta?");
 				
-				if(input==1 && i <subastas.size()) {
-					ArrayList<Precio> registro=subastas.get(i).getRegistroSubasta();
-					System.out.println("Subasta de "+ subastas.get(i).getPieza().getTitulo());
-					System.out.println("asi a trascurrido la subasta");
-					System.out.println("");
-					for (Precio precio : registro) {
-						System.out.println("Oferta: "+precio.getPrecio()+"--Usuario: "+((Usuario) precio.getUsuario()).getUsuario());				
-					}
-					i++;
-				}else if(input==2) {
-					seguir=false;
-				}else {
-					System.out.println("Valor Incorrecto");
-				}
-			}*/
+				JPanel labelSouth = new JPanel();
+				labelSouth.setLayout( new BorderLayout() );
+				
+				labelSouth.add(pregunta,BorderLayout.CENTER);
+				labelSouth.add(si, BorderLayout.EAST);
+				add(labelSouth, BorderLayout.SOUTH);
+				
+			//}
 		}else {
 			label1.setText("No hay Subastas por el momento");
 		}
@@ -109,14 +97,57 @@ public class PanelSeriedadOferta extends JPanel implements ActionListener{
 		//Gson gson = new Gson();
 	    //String jsonAdministrador = gson.toJson(subastas);
 		
+		
+		frame.getContentPane().add(this, BorderLayout.EAST);
+		frame.add(this, BorderLayout.EAST);
+		frame.revalidate();
+		frame.repaint();
+		frame.setVisible(true);
+		
+	}
+	
+	public void respuestaPregunta() {
+		remove(0);
+		remove(0);
+		int i = 0;
+		
+		JPanel panelCentro = new JPanel();
+		JLabel tituloSubasta = new JLabel();
+		JLabel message1 = new JLabel();
+		
+		panelCentro.setLayout( new GridLayout(4,1) );
+		panelCentro.add(tituloSubasta);
+		panelCentro.add(message1);
+		
+		if( i <subastas.size()) {
+			ArrayList<Precio> registro= subastas.get(i).getRegistroSubasta();
+			tituloSubasta.setText("Subasta de "+ subastas.get(i).getPieza().getTitulo());
+			message1.setText("asi a trascurrido la subasta");
+			System.out.println("size de registro "+ registro.size());
+			for (Precio precio : registro) {
+				System.out.println("Oferta: "+precio.getPrecio()+"--Usuario: "+((Usuario) precio.getUsuario()).getUsuario());
+				JLabel cadaElemento = new JLabel();
+				cadaElemento.setText("Oferta: "+precio.getPrecio()+"--Usuario: "+((Usuario) precio.getUsuario()).getUsuario());
+				panelCentro.add( cadaElemento);				
+			}
+			i++;
+		}/*else if(input==2) {
+			seguir=false;
+		}*/else {
+			System.out.println("Valor Incorrecto");
+		}
+		add(label1, BorderLayout.NORTH);
+		add(panelCentro, BorderLayout.CENTER);
+		
 		revalidate();
 		repaint();
-		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource().equals(si)) {
+			respuestaPregunta();
+		}
 		
 	}
 
