@@ -12,6 +12,7 @@ import Interfaz.InterfazSesion;
 import Interfaz.PanelVerificarPieza;
 
 import Interfaz.PanelHistorial;
+import Interfaz.PanelSeriedadOferta;
 import Interfaz.PanelVerificarVenta;
 
 
@@ -39,7 +40,8 @@ public class BotonActionListenerAdmin implements ActionListener{
             	
                 break;
             case 2:
-               
+            	new PanelSeriedadOferta(frame, galeria, usuario);
+            	
                 break;
             case 3:
                new PanelVerificarPieza(galeria, usuario, frame);
