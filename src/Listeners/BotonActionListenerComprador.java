@@ -8,7 +8,18 @@ import javax.swing.JFrame;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
+
 import Interfaz.*;
+
+import Interfaz.InterfazSesion;
+
+import Interfaz.PanelDefinirMetodoPago;
+import Interfaz.PanelSubasta;
+
+import Interfaz.PanelHistorial;
+import Interfaz.PanelPedirCupoCompra;
+import Interfaz.PanelPiezaDisponible;
+
 
 
 public class BotonActionListenerComprador implements ActionListener{
@@ -37,7 +48,7 @@ public class BotonActionListenerComprador implements ActionListener{
                  
                  break;
              case 3:
-             	galeria.comprarPieza( galeria , usuario);            	
+             	galeria.comprarPieza( galeria , usuario);
 
                 
                  break;
@@ -45,7 +56,7 @@ public class BotonActionListenerComprador implements ActionListener{
             	 new PanelSubasta2(frame, galeria, usuario);
                  break;
              case 5:
-             
+            	 new PanelPedirCupoCompra(frame, galeria, usuario);
                  break;
              case 6:
             	 new PanelHistorial(galeria, usuario);

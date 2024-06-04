@@ -9,6 +9,7 @@ import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
 import Interfaz.InterfazMenu;
 import Interfaz.InterfazSesion;
+
 import Interfaz.PanelVerificarPieza;
 
 import Interfaz.PanelHistorial;
@@ -28,8 +29,6 @@ public class BotonActionListenerAdmin implements ActionListener{
         this.galeria=galeria;
         this.usuario=usuario;
     }
-
-   
 
 	@Override
     public void actionPerformed(ActionEvent e) {

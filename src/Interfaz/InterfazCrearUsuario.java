@@ -59,7 +59,7 @@ public class InterfazCrearUsuario extends JFrame implements ActionListener {
         panel.setLayout(gbl_panel);
 
         JLabel etiquetaImagen = new JLabel();
-        etiquetaImagen.setIcon(new ImageIcon("C:\\\\Users\\\\usuario\\\\eclipse-workspace\\\\Proyecto_2\\\\Imagenes\\\\Registro.png"));
+        etiquetaImagen.setIcon(new ImageIcon("Imagenes\\Registro.png"));
         GridBagConstraints gbc_etiquetaImagen = new GridBagConstraints();
         gbc_etiquetaImagen.insets = new Insets(10, 10, 5, 10);
         gbc_etiquetaImagen.gridx = 2;
@@ -140,7 +140,7 @@ public class InterfazCrearUsuario extends JFrame implements ActionListener {
                 galeria.aniadirUsuario(new Artista(nombre, contraseña));
             } else {
                 // Manejar un caso inesperado (opcional)
-                System.out.println("Tipo de usuario no reconocido.");
+            	JOptionPane.showMessageDialog(this, "Tipo de usuario no reconocido.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 

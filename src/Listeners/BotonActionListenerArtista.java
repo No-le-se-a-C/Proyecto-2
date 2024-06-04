@@ -10,7 +10,19 @@ import javax.swing.JFrame;
 
 import GaleriaGestionSesion.Usuario;
 import GaleriaModelo.Galeria;
+
 import Interfaz.*;
+
+import Interfaz.InterfazSesion;
+
+import Interfaz.PanelAnadirPieza;
+import Interfaz.PanelDefinirMetodoPago;
+import Interfaz.PanelHistoriaArtista;
+import Interfaz.PanelHistorial;
+import Interfaz.PanelMirarMiPieza;
+import Interfaz.PanelPiezaDisponible;
+import Interfaz.PanelSubasta;
+
 
 
 
@@ -53,7 +65,7 @@ public class BotonActionListenerArtista implements ActionListener {
            
                 break;
             case 6:
-          
+            	new PanelMirarMiPieza(galeria, usuario, frame);
                 break;
             case 7:
               
@@ -66,7 +78,7 @@ public class BotonActionListenerArtista implements ActionListener {
           
                 break;
             case 10:
-             
+            	new PanelHistoriaArtista(galeria, usuario, frame);
                 break;
             case 11:
             	frame.dispose();
